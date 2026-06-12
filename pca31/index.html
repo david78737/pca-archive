@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCA31 Session Archive — ProductCamp Austin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e8eaf0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  a { color: #7b8ef0; }
+
+  header { background: #1a1d27; border-bottom: 1px solid #2a2d3a; padding: 24px 32px 20px; }
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: #6b7090; margin-bottom: 4px; }
+  header h1 { font-size: 26px; font-weight: 700; color: #e8eaf0; }
+
+  .controls { padding: 20px 32px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .filter-btn { background: #1a1d27; border: 1px solid #2a2d3a; color: #a0a4b8; border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .filter-btn:hover { background: #22253a; color: #e8eaf0; }
+  .filter-btn.active { background: #2a2d4a; border-color: #5b6ad4; color: #e8eaf0; }
+  #search { margin-left: auto; background: #1a1d27; border: 1px solid #2a2d3a; color: #e8eaf0; border-radius: 6px; padding: 6px 12px; font-size: 13px; width: 220px; outline: none; }
+  #search::placeholder { color: #555870; }
+  #search:focus { border-color: #5b6ad4; }
+
+  #count { padding: 10px 32px 4px; font-size: 12px; color: #555870; }
+
+  .sessions { padding: 12px 32px 48px; display: flex; flex-direction: column; gap: 10px; }
+
+  .card { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 10px; overflow: hidden; transition: border-color .15s; }
+  .card.open { border-color: #5b6ad4; }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px; cursor: pointer; -webkit-user-select: none; user-select: none; }
+  .card-header:hover .card-title { color: #c8ccf0; }
+  .chevron { flex-shrink: 0; margin-top: 3px; width: 18px; height: 18px; color: #555870; transition: transform .2s; }
+  .card.open .chevron { transform: rotate(90deg); }
+  .card-meta { flex: 1; min-width: 0; }
+  .card-title { font-size: 15px; font-weight: 600; color: #b8bcdc; margin-bottom: 6px; transition: color .15s; }
+  .card-presenter { font-size: 13px; color: #7b8090; margin-bottom: 6px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: 11px; font-weight: 500; border: 1px solid; border-radius: 4px; padding: 2px 7px; text-transform: uppercase; letter-spacing: .06em; }
+  .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+  .badge-level-advanced  { border-color: #6a3a3a; color: #e08888; }
+  .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+  .badge-format { border-color: #3a4a6a; color: #88aae0; }
+
+  .card-body { display: none; padding: 0 18px 18px 48px; }
+  .card.open .card-body { display: block; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #5b6ad4; margin: 14px 0 6px; }
+  .synopsis { color: #c0c4d8; line-height: 1.65; }
+  .takeaways { list-style: none; }
+  .takeaways li { color: #a8accc; padding: 3px 0 3px 16px; position: relative; }
+  .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
+  .who { color: #a8accc; font-style: italic; }
+  .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 16px; }
+    .controls { padding: 14px 16px 0; }
+    #search { width: 100%; margin-left: 0; }
+    #count { padding: 8px 16px 2px; }
+    .sessions { padding: 10px 16px 40px; }
+    .card-body { padding-left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin &middot; Fall 2024</div>
+  <h1>PCA31 Session Archive</h1>
+</header>
+
+<div class="controls">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="essentials">Essentials</button>
+  <button class="filter-btn" data-filter="advanced">Advanced</button>
+  <button class="filter-btn" data-filter="entrepreneurs">Entrepreneurs</button>
+  <input id="search" type="search" placeholder="Search sessions…" autocomplete="off">
+</div>
+
+<div id="count"></div>
+
+<div class="sessions" id="sessions"></div>
+
+<script>
+const sessions = [
+  {
+    title: "AI Enhanced Leadership: Clarity and Personalized Growth",
+    presenter: "Zuzana Sekerova",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Using AI to become a better leader — not just a more efficient one. Zuzana (an Olympian turned product leader) tackles the real challenges managers face: diverse personalities, communication barriers, organizational upheaval, and conflict resolution. Her core argument: AI streamlines the management tasks that drain you so you can focus on the human relationships that actually build teams.",
+    takeaways: [
+      "AI is a tool for leadership, not a replacement for it — treat its output like a draft from an intern",
+      "Leaders rarely get formal training; AI can fill the feedback gap that coaches give athletes",
+      "Being clear is being kind — AI helps you find the right words across language and style differences",
+      "Use AI to prepare for difficult conversations, organizational changes, and conflict mediation"
+    ],
+    who: "PMs and product leaders with direct reports, managers navigating rapid org change",
+    brief: "AI for leaders, not just products"
+  },
+  {
+    title: "Drive Greater Innovation and Success Using Jobs to Be Done",
+    presenter: "Tom Evans",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "A hands-on introduction to the Jobs to Be Done framework using Clayton Christensen's thinking. Tom uses a memorable hotel ironing story to reveal how customers don't buy products — they hire them to accomplish a job. When you focus on the real job (functional, social, emotional), entirely new solutions become visible that a feature-centric mindset would never surface.",
+    takeaways: [
+      "Customers don't buy your product — they hire it to get a job done in a particular circumstance",
+      "Jobs have three layers: functional (what to accomplish), social (how to be perceived), emotional (how to feel)",
+      "Identifying the true job opens solution spaces you'd never reach from a feature list",
+      "Pains and gains mapping only make sense once you've defined the real job"
+    ],
+    who: "PMs, designers, and strategists who want to understand customers beyond user stories",
+    brief: "Stop solving the wrong problem"
+  },
+  {
+    title: "From Corporate Chains to Consulting Gains: My Journey to Independence",
+    presenter: "Bertrand Hazard",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "Bertrand (formerly SVP and CMO at major Austin tech companies) shares the transparent, numbers-honest story of leaving corporate life to open his own consulting practice in January 2022. He covers the book that shifted his thinking (Don't Retire, Rewire), the cold-feet moment he didn't take the leap in 2020, the painful job that finally pushed him over the edge, and the real client acquisition journey since going independent.",
+    takeaways: [
+      "Underlying drivers — what energizes you at 26 vs 46 — are the true guide for career reinvention",
+      "Health insurance fear is the top blocker; marketplace coverage is often viable but rarely explored",
+      "Painful corporate experiences are data — use them to identify what you're actually done tolerating",
+      "Going independent requires understanding your service-market fit as rigorously as any product launch"
+    ],
+    who: "Senior corporate PMs and marketers considering independence, consulting, or freelance",
+    brief: "From SVP to self-employed — the real numbers"
+  },
+  {
+    title: "Blueprinting Success: Crafting Killer Use Cases That Drive Value and Adoption",
+    presenter: "Michael Robin Hansen",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Michael (product marketer supporting early-stage products) argues that use cases built on customer intelligence beat competitor-focused messaging every time. Drawing on a hard-won lesson from Finastra — walking in unprepared and getting humiliated on day one — he now builds use cases feature-by-feature, grounded in researched pain and validated by real customer scenarios.",
+    takeaways: [
+      "Customer intelligence must come before messaging — understand pain before differentiating from competitors",
+      "Build use cases feature-by-feature, not product-by-product, to map to specific customer scenarios",
+      "Product marketers and product managers need to co-own discovery, not operate in separate silos",
+      "Customer delight is just customer despair solved — they're two sides of the same research"
+    ],
+    who: "Product marketers, PMs, and go-to-market teams building or launching early-stage products",
+    brief: "Use cases built from pain, not guesswork"
+  },
+  {
+    title: "How to Manage Your PM Career as a Product Using the IOR Framework",
+    presenter: "Ahmed Zouhair",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Ahmed draws on his four books and years of accelerator mentoring to present the IOR framework — Input, Output, Results — as a lens for managing your PM career. Know your inventory of skills, apply the 3Cs (character, communication, commitment) and 3Ts (trust, talent, track record), and treat career strategy the way you'd treat product strategy: no inputs, no results.",
+    takeaways: [
+      "IOR: your career ROI is a function of what you put in — Input → Output → Results",
+      "Inventory your skills honestly; ask a trusted friend what you're actually good at",
+      "Treat 'what do you do?' as a product pitch: 'I help X do Y by Z' in under two seconds",
+      "Strategy is about resources — without a plan, there's no roadmap, no team, no product"
+    ],
+    who: "PMs at any level looking to approach their career development with a product mindset",
+    brief: "Treat your career like a product"
+  },
+  {
+    title: "Humans Still Matter: How to Build Relationships to Overcome the Toughest PM Challenges",
+    presenter: "Lani Dame",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "Lani (15-year tech veteran, IBM to product marketing) makes the case that PM's hardest problems — prioritization battles, executive misalignment, siloed teams — are people challenges, not framework problems. This interactive session explores how to build working relationships at the individual, team, and organizational level with practical tools participants can start using the following week.",
+    takeaways: [
+      "Most PM 'process' problems are actually people problems wearing a process costume",
+      "Influence works differently at individual, team, and org levels — build a strategy for each",
+      "Constructive directness lands differently depending on the person — know your audience",
+      "No matter how AI evolves, the human dynamics at the center of PM work remain constant"
+    ],
+    who: "PMs navigating difficult stakeholders, cross-functional conflict, or executive misalignment",
+    brief: "Tech changes; people challenges don't"
+  },
+  {
+    title: "Latest Job Trends: How to Get a Job in This Market",
+    presenter: "Mark Stephan",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Mark (founder of Product Hired and Talent Agent, 21 years in HR tech) delivers hard data from his own job market tracking: cold application response rates below 0.5%, PM searches averaging 8–10 months (executive level now over a year), and even referral rates collapsing from 70% to 20%. Tactical guidance on what actually moves the needle when the market is this brutal.",
+    takeaways: [
+      "Cold apply response rate was 5% in 2019 — it's now below 0.5%; mass applying is effectively dead",
+      "Referral success dropped from 70% to ~20% — even referrals no longer guarantee interviews",
+      "60–85% of jobs are filled through networks before or without ever being publicly posted",
+      "30% of LinkedIn connection requests get accepted; 20–30% of those get an actual conversation"
+    ],
+    who: "Active PM job seekers, career changers, and anyone wondering why they're not hearing back",
+    brief: "The numbers are worse — here's what actually works"
+  },
+  {
+    title: "Product Operations: Insights From the Frontlines",
+    presenter: "Tiffany Murphree",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Tiffany (Head of Product Ops at HTSS, a 500-person construction SaaS) shares what it actually means to 'PM the PM experience' — from grassroots origins before anyone knew product ops was a real job, through a PE acquisition that doubled headcount in under a year. She runs a choose-your-own-adventure format covering the three pillars: right people, right processes, right tools.",
+    takeaways: [
+      "Product ops = PMing the PM experience across the full employee lifecycle, not just go-to-market launches",
+      "You can build product ops grassroots without an official mandate — start with the most painful friction points",
+      "PE acquisitions often accelerate product investment; build the ops foundation before headcount doubles",
+      "People, processes, and tools are interconnected — optimizing one without the others creates new bottlenecks"
+    ],
+    who: "PMs interested in product ops roles, leaders scaling product teams through M&A or rapid growth",
+    brief: "PM-ing the PM experience from the inside"
+  },
+  {
+    title: "Product Strategy: Why, What, Who, and How",
+    presenter: "Roger L. Cauvin",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Roger (consumer scientist and former PM) challenges the entire industry's use of the word 'strategy.' Critiquing popular frameworks from RICE to Radhika Dutt, he argues strategy is not a roadmap, a vision, or a set of OKRs — it's a policy that governs all subordinate decisions. Without one, your prioritization scores are informed guessing.",
+    takeaways: [
+      "Strategy is a relative concept — calling something strategic only makes sense compared to more tactical decisions",
+      "A real product strategy answers: who is the target customer, what problems do they have, what do we prioritize for them",
+      "Frameworks like RICE require a strategy to have meaning — without a target persona, 'reach' and 'impact' are undefined",
+      "Stop asking 'what is our roadmap?' and start asking 'what policy governs our decisions?'"
+    ],
+    who: "Senior PMs, CPOs, and strategy practitioners who want a sharper, more defensible definition of strategy",
+    brief: "If you can't define impact, you don't have a strategy"
+  },
+  {
+    title: "Supercharging Business with AI & Offshore Virtual Assistants",
+    presenter: "Jenna Hatch",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "Jenna (business advisor and integration expert) breaks down the practical synergy between AI automation and offshore virtual assistants — the delegation stack that frees entrepreneurs from the tasks that kill their joy. She starts with a live exercise: list what you hate doing, then map what can be AI-automated, what needs a human, and what you were doing for no reason at all.",
+    takeaways: [
+      "Before hiring a VA, use ChatGPT to help you list every task that kills your joy",
+      "AI and VAs aren't competitors — AI handles repetitive logic, VAs handle judgment-required tasks",
+      "Map to three buckets: AI-automated (reminders, templates), VA-delegated (follow-up, research), eliminated",
+      "The goal isn't efficiency — it's reclaiming focus for the work only you can do"
+    ],
+    who: "Entrepreneurs and small business owners drowning in operational tasks they can't afford to ignore",
+    brief: "AI + VA = the delegation stack"
+  },
+  {
+    title: "Turning AI Savings into Tomorrow's Innovations",
+    presenter: "Jake McKee",
+    level: "advanced",
+    format: "Discussion",
+    synopsis: "Jake pushes back on the dominant AI narrative of cost reduction and headcount savings. The real opportunity, he argues, is using those gains as fuel for creativity, experimentation, and genuine customer delight — things that actually grow businesses. He openly admits nobody has fully solved this yet and runs the session as open discussion, not a deck.",
+    takeaways: [
+      "Cost savings and efficiency don't inherently grow businesses — they make businesses healthier to then grow",
+      "The real AI opportunity: redirecting savings into creativity, experimentation, and customer experience",
+      "Most organizations optimize AI at the departmental level rather than reinvesting gains holistically",
+      "Innovation requires space and resources — AI can create both, if leadership makes that the intention"
+    ],
+    who: "Product leaders and executives thinking beyond AI efficiency toward AI-enabled growth and innovation",
+    brief: "Beyond cost savings — what does AI actually unlock?"
+  },
+  {
+    title: "The Smart Speaker's Toolkit: AI and Virtual Assistants Unleashed",
+    presenter: "Chris Lopez",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "A practical toolkit for entrepreneurs, PMs, and professionals who speak, present, or create content — and want AI and virtual assistants to amplify their reach and reduce their prep burden. Chris covers the tools, workflows, and integration strategies that bridge the gap between what you know and how you get it in front of an audience.",
+    takeaways: [
+      "AI can dramatically compress research and prep time before any presentation or content piece",
+      "Virtual assistants handle the post-event amplification work that most speakers let slip",
+      "The speaker-audience relationship is a product relationship — treat it like one",
+      "Identify the high-leverage moments in your speaking workflow and target those for automation first"
+    ],
+    who: "Entrepreneurs and professionals who speak, create content, or want to build their public presence",
+    brief: "AI for the working speaker and content creator"
+  },
+  {
+    title: "Thriving Amid Uncertainty: Navigating the Chaos of Product Management Careers",
+    presenter: "Priyanka Gotika",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Priyanka traces her path from mechanical engineering in India (2009 recession) through a COVID-era layoff — on a visa, with a 10-month-old, a new mortgage — to product management. Her three pillars: embrace the pivot, develop transferable skills, and treat networking as infrastructure you build before you need it, not a safety net you grab in crisis.",
+    takeaways: [
+      "PM career paths are nonlinear by nature — stop expecting the ladder and start expecting the lattice",
+      "Transferable skills cross industries; mechanical engineering, analytics, and empathy all land in PM",
+      "Networking isn't a crisis resource — it's infrastructure you build when you don't need it yet",
+      "Uncertainty is a signal of opportunity; the chaos moments are the ones worth talking about later"
+    ],
+    who: "PMs in career transition, recent layoffs, career changers entering product management",
+    brief: "Uncertainty is the path, not the obstacle"
+  },
+  {
+    title: "Why Every Product Manager Should Think Like a Platform Strategist",
+    presenter: "Elena Leonova",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Elena (CPO at Spriker, formerly at Adobe Commerce/Magento) argues that platform thinking isn't just for tech giants — it's a mindset any PM can adopt. She distinguishes exchange platforms (Airbnb, Uber) from maker platforms (Salesforce ecosystem) and shows how 70% of unicorns and 8/10 of the world's largest companies operate as platforms. The session explores how to apply platform patterns even within enterprise and internal product contexts.",
+    takeaways: [
+      "Platform companies don't own what creates their value — they orchestrate others who do",
+      "Two platform types: exchange (matchmaking) and maker (enabling third-party creation) — both are learnable",
+      "Any company at a certain scale can start applying platform thinking; size is not a prerequisite",
+      "Ask: what parts of your product could become an API, an ecosystem, or an extension point for others?"
+    ],
+    who: "PMs and product leaders who want to think beyond standalone features toward ecosystems and extensibility",
+    brief: "Platform thinking is for everyone, not just big tech"
+  }
+];
+
+const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+
+function render(list) {
+  const container = document.getElementById('sessions');
+  container.innerHTML = '';
+  list.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L14 9.586l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 6.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="badges">
+            <span class="badge badge-level-${s.level}">${levelLabel[s.level]}</span>
+            <span class="badge badge-format">${s.format}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Best For</div>
+        <div class="who">${s.who}</div>
+        <div class="brief-row">${s.brief}</div>
+      </div>`;
+    card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
+    container.appendChild(card);
+  });
+  document.getElementById('count').textContent = `${list.length} session${list.length !== 1 ? 's' : ''}`;
+}
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function applyFilters() {
+  const q = searchQuery.toLowerCase();
+  const filtered = sessions.filter(s => {
+    const matchLevel = activeFilter === 'all' || s.level === activeFilter;
+    const matchSearch = !q || [s.title, s.presenter, s.synopsis, ...(s.takeaways || []), s.who].join(' ').toLowerCase().includes(q);
+    return matchLevel && matchSearch;
+  });
+  render(filtered);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  applyFilters();
+});
+
+applyFilters();
+</script>
+</body>
+</html>
