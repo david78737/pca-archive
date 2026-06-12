@@ -50,6 +50,9 @@
   .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
   .who { color: #a8accc; font-style: italic; }
   .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+  .yt-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: #7b8ef0; text-decoration: none; }
+  .yt-link:hover { color: #a0b0f8; }
+  .yt-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
   .hidden { display: none !important; }
 
@@ -97,7 +100,8 @@ const sessions = [
       "Use AI to prepare for difficult conversations, organizational changes, and conflict mediation"
     ],
     who: "PMs and product leaders with direct reports, managers navigating rapid org change",
-    brief: "AI for leaders, not just products"
+    brief: "AI for leaders, not just products",
+    youtube: "PyHgKcXL1uI"
   },
   {
     title: "Drive Greater Innovation and Success Using Jobs to Be Done",
@@ -112,7 +116,8 @@ const sessions = [
       "Pains and gains mapping only make sense once you've defined the real job"
     ],
     who: "PMs, designers, and strategists who want to understand customers beyond user stories",
-    brief: "Stop solving the wrong problem"
+    brief: "Stop solving the wrong problem",
+    youtube: "waVDg9AiCHw"
   },
   {
     title: "From Corporate Chains to Consulting Gains: My Journey to Independence",
@@ -127,7 +132,8 @@ const sessions = [
       "Going independent requires understanding your service-market fit as rigorously as any product launch"
     ],
     who: "Senior corporate PMs and marketers considering independence, consulting, or freelance",
-    brief: "From SVP to self-employed — the real numbers"
+    brief: "From SVP to self-employed — the real numbers",
+    youtube: "mxkqck_JoZY"
   },
   {
     title: "Blueprinting Success: Crafting Killer Use Cases That Drive Value and Adoption",
@@ -142,7 +148,8 @@ const sessions = [
       "Customer delight is just customer despair solved — they're two sides of the same research"
     ],
     who: "Product marketers, PMs, and go-to-market teams building or launching early-stage products",
-    brief: "Use cases built from pain, not guesswork"
+    brief: "Use cases built from pain, not guesswork",
+    youtube: "DdHuliBBgjQ"
   },
   {
     title: "How to Manage Your PM Career as a Product Using the IOR Framework",
@@ -157,7 +164,8 @@ const sessions = [
       "Strategy is about resources — without a plan, there's no roadmap, no team, no product"
     ],
     who: "PMs at any level looking to approach their career development with a product mindset",
-    brief: "Treat your career like a product"
+    brief: "Treat your career like a product",
+    youtube: "fuPIZFZsRos"
   },
   {
     title: "Humans Still Matter: How to Build Relationships to Overcome the Toughest PM Challenges",
@@ -172,7 +180,8 @@ const sessions = [
       "No matter how AI evolves, the human dynamics at the center of PM work remain constant"
     ],
     who: "PMs navigating difficult stakeholders, cross-functional conflict, or executive misalignment",
-    brief: "Tech changes; people challenges don't"
+    brief: "Tech changes; people challenges don't",
+    youtube: "Sujm7HwMvWg"
   },
   {
     title: "Latest Job Trends: How to Get a Job in This Market",
@@ -187,7 +196,8 @@ const sessions = [
       "30% of LinkedIn connection requests get accepted; 20–30% of those get an actual conversation"
     ],
     who: "Active PM job seekers, career changers, and anyone wondering why they're not hearing back",
-    brief: "The numbers are worse — here's what actually works"
+    brief: "The numbers are worse — here's what actually works",
+    youtube: "j1jhsGQu5pc"
   },
   {
     title: "Product Operations: Insights From the Frontlines",
@@ -202,7 +212,8 @@ const sessions = [
       "People, processes, and tools are interconnected — optimizing one without the others creates new bottlenecks"
     ],
     who: "PMs interested in product ops roles, leaders scaling product teams through M&A or rapid growth",
-    brief: "PM-ing the PM experience from the inside"
+    brief: "PM-ing the PM experience from the inside",
+    youtube: "qYoWvvx8XlA"
   },
   {
     title: "Product Strategy: Why, What, Who, and How",
@@ -217,7 +228,8 @@ const sessions = [
       "Stop asking 'what is our roadmap?' and start asking 'what policy governs our decisions?'"
     ],
     who: "Senior PMs, CPOs, and strategy practitioners who want a sharper, more defensible definition of strategy",
-    brief: "If you can't define impact, you don't have a strategy"
+    brief: "If you can't define impact, you don't have a strategy",
+    youtube: "Py7pcw3Q75g"
   },
   {
     title: "Supercharging Business with AI & Offshore Virtual Assistants",
@@ -232,7 +244,8 @@ const sessions = [
       "The goal isn't efficiency — it's reclaiming focus for the work only you can do"
     ],
     who: "Entrepreneurs and small business owners drowning in operational tasks they can't afford to ignore",
-    brief: "AI + VA = the delegation stack"
+    brief: "AI + VA = the delegation stack",
+    youtube: "D6F4S4sFRAY"
   },
   {
     title: "Turning AI Savings into Tomorrow's Innovations",
@@ -247,7 +260,8 @@ const sessions = [
       "Innovation requires space and resources — AI can create both, if leadership makes that the intention"
     ],
     who: "Product leaders and executives thinking beyond AI efficiency toward AI-enabled growth and innovation",
-    brief: "Beyond cost savings — what does AI actually unlock?"
+    brief: "Beyond cost savings — what does AI actually unlock?",
+    youtube: "1-6IOOOvCpA"
   },
   {
     title: "The Smart Speaker's Toolkit: AI and Virtual Assistants Unleashed",
@@ -262,7 +276,8 @@ const sessions = [
       "Identify the high-leverage moments in your speaking workflow and target those for automation first"
     ],
     who: "Entrepreneurs and professionals who speak, create content, or want to build their public presence",
-    brief: "AI for the working speaker and content creator"
+    brief: "AI for the working speaker and content creator",
+    youtube: "qoCQqFmivLs"
   },
   {
     title: "Thriving Amid Uncertainty: Navigating the Chaos of Product Management Careers",
@@ -277,7 +292,8 @@ const sessions = [
       "Uncertainty is a signal of opportunity; the chaos moments are the ones worth talking about later"
     ],
     who: "PMs in career transition, recent layoffs, career changers entering product management",
-    brief: "Uncertainty is the path, not the obstacle"
+    brief: "Uncertainty is the path, not the obstacle",
+    youtube: "eY72Rff8l_w"
   },
   {
     title: "Why Every Product Manager Should Think Like a Platform Strategist",
@@ -292,16 +308,21 @@ const sessions = [
       "Ask: what parts of your product could become an API, an ecosystem, or an extension point for others?"
     ],
     who: "PMs and product leaders who want to think beyond standalone features toward ecosystems and extensibility",
-    brief: "Platform thinking is for everyone, not just big tech"
+    brief: "Platform thinking is for everyone, not just big tech",
+    youtube: "-vfN010DSA4"
   }
 ];
 
 const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+const ytIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>`;
 
 function render(list) {
   const container = document.getElementById('sessions');
   container.innerHTML = '';
   list.forEach((s, i) => {
+    const ytLink = s.youtube
+      ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtube}" target="_blank" rel="noopener">${ytIcon} Watch recording</a>`
+      : '';
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
@@ -324,6 +345,7 @@ function render(list) {
         <div class="section-label">Best For</div>
         <div class="who">${s.who}</div>
         <div class="brief-row">${s.brief}</div>
+        ${ytLink}
       </div>`;
     card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
     container.appendChild(card);

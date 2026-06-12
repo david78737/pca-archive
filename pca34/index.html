@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCA34 Session Archive — ProductCamp Austin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e8eaf0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  a { color: #7b8ef0; }
+
+  header { background: #1a1d27; border-bottom: 1px solid #2a2d3a; padding: 24px 32px 20px; }
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: #6b7090; margin-bottom: 4px; }
+  header h1 { font-size: 26px; font-weight: 700; color: #e8eaf0; }
+
+  .controls { padding: 20px 32px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .filter-btn { background: #1a1d27; border: 1px solid #2a2d3a; color: #a0a4b8; border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .filter-btn:hover { background: #22253a; color: #e8eaf0; }
+  .filter-btn.active { background: #2a2d4a; border-color: #5b6ad4; color: #e8eaf0; }
+  #search { margin-left: auto; background: #1a1d27; border: 1px solid #2a2d3a; color: #e8eaf0; border-radius: 6px; padding: 6px 12px; font-size: 13px; width: 220px; outline: none; }
+  #search::placeholder { color: #555870; }
+  #search:focus { border-color: #5b6ad4; }
+
+  #count { padding: 10px 32px 4px; font-size: 12px; color: #555870; }
+
+  .sessions { padding: 12px 32px 48px; display: flex; flex-direction: column; gap: 10px; }
+
+  .card { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 10px; overflow: hidden; transition: border-color .15s; }
+  .card.open { border-color: #5b6ad4; }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px; cursor: pointer; -webkit-user-select: none; user-select: none; }
+  .card-header:hover .card-title { color: #c8ccf0; }
+  .chevron { flex-shrink: 0; margin-top: 3px; width: 18px; height: 18px; color: #555870; transition: transform .2s; }
+  .card.open .chevron { transform: rotate(90deg); }
+  .card-meta { flex: 1; min-width: 0; }
+  .card-title { font-size: 15px; font-weight: 600; color: #b8bcdc; margin-bottom: 6px; transition: color .15s; }
+  .card-presenter { font-size: 13px; color: #7b8090; margin-bottom: 6px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: 11px; font-weight: 500; border: 1px solid; border-radius: 4px; padding: 2px 7px; text-transform: uppercase; letter-spacing: .06em; }
+  .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+  .badge-level-advanced  { border-color: #6a3a3a; color: #e08888; }
+  .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+  .badge-format { border-color: #3a4a6a; color: #88aae0; }
+
+  .card-body { display: none; padding: 0 18px 18px 48px; }
+  .card.open .card-body { display: block; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #5b6ad4; margin: 14px 0 6px; }
+  .synopsis { color: #c0c4d8; line-height: 1.65; }
+  .takeaways { list-style: none; }
+  .takeaways li { color: #a8accc; padding: 3px 0 3px 16px; position: relative; }
+  .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
+  .who { color: #a8accc; font-style: italic; }
+  .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+  .yt-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: #7b8ef0; text-decoration: none; }
+  .yt-link:hover { color: #a0b0f8; }
+  .yt-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 16px; }
+    .controls { padding: 14px 16px 0; }
+    #search { width: 100%; margin-left: 0; }
+    #count { padding: 8px 16px 2px; }
+    .sessions { padding: 10px 16px 40px; }
+    .card-body { padding-left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin &middot; April 18, 2026</div>
+  <h1>PCA34 Session Archive</h1>
+</header>
+
+<div class="controls">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="essentials">Essentials</button>
+  <button class="filter-btn" data-filter="advanced">Advanced</button>
+  <button class="filter-btn" data-filter="entrepreneurs">Entrepreneurs</button>
+  <input id="search" type="search" placeholder="Search sessions…" autocomplete="off">
+</div>
+
+<div id="count"></div>
+
+<div class="sessions" id="sessions"></div>
+
+<script>
+const sessions = [
+  {
+    title: "Product Quiz — Jeopardy Style",
+    presenter: "Shiva Swaminathan, Harshini Mangaleshkar",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "This interactive Jeopardy-style quiz challenges product professionals on PM trends, marketing, AI, and related topics through competitive team play. It's a fun, low-stakes way to benchmark your knowledge and discover gaps across the product discipline. Prizes add an incentive to stay sharp and engaged throughout the event.",
+    takeaways: [
+      "Gauge your current knowledge of PM, marketing, and AI trends in a competitive setting",
+      "Identify blind spots across product topics you may not regularly encounter",
+      "Build camaraderie with fellow attendees through collaborative team competition"
+    ],
+    who: "Product managers and marketers at any level who want an energizing, social way to test and reinforce their industry knowledge.",
+    brief: "Show up ready to compete — this session rewards the product professionals who stay curious and broadly informed.",
+    youtube: null
+  },
+  {
+    title: "The Human-AI Gap: Optimizing Humans, Not Just Outputs",
+    presenter: "Gillian Stolshek",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "This session live-demonstrates AI infrastructure built around human cognition rather than raw output efficiency, with real-time construction of personalized AI agents. Stolshek challenges the dominant framing of AI as a replacement tool and repositions it as an amplifier of human thinking. Product professionals will leave with a hands-on understanding of how to design AI workflows that make people smarter, not redundant.",
+    takeaways: [
+      "AI infrastructure should be designed around how humans actually think, not just how fast machines can produce",
+      "Personalized AI agents can be built and tuned in real-time to match individual cognitive styles",
+      "The most valuable AI applications augment human judgment rather than bypass it"
+    ],
+    who: "Product managers and UX practitioners building or evaluating AI-powered tools who want to ensure those tools genuinely serve their users.",
+    brief: "Reframe your AI strategy: stop optimizing for output volume and start designing for human cognitive performance.",
+    youtube: "MCoLQ7Xh2lM"
+  },
+  {
+    title: "How Product Marketers Can Avoid AI-washing",
+    presenter: "Gina Rosenthal",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Rosenthal cuts through the hype by plainly explaining AI fundamentals — including the distinction between narrow and general AI and how machine learning fits into the picture. The session equips product marketers with the vocabulary and critical eye needed to spot AI-washing in their own messaging and competitors'. In an era where \"AI-powered\" is slapped on everything, this talk is a practical credibility safeguard.",
+    takeaways: [
+      "Understand the difference between narrow AI, general AI, and machine learning to communicate accurately",
+      "Recognize the markers of AI-washing so you can avoid it in your own product claims",
+      "Apply practical guidelines for honest, compelling AI messaging that builds rather than erodes trust"
+    ],
+    who: "Product marketers and PMMs responsible for positioning AI-enabled products who want their messaging to be both persuasive and defensible.",
+    brief: "Before your next AI feature launch, audit your messaging against these fundamentals — your credibility with technical buyers depends on it.",
+    youtube: "pOzFRhMDcGM"
+  },
+  {
+    title: "Elevate Your API Game — Bring the Swagger Back",
+    presenter: "Adwait Joshi",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Joshi walks through the fundamentals of building robust API foundations, from platform orchestration to enabling third-party integrations. The session culminates in preparing your stack for AI with Model Context Protocol (MCP), positioning APIs as a strategic lever rather than a backend afterthought. For PMs who manage platform or integration-heavy products, this is essential architectural context.",
+    takeaways: [
+      "Solid API design is the foundation for scalable platform ecosystems and partner integrations",
+      "Orchestrating platforms well unlocks compounding value through third-party extensibility",
+      "MCP is an emerging standard for making your stack AI-ready — understand it before your engineers have to explain it to you"
+    ],
+    who: "Product managers working on platforms, APIs, or developer-facing products who need to speak fluently with engineering about integration architecture and AI readiness.",
+    brief: "Treat your API strategy as a product strategy — invest in the foundations now so your platform is ready for what's next.",
+    youtube: "hT0vybTt9rY"
+  },
+  {
+    title: "Reverse Engineering Imagination",
+    presenter: "Stephen Schaefer",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Schaefer investigates the counterintuitive truth that breakthrough ideas rarely emerge from formal brainstorming sessions — they happen in the shower, on a walk, or during a coffee break. The session reveals the neuroscience and behavioral patterns behind this phenomenon and provides concrete techniques to engineer those conditions deliberately. For product professionals stuck in back-to-back meetings, this is a case for reclaiming unstructured thinking time.",
+    takeaways: [
+      "Creative breakthroughs are more likely to occur during cognitive downtime than during structured ideation sessions",
+      "Specific environmental and behavioral triggers can be used to reliably induce creative thinking states",
+      "Building \"imagination breaks\" into your work rhythm is a productivity strategy, not a luxury"
+    ],
+    who: "Product managers and designers who feel their best ideas come too infrequently and want a repeatable method to spark creative thinking on demand.",
+    brief: "Schedule deliberate breaks with the same rigor you schedule meetings — your next product breakthrough is probably waiting in the space between tasks.",
+    youtube: "WPUTa8H3wi0"
+  },
+  {
+    title: "From ROI to IOR: Aligning Inputs, Outputs, and Results for Product Managers in the AI Era",
+    presenter: "Ahmed Zouhair",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "Zouhair introduces the IOR (Inputs-Outputs-Results) Framework as a more actionable alternative to traditional ROI thinking for product managers navigating AI-driven environments. The framework helps PMs connect product investments and team execution directly to measurable business outcomes. As AI reshapes how products are built and measured, IOR gives PMs a performance language that resonates with both engineers and executives.",
+    takeaways: [
+      "ROI thinking is often too lagging and financial-centric to guide day-to-day PM decision-making in AI contexts",
+      "The IOR Framework creates explicit linkage between what teams invest, what they produce, and what results follow",
+      "Aligning inputs and outputs to results improves both team accountability and executive communication"
+    ],
+    who: "Product managers at growth-stage or enterprise companies who want a clearer framework for demonstrating and driving impact in AI-accelerated environments.",
+    brief: "Adopt IOR as your internal performance model — it will sharpen your prioritization decisions and make your impact undeniable to stakeholders.",
+    youtube: null
+  },
+  {
+    title: "The 30-Minute Hackathon: Redefining the Product Process with Vibe Coding",
+    presenter: "JD Piquard",
+    level: "advanced",
+    format: "Case Study",
+    synopsis: "Piquard demonstrates a compressed, end-to-end product workflow — from user research to functional prototype — completed in under 30 minutes using Claude Code and platforms like Replit and Bolt. The session reframes vibe coding not as a shortcut but as a legitimate discovery and handoff methodology. For PMs tired of slow prototyping cycles, this is a glimpse at what rapid iteration looks like when AI does the heavy lifting.",
+    takeaways: [
+      "A complete product workflow from research to prototype is achievable in 30 minutes with the right AI toolchain",
+      "Claude Code paired with Replit or Bolt enables non-engineers to produce functional prototypes ready for engineering review",
+      "Engineering handoff becomes faster and clearer when prototypes are generated from structured user research inputs"
+    ],
+    who: "Product managers and designers who want to dramatically compress their discovery-to-prototype cycle and communicate requirements through working code rather than static docs.",
+    brief: "Run a 30-minute vibe coding sprint on your next feature idea before writing a single PRD — you'll validate faster and hand off cleaner.",
+    youtube: "0_yL2HoMaE0"
+  },
+  {
+    title: "From Idea to Working Prototype in an Afternoon: AI-Powered Discovery",
+    presenter: "Tulsi Dharmarajan",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Dharmarajan shares a real AI-augmented SDLC workflow that compresses research, prototyping, and requirements gathering into a single afternoon using Claude, Figma, and design systems. The session is grounded in an actual project — not a theoretical framework — making the workflow immediately replicable. For PMs drowning in elongated discovery phases, this is a practical blueprint for radical time compression without sacrificing quality.",
+    takeaways: [
+      "Research, prototyping, and requirements can be completed in one afternoon when AI tools are integrated into the SDLC from the start",
+      "Claude, Figma, and design systems work together as a discovery stack that reduces handoff friction",
+      "AI-augmented workflows don't sacrifice rigor — they eliminate the dead time between steps"
+    ],
+    who: "Product managers and UX designers at teams with multi-week discovery cycles who are ready to pilot a faster, AI-assisted approach.",
+    brief: "Map your current discovery process and identify where AI can collapse the gaps — then run one afternoon sprint to prove it works.",
+    youtube: null
+  },
+  {
+    title: "Leading From Where You Are",
+    presenter: "Paul Young",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Young (ProductCamp Austin founder, Pragmatic Institute instructor) presents a framework for understanding and developing leadership personas that applies regardless of organizational rank. The session provides actionable steps for increasing leadership capacity that don't require a title change or tenure milestone. Visionary Architect, Grounded Operator, Empathetic Coach — understanding your current persona is the first step to growing it.",
+    takeaways: [
+      "Leadership is a set of behaviors and capacities, not a position — it can be practiced at any career stage",
+      "Understanding your current leadership persona is the necessary first step to deliberate growth",
+      "Specific, actionable steps exist for expanding your leadership capacity from wherever you are today"
+    ],
+    who: "Early- to mid-career product managers who want to grow their organizational influence and leadership presence without waiting for a promotion.",
+    brief: "Stop waiting for the title — identify your current leadership persona this week and take one concrete step to expand your capacity.",
+    youtube: "h3pzWuitPyY"
+  },
+  {
+    title: "Your Roadmap Heard It Through the Grapevine",
+    presenter: "Jake McKee",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "McKee introduces the concept of \"Conversation Debt\" — the accumulated cost of building product decisions on secondhand signals instead of direct customer conversations. The hands-on workshop teaches teams how to evaluate the quality of their customer input and commit to richer, more direct conversations before each sprint. For teams that rely heavily on analytics and internal assumptions, this is a corrective intervention.",
+    takeaways: [
+      "Conversation Debt accrues silently and distorts roadmaps — most teams have more of it than they realize",
+      "Evaluating the quality and recency of your customer conversations is the first step to reducing it",
+      "Committing to direct customer conversations before each sprint is a discipline that pays compound returns in roadmap accuracy"
+    ],
+    who: "Product managers and team leads whose roadmap decisions are driven primarily by data dashboards and internal stakeholder input rather than direct customer dialogue.",
+    brief: "Before your next sprint planning, audit how much of your roadmap is based on direct customer conversations versus secondhand signals — then commit to closing the gap.",
+    youtube: null
+  },
+  {
+    title: "The Fist: Building High-Performing Product Teams",
+    presenter: "Ian Brand",
+    level: "advanced",
+    format: "Workshop",
+    synopsis: "Brand draws on sports team models to present a framework — \"The Fist\" — for building product teams that are aligned, mission-driven, and high-performing. The workshop goes beyond theory with real examples from toxic environment turnarounds, making it applicable to teams in distress as much as those seeking to level up. For product leaders inheriting dysfunctional teams, this is a structured playbook for cultural reset.",
+    takeaways: [
+      "High-performing product teams share structural characteristics with elite sports teams — alignment, clear roles, and shared mission",
+      "Toxic team dynamics can be systematically reversed with the right combination of mechanisms and leadership behaviors",
+      "The Fist framework provides a memorable, actionable model for diagnosing and improving team performance"
+    ],
+    who: "Product managers and directors who lead or are building product teams and want a structured, proven approach to creating alignment and high performance.",
+    brief: "Apply The Fist framework to your current team — identify which of the five dimensions is weakest and address it before it becomes a culture problem.",
+    youtube: "uljDS9nS1Y0"
+  },
+  {
+    title: "Claude for Product Managers: Automate the Work. Elevate Your Impact",
+    presenter: "Dan Corbin, Pavan Valluri",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Corbin and Valluri demonstrate how Claude Desktop, Cowork, Skills, and Code can be integrated into core PM workflows to automate routine tasks and accelerate analysis across discovery, planning, and execution. The session is grounded in live demonstrations rather than slides, giving attendees a practical view of what an AI-augmented PM workday actually looks like. For PMs curious about Claude specifically, this is the most direct path to adoption.",
+    takeaways: [
+      "Claude's suite of tools (Desktop, Cowork, Skills, Code) maps directly onto the key phases of PM work — discovery, planning, and execution",
+      "Automating routine PM tasks with Claude frees up cognitive bandwidth for higher-order strategy and stakeholder work",
+      "The barrier to getting started with Claude for PM workflows is lower than most expect — practical entry points exist today"
+    ],
+    who: "Product managers at any level who want a concrete, tool-specific introduction to integrating Claude into their daily workflow.",
+    brief: "Pick one recurring PM task this week — a status update, a research synthesis, or a requirements draft — and run it through Claude to see the time savings firsthand.",
+    youtube: "lj9CCY0l3q0"
+  },
+  {
+    title: "Monetize What You Know: AI-Powered Systems for Courses, Templates, and Automation Workflows",
+    presenter: "Chris Lopez",
+    level: "entrepreneurs",
+    format: "Workshop",
+    synopsis: "Lopez provides a framework for turning professional expertise into digital revenue streams — courses, templates, and automation workflows — using a modern AI toolstack including ChatGPT, Perplexity, Gemini, Notion, and Make.com. The workshop is built for practitioners who already have valuable knowledge and need a system to package and sell it. For product professionals eyeing entrepreneurial income streams, this is a practical starting point.",
+    takeaways: [
+      "Professional expertise can be systematically transformed into scalable digital products with the right AI-assisted workflow",
+      "Tools like Notion and Make.com enable automation of the creation, distribution, and sales pipeline without engineering resources",
+      "The monetization barrier for knowledge products is lower than ever — the bottleneck is system design, not content creation"
+    ],
+    who: "Product managers, marketers, and consultants who want to build side income or transition to entrepreneurship by productizing their existing professional knowledge.",
+    brief: "Identify one piece of expertise you've repeatedly shared for free and use this framework to outline a digital product you could sell within 30 days.",
+    youtube: "yehD_sNvjg4"
+  },
+  {
+    title: "Shipping on Someone Else's Roadmap: Lessons from Platform Ecosystems",
+    presenter: "Katie Campbell",
+    level: "advanced",
+    format: "Case Study",
+    synopsis: "Campbell draws on real Salesforce ecosystem experience to address one of the most underserved challenges in product management: building a great product when you don't control the platform it runs on. The case study covers dependency strategies, adoption hurdles, and the mindset shifts required when your roadmap is perpetually subject to someone else's decisions. For ecosystem PMs, this is rare, hard-won tactical guidance.",
+    takeaways: [
+      "Platform dependency is a product risk that requires proactive strategy, not just reactive adaptation",
+      "Adoption challenges in ecosystem products are distinct from those in standalone products and require different solutions",
+      "Managing stakeholder expectations when roadmap control is limited demands a different communication playbook"
+    ],
+    who: "Product managers building on top of platforms like Salesforce, Shopify, or similar ecosystems who need strategies for thriving without full roadmap autonomy.",
+    brief: "Map your platform dependencies today and build a contingency strategy for each — don't wait for a breaking change to discover you have no plan.",
+    youtube: "y5ZTJjQfwqQ"
+  },
+  {
+    title: "Building a Software Startup in 7 Days from 0 to Monetization",
+    presenter: "Matt McGuire",
+    level: "entrepreneurs",
+    format: "Case Study",
+    synopsis: "McGuire shares the unfiltered story of building and monetizing BogeyBattle.com during Masters Week 2026 — from zero to paying customers in seven days. The case study covers both what worked and what failed, giving attendees a realistic view of rapid product development under real constraints. For PMs curious about solo building or startup speed, this is a candid benchmark.",
+    takeaways: [
+      "A software product can go from idea to monetization in seven days with focused execution and modern tooling",
+      "Honest post-mortems of rapid builds reveal pattern failures that are highly avoidable with better upfront framing",
+      "The Masters Week constraint forced prioritization decisions that most products never face — and the lessons transfer broadly"
+    ],
+    who: "Aspiring solo founders and entrepreneurially-minded PMs who want a realistic, unvarnished view of what rapid product development actually looks like end-to-end.",
+    brief: "The next time you say \"we need six months to build this,\" ask yourself what version of it you could ship in seven days — and whether that version might be enough.",
+    youtube: null
+  },
+  {
+    title: "From 3 Agents to Agentic Enterprise: How to Lead AI Transformation Journey",
+    presenter: "Igor Bobryshev",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Bobryshev introduces SoftServe's Agentic Catalyst framework for scaling from isolated AI experiments to coordinated autonomous agent systems across an enterprise. The session addresses the governance and control challenges that emerge as agent complexity grows — the part most AI transformation guides skip. For product leaders tasked with enterprise AI strategy, this is a structured path from pilot chaos to organizational capability.",
+    takeaways: [
+      "Moving from isolated AI pilots to an agentic enterprise requires deliberate architectural and governance decisions, not just more agents",
+      "The Agentic Catalyst framework provides a phased model for coordinating autonomous systems at scale",
+      "Control and governance aren't constraints on AI transformation — they're what makes it sustainable"
+    ],
+    who: "Product and technology leaders at mid-to-large organizations who are past the AI pilot phase and need a framework for scaling agent systems responsibly.",
+    brief: "Assess where your organization sits on the pilot-to-enterprise spectrum and identify the one governance gap most likely to derail your next phase of AI scaling.",
+    youtube: "jRck3ujY4as"
+  },
+  {
+    title: "Double Referrals By Improving Your Customer Experience",
+    presenter: "Karl Staib",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "Staib presents the Magnetic Momentum Method — a framework for building customer trust and loyalty by systematically improving the customer journey. The session integrates AI tools for insight generation and personalization while emphasizing that human connection remains the irreplaceable element of referral-generating experiences. For product and CX professionals, this is a practical playbook for turning satisfied customers into active advocates.",
+    takeaways: [
+      "Referral generation is a predictable outcome of deliberate customer journey design, not a happy accident",
+      "AI can accelerate insight gathering and personalization across the customer journey without replacing the human moments that drive loyalty",
+      "The Magnetic Momentum Method provides a step-by-step approach to identifying and fixing the friction points that suppress referrals"
+    ],
+    who: "Product managers, customer success leaders, and CX practitioners who want to directly connect their experience improvements to measurable referral growth.",
+    brief: "Audit one stage of your customer journey this week and identify the single friction point most likely to suppress referrals — then fix it before optimizing anything else.",
+    youtube: "6-IkGdoE0jg"
+  },
+  {
+    title: "From Big Tech (Amazon) to an AI Native Startup: Lessons I Learned Thus Far",
+    presenter: "Nick Ivanecky",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Ivanecky contrasts the structured PM playbooks of Amazon with the fluid, task-based reality of operating at an AI-native startup, drawing on direct experience at both. The session covers AI tool selection, the redefined relationship between PMs and engineering in AI-native environments, and what enterprise habits are worth unlearning. For PMs considering a move to a startup or AI-native company, this is an honest orientation.",
+    takeaways: [
+      "Enterprise PM frameworks provide a solid foundation but several core assumptions break down in AI-native startup contexts",
+      "Task-based work and compressed decision cycles require PMs to develop new operating instincts beyond what big tech teaches",
+      "The PM-engineering-design relationship is fundamentally different at AI-native companies — adapting quickly is a competitive advantage"
+    ],
+    who: "Mid-to-senior PMs at large tech companies who are curious about or planning a transition to startup or AI-native environments.",
+    brief: "List the three enterprise PM habits you rely on most and honestly assess which ones would help, hurt, or be irrelevant at an AI-native startup.",
+    youtube: null
+  },
+  {
+    title: "4 Keys to Embedding Innovation in Your Team Culture",
+    presenter: "Scott Szenasi",
+    level: "advanced",
+    format: "Workshop",
+    synopsis: "Szenasi draws on training methodologies from NASA and UnitedHealth Group to present four principles for building team cultures where innovation happens through habit rather than one-off events. The workshop focuses on collaboration, trust, and sustained behavior change — the conditions that allow new ideas to actually survive contact with organizational reality. For leaders tired of innovation initiatives that fade, this is a culture-first alternative.",
+    takeaways: [
+      "Innovation is a cultural output, not a program — it requires embedding habits into team behavior, not just delivering content",
+      "Trust and psychological safety are the substrate on which all other innovation practices depend",
+      "NASA and UnitedHealth Group training principles translate directly into practical team leadership interventions"
+    ],
+    who: "Team leads, product directors, and people managers who want to build durable innovation capacity into their teams rather than relying on isolated brainstorming events.",
+    brief: "Identify one team habit that currently suppresses innovation and replace it with a specific, repeatable behavior from this session's four principles.",
+    youtube: null
+  },
+  {
+    title: "How Personalized AI Can Transform Your First 90 Days on the Job",
+    presenter: "Jon Ulloa",
+    level: "advanced",
+    format: "Case Study",
+    synopsis: "Ulloa presents original research on neurodiverse employee onboarding and a personalized AI job coach prototype designed to help people with different cognitive styles ramp faster and more confidently. The session challenges one-size-fits-all onboarding assumptions and demonstrates how AI can adapt to individual learning profiles in real-time. For product professionals in HR tech, people ops, or inclusive design, this is a compelling glimpse at the future of onboarding.",
+    takeaways: [
+      "Standard onboarding processes fail neurodiverse employees at a disproportionate rate — and most organizations don't know it",
+      "Personalized AI coaching can adapt to cognitive differences in ways that static documentation and cohort training cannot",
+      "The prototype demonstrates a practical, buildable model that product teams can apply to their own onboarding or user education challenges"
+    ],
+    who: "Product managers in HR tech, learning and development, or enterprise SaaS who want to explore how AI personalization can improve onboarding outcomes for diverse user populations.",
+    brief: "Challenge your current onboarding design by asking how well it serves someone who learns fundamentally differently from the person who designed it.",
+    youtube: "fIThDvr2YJo"
+  },
+  {
+    title: "The Product Management Collapse: The Rise of the AI Orchestrator",
+    presenter: "Mark Stephan",
+    level: "entrepreneurs",
+    format: "Workshop",
+    synopsis: "Stephan examines how AI is compressing product development costs and timelines to the point where individual PMs can operate as independent builders — and what this means for the future of the PM role itself. The workshop explores the emerging \"AI Orchestrator\" identity, where PMs coordinate AI systems rather than just manage backlogs. For PMs anxious about automation, this reframes the threat as an opportunity.",
+    takeaways: [
+      "AI is not just automating tasks — it's restructuring the economics of product development in ways that fundamentally reshape PM career paths",
+      "The AI Orchestrator role positions PMs as force multipliers who direct AI systems toward business outcomes rather than managing execution details",
+      "Independent building is now accessible to PMs who embrace this shift — the barriers to solo product creation have collapsed"
+    ],
+    who: "Product managers at any level who want to understand how AI is restructuring the PM role and how to position themselves for the emerging AI Orchestrator model.",
+    brief: "Stop thinking about AI as a tool that helps you do your current job — start thinking about what new job it makes possible for you.",
+    youtube: "luKl2k2FqE4"
+  },
+  {
+    title: "STAR Isn't Just for Interviews: Using Structured Storytelling to Drive Alignment",
+    presenter: "Ross Weems",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Weems expands the familiar STAR (Situation-Task-Action-Result) framework beyond job interviews, applying it to PRDs, roadmap justification, stakeholder onboarding, and decision communication in enterprise B2B contexts. The session makes the case that structured storytelling is a core PM competency — not just a hiring skill — and provides templates for applying it across the most common alignment challenges.",
+    takeaways: [
+      "STAR is a versatile alignment tool that improves clarity in PRDs, roadmap presentations, and stakeholder communications — not just interview answers",
+      "Structured storytelling reduces the cognitive load on stakeholders, making complex product decisions easier to evaluate and approve",
+      "Enterprise B2B PMs face specific alignment challenges that STAR-based communication is particularly well-suited to address"
+    ],
+    who: "Product managers in enterprise B2B environments who regularly present roadmaps, write PRDs, or onboard stakeholders and want to improve their clarity and alignment success rate.",
+    brief: "Rewrite the intro of your next PRD using the STAR structure and see whether stakeholder questions shift from 'what does this mean?' to 'how do we prioritize this?'",
+    youtube: "0rTBi3CQvpQ"
+  },
+  {
+    title: "What Snacking in Star Trek Teaches Us About Building with Generative AI",
+    presenter: "Dan Zentgraf",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Zentgraf uses the lens of Star Trek's food synthesis technology to explore the precision, bias, and constraint challenges inherent in building generative AI products. The analogy reveals how human intent is imprecise, how model biases shape outputs in unexpected ways, and how resource constraints force product tradeoffs that aren't always visible to users. For product managers building AI features, this is a conceptual framework disguised as a delightful talk.",
+    takeaways: [
+      "Human intent is fundamentally imprecise — AI products must be designed to handle the gap between what users say and what they mean",
+      "Model biases manifest in real product outputs in ways that parallel how a replicator might default to cultural assumptions",
+      "Resource constraints in AI systems create product design tradeoffs that need to be surfaced and managed, not hidden"
+    ],
+    who: "Product managers and designers building generative AI features who want a memorable, conceptually rich framework for thinking about intent, bias, and constraint.",
+    brief: "Design for the gap between what users request and what they actually mean — that's where generative AI products fail most often.",
+    youtube: null
+  },
+  {
+    title: "How I Vibe Coded the Voting & Scheduling App for ProductCamp Austin",
+    presenter: "Tom Evans",
+    level: "essentials",
+    format: "Case Study",
+    synopsis: "Evans shares the real story of building the session voting and scheduling app used at ProductCamp Austin itself — a live, high-stakes case study in vibe coding under deadline pressure. The session teaches PMs the practical mechanics of problem framing, quick iteration, and knowing when to stop building. For PMs who think coding is outside their lane, this demonstrates that meaningful tools are now within reach.",
+    takeaways: [
+      "Vibe coding is a real, reproducible methodology — not just a buzzword — and it starts with disciplined problem framing",
+      "Quick iteration with AI coding tools requires PMs to develop new instincts about when a prototype is \"good enough\" versus over-engineered",
+      "Building the tool that ran ProductCamp's own voting is proof that PMs can ship functional, production-adjacent software with modern AI assistance"
+    ],
+    who: "Product managers who want to understand vibe coding from a practitioner's perspective and are curious whether they could build lightweight tools for their own teams.",
+    brief: "Pick the smallest, most painful internal tool your team lacks and try vibe coding a rough version of it this week — the process will teach you more than any tutorial.",
+    youtube: "oPM4Vx3yLwk"
+  },
+  {
+    title: "From Enterprise PM to Solo Founder: What Translates, What Doesn't, and What Drove First Revenue",
+    presenter: "Russ Sadrieff",
+    level: "entrepreneurs",
+    format: "Ask the Expert",
+    synopsis: "With ten years at Dell and Visa behind him, Sadrieff offers a candid assessment of which enterprise PM skills carry over to solo founding and which ones actively get in the way. The session covers the specific frameworks that accelerated his path to first revenue and the enterprise practices he had to unlearn to move fast enough. For experienced PMs eyeing a founder path, this is a rare, experience-grounded map of the transition.",
+    takeaways: [
+      "Several core enterprise PM competencies — structured discovery, stakeholder communication, prioritization frameworks — transfer directly to solo founding",
+      "Enterprise habits around consensus-building, process adherence, and risk aversion can significantly slow a solo founder's path to validation",
+      "First revenue is a learnable outcome — specific, translatable approaches exist for reaching it faster than most enterprise PMs expect"
+    ],
+    who: "Senior product managers with enterprise backgrounds who are seriously considering or actively planning a transition to solo founding or early-stage startup roles.",
+    brief: "Map your enterprise PM skills into three buckets — keep, adapt, and unlearn — and let that map guide your first 90 days if you make the leap.",
+    youtube: null
+  },
+  {
+    title: "Landing a PM Role in 2026",
+    presenter: "Tyler Mulvenna, Edwin Sequeira, Jeremy Bagley, Justin Hunter",
+    level: "essentials",
+    format: "Panel Discussion",
+    synopsis: "This hybrid presentation and panel tackles the realities of the 2026 PM job market with both structured frameworks and candid panelist experience. Edwin walks through an automation workflow he built between Claude and Notion that handles job discovery and networking outreach. The panel then covers what's working, what's not, and what hiring signals matter most right now.",
+    takeaways: [
+      "The 2026 PM job market has specific dynamics — AI automation, portfolio expectations, and hiring signals — that require updated search strategies",
+      "Automation workflows for job discovery and networking can dramatically increase the quality and volume of relevant opportunities",
+      "Panel perspectives from practitioners who have recently hired or been hired provide ground-truth calibration that job search advice rarely includes"
+    ],
+    who: "Aspiring PMs, PMs between roles, and PMs considering a move who want a current, practical guide to navigating the 2026 hiring landscape.",
+    brief: "Update your job search strategy before your next application — the tools and signals that worked in 2023 are not the ones that will get you hired in 2026.",
+    youtube: "63gbR639514"
+  }
+];
+
+const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+const ytIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>`;
+
+function render(list) {
+  const container = document.getElementById('sessions');
+  container.innerHTML = '';
+  list.forEach((s) => {
+    const ytLink = s.youtube
+      ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtube}" target="_blank" rel="noopener">${ytIcon} Watch recording</a>`
+      : '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L14 9.586l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 6.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="badges">
+            <span class="badge badge-level-${s.level}">${levelLabel[s.level]}</span>
+            <span class="badge badge-format">${s.format}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Best For</div>
+        <div class="who">${s.who}</div>
+        <div class="brief-row">${s.brief}</div>
+        ${ytLink}
+      </div>`;
+    card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
+    container.appendChild(card);
+  });
+  document.getElementById('count').textContent = `${list.length} session${list.length !== 1 ? 's' : ''}`;
+}
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function applyFilters() {
+  const q = searchQuery.toLowerCase();
+  const filtered = sessions.filter(s => {
+    const matchLevel = activeFilter === 'all' || s.level === activeFilter;
+    const matchSearch = !q || [s.title, s.presenter, s.synopsis, ...(s.takeaways || []), s.who].join(' ').toLowerCase().includes(q);
+    return matchLevel && matchSearch;
+  });
+  render(filtered);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  applyFilters();
+});
+
+applyFilters();
+</script>
+</body>
+</html>

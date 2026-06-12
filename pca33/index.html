@@ -50,6 +50,9 @@
   .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
   .who { color: #a8accc; font-style: italic; }
   .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+  .yt-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: #7b8ef0; text-decoration: none; }
+  .yt-link:hover { color: #a0b0f8; }
+  .yt-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
   @media (max-width: 600px) {
     header { padding: 18px 16px; }
@@ -95,7 +98,8 @@ const sessions = [
       "AI agents don't architect — they ship a monolith without separation of concerns; plan for that"
     ],
     who: "Product people and founders experimenting with AI-generated MVPs or prototypes",
-    brief: "Agents are great at starting. The hard part is what comes next."
+    brief: "Agents are great at starting. The hard part is what comes next.",
+    youtube: "wJBtvtw05XU"
   },
   {
     title: "AI Product Operations: The Most Exciting Career You Haven't Heard of Yet",
@@ -110,7 +114,8 @@ const sessions = [
       "This is Agile for AI — project sponsor, product owner, scrum master, applied to AI deployment"
     ],
     who: "PMs and product leaders looking to build or lead AI operations functions inside their organizations",
-    brief: "The reason AI pilots fail isn't the AI — it's the missing operational layer"
+    brief: "The reason AI pilots fail isn't the AI — it's the missing operational layer",
+    youtube: "NS1BpSfYidY"
   },
   {
     title: "Beyond Differentiators: Innovation on Common Ground",
@@ -125,7 +130,8 @@ const sessions = [
       "A research-based communication model saved one client a full recruiting cycle by clarifying a single role definition"
     ],
     who: "PMs, founders, and marketers who've watched a good product get lost in translation between teams",
-    brief: "Agree on the skeleton before you compete on the differentiators"
+    brief: "Agree on the skeleton before you compete on the differentiators",
+    youtube: "Femb0Pbd5kQ"
   },
   {
     title: "Building a Product Data Moat in the Age of AI",
@@ -140,7 +146,8 @@ const sessions = [
       "Start with one deeply understood user; let the data foundation grow from there"
     ],
     who: "PMs and founders building AI-enabled products who want to understand where durable defensibility comes from",
-    brief: "AI gives you lift. Data and users give you a moat."
+    brief: "AI gives you lift. Data and users give you a moat.",
+    youtube: "tqrZFS_NDXc"
   },
   {
     title: "Discover Candidate-Market Fit: A New Lens for Your Job Search Journey",
@@ -155,7 +162,8 @@ const sessions = [
       "Candidate-market fit = the intersection of your strongest skills and current market demand — not what you want to do"
     ],
     who: "PMs in active job search who want a more strategic, product-minded approach to finding their next role",
-    brief: "Apply product-market fit thinking to yourself"
+    brief: "Apply product-market fit thinking to yourself",
+    youtube: "_Ln-0QIvcc0"
   },
   {
     title: "From Product Manager to AI PM: Reinventing Yourself in the Age of AI",
@@ -170,7 +178,8 @@ const sessions = [
       "Build your own RAG chatbot or agent — even a small side project teaches you more than any certification"
     ],
     who: "Experienced PMs who feel AI is moving past them and want a structured path to becoming AI-ready",
-    brief: "Reinvention is a six-month process, not a weekend course"
+    brief: "Reinvention is a six-month process, not a weekend course",
+    youtube: "VRsIIifSJOc"
   },
   {
     title: "How to Work Smarter with an AI Assistant",
@@ -185,7 +194,8 @@ const sessions = [
       "The mental shift: stop querying AI, start delegating tasks — scheduling, summarizing, finding information across tools"
     ],
     who: "Anyone curious about AI assistants who wants a practical, demo-first starting point — no technical background required",
-    brief: "Stop querying AI. Start delegating to it."
+    brief: "Stop querying AI. Start delegating to it.",
+    youtube: "jP22lbtEgRw"
   },
   {
     title: "The Automation Advantage: Freeing Your Time, Energy, and Career Potential",
@@ -200,7 +210,8 @@ const sessions = [
       "If your dreams could be delegated, automate the operational layer and keep the creative layer for yourself"
     ],
     who: "PMs and entrepreneurs who feel stuck in routines that limit their creativity and career potential",
-    brief: "Treat your life like a product roadmap and delegate accordingly"
+    brief: "Treat your life like a product roadmap and delegate accordingly",
+    youtube: "F1L3Td4n5u4"
   },
   {
     title: "AI Won't Steal Your Job If You Think Like an AI PM",
@@ -215,16 +226,21 @@ const sessions = [
       "80% of the time, you don't need AI to solve a problem — judgment about when to reach for it is itself an AI PM skill"
     ],
     who: "PMs at any level who want clarity on what to prioritize as AI reshapes the role",
-    brief: "AI amplifies the PM who focuses. It replaces the one who reacts."
+    brief: "AI amplifies the PM who focuses. It replaces the one who reacts.",
+    youtube: "VCiCZ1ptgfU"
   }
 ];
 
 const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+const ytIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>`;
 
 function render(list) {
   const container = document.getElementById('sessions');
   container.innerHTML = '';
   list.forEach((s) => {
+    const ytLink = s.youtube
+      ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtube}" target="_blank" rel="noopener">${ytIcon} Watch recording</a>`
+      : '';
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
@@ -247,6 +263,7 @@ function render(list) {
         <div class="section-label">Best For</div>
         <div class="who">${s.who}</div>
         <div class="brief-row">${s.brief}</div>
+        ${ytLink}
       </div>`;
     card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
     container.appendChild(card);

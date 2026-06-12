@@ -225,6 +225,10 @@
       font-style: italic;
     }
 
+    .yt-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: #7b8ef0; text-decoration: none; }
+    .yt-link:hover { color: #a0b0f8; }
+    .yt-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+
     .no-results {
       text-align: center;
       padding: 4rem 2rem;
@@ -284,7 +288,8 @@ const sessions = [
       "Vulnerability from the top down is the ignition mechanism — when leaders visibly admit mistakes and learn from them, the rest of the team takes the permission to do the same"
     ],
     who: "Product managers and team leads who want practical, research-backed steps for turning a guarded or siloed team into one where people say what they actually think.",
-    brief: "Before your next team meeting, share one thing you personally got wrong this week and what you learned from it — you'll be surprised how quickly that single act changes the room."
+    brief: "Before your next team meeting, share one thing you personally got wrong this week and what you learned from it — you'll be surprised how quickly that single act changes the room.",
+    youtube: "Xe7o83bLinU"
   },
   {
     title: "Uncommon Trust",
@@ -298,7 +303,8 @@ const sessions = [
       "Trust, like a 300-year-old redwood, takes sustained deliberate effort to build and can be destroyed in minutes — the asymmetry demands that trust maintenance be treated as an ongoing practice, not a milestone"
     ],
     who: "Leaders, managers, and individual contributors who suspect that low trust is degrading their team's performance but have never had a framework rigorous enough to diagnose and address it.",
-    brief: "Identify the one colleague or direct report who trusts you least — and ask yourself honestly what specific behavior created that gap, then take one concrete action this week to close it."
+    brief: "Identify the one colleague or direct report who trusts you least — and ask yourself honestly what specific behavior created that gap, then take one concrete action this week to close it.",
+    youtube: "NisIgzflrWs"
   },
   {
     title: "Rise of the AI-Driven Product Manager",
@@ -312,7 +318,8 @@ const sessions = [
       "Pick one AI tool and stick with it long enough to know its failure modes — familiarity with its mistakes is what makes it useful, the same way you trust a colleague because you know how they think"
     ],
     who: "Product managers who are anxious about AI displacement and want an honest, experience-grounded framework for integrating AI into their work rather than watching from the sidelines.",
-    brief: "Build your next internal presentation using AI as a scaffold — let it give you a structure, then tear apart every assumption it made; the final deck will be better and you'll have learned where the tool fails."
+    brief: "Build your next internal presentation using AI as a scaffold — let it give you a structure, then tear apart every assumption it made; the final deck will be better and you'll have learned where the tool fails.",
+    youtube: "NchFNTVfk2U"
   },
   {
     title: "What's This Data Pipeline Thing You Keep Talking About?",
@@ -326,7 +333,8 @@ const sessions = [
       "Data contracts — explicit agreements between data producers and consumers about format, schema, and quality — are the single highest-leverage intervention for preventing the class of failures that sink data products"
     ],
     who: "Product managers who oversee data products, manage analytics teams, or find themselves nodding along in data architecture meetings without fully understanding what they're agreeing to.",
-    brief: "Draw the current data flow for your most important product metric — from raw source to the number that appears on the executive dashboard — and find the first place where there is no documented owner for what happens to the data."
+    brief: "Draw the current data flow for your most important product metric — from raw source to the number that appears on the executive dashboard — and find the first place where there is no documented owner for what happens to the data.",
+    youtube: "zfMlyFe76wA"
   },
   {
     title: "Product Branding: How It Helps Marketing, Sales & Profits",
@@ -340,7 +348,8 @@ const sessions = [
       "Differentiate or die — average products in crowded categories are invisible; a brand that is memorable for one specific thing beats a brand that is competent at many things every time"
     ],
     who: "Founders, product managers, and marketers at early-stage companies or new product lines who are still treating branding as a logo exercise rather than a strategic positioning decision.",
-    brief: "Write down the one thing your product does better than anyone else in the world — if you can't name it in five words, your brand doesn't exist yet."
+    brief: "Write down the one thing your product does better than anyone else in the world — if you can't name it in five words, your brand doesn't exist yet.",
+    youtube: "on6IkuggdQQ"
   },
   {
     title: "Map the Value of Your Product with the Value Proposition Canvas",
@@ -354,7 +363,8 @@ const sessions = [
       "Do a separate canvas for each distinct customer segment and for each major competitor — overlap and gaps between those canvases reveal both where you're differentiated and where you're exposed"
     ],
     who: "Startup founders, product managers, and product marketers who are preparing for discovery, refining a value proposition, or trying to articulate why their product is meaningfully different from alternatives.",
-    brief: "Take your current product and fill in the 'customer pains' cell of the canvas honestly — if you can't name at least five specific pains your customers experience before, during, and after using your product, you need more discovery before any roadmap work."
+    brief: "Take your current product and fill in the 'customer pains' cell of the canvas honestly — if you can't name at least five specific pains your customers experience before, during, and after using your product, you need more discovery before any roadmap work.",
+    youtube: "mSgLUdOWLmA"
   },
   {
     title: "Positioned to Disrupt: Top Strategies from a PLG Company That Actually Works",
@@ -368,7 +378,8 @@ const sessions = [
       "Dogfooding is not a QA shortcut — it is a strategy for making employees into advocates: when your own team uses your product in real workflows, they find real problems and develop real conviction that travels outside the building"
     ],
     who: "Product managers and marketers at companies with some free or community tier who want to understand how to convert that user base into a growth engine rather than just a cost center.",
-    brief: "Name three users of your product who have said something publicly positive about it — then find out if you have any systematic way to identify and amplify the next hundred people like them; if not, that's the gap."
+    brief: "Name three users of your product who have said something publicly positive about it — then find out if you have any systematic way to identify and amplify the next hundred people like them; if not, that's the gap.",
+    youtube: "G0FNYkvTkVM"
   }
 ];
 
@@ -379,6 +390,8 @@ function levelBadgeClass(level) {
   if (level === 'Entrepreneurs') return 'badge-level-entrepreneurs';
   return 'badge-level-essentials';
 }
+
+const ytIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>`;
 
 function renderCards() {
   const query = document.getElementById('search').value.toLowerCase().trim();
@@ -430,6 +443,7 @@ function renderCards() {
         <div class="who">${s.who}</div>
         <div class="section-label">The Brief</div>
         <div class="brief">${s.brief}</div>
+        ${s.youtube ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtube}" target="_blank" rel="noopener">${ytIcon} Watch recording</a>` : ''}
       </div>
     </div>
   `).join('');

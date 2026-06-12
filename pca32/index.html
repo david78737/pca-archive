@@ -50,6 +50,9 @@
   .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
   .who { color: #a8accc; font-style: italic; }
   .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+  .yt-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: #7b8ef0; text-decoration: none; }
+  .yt-link:hover { color: #a0b0f8; }
+  .yt-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
   @media (max-width: 600px) {
     header { padding: 18px 16px; }
@@ -95,7 +98,8 @@ const sessions = [
       "You can't control Workday's bad UX, but you can control how well-prepared your materials are"
     ],
     who: "Active job seekers and career-pivoting PMs who want AI to do the tedious application work",
-    brief: "Your custom GPT as a career co-pilot"
+    brief: "Your custom GPT as a career co-pilot",
+    youtube: "gLgZFmL6msY"
   },
   {
     title: "Engineering The Future: Agile for Hardware with MAHD™",
@@ -110,7 +114,8 @@ const sessions = [
       "Cross-functional collaboration in hardware isn't a nice-to-have — it's the mechanism that prevents late-stage disasters"
     ],
     who: "PMs, founders, and engineers building physical products that combine hardware, software, and firmware",
-    brief: "Agile that actually works for hardware"
+    brief: "Agile that actually works for hardware",
+    youtube: "GngPWOmzcZI"
   },
   {
     title: "Introducing AIX: A Framework for AI Experience Design",
@@ -125,7 +130,8 @@ const sessions = [
       "Opacity in AI behavior is a design failure; users need to understand what the system is doing and why"
     ],
     who: "PMs, designers, and product leaders building AI-powered features who want a shared design vocabulary",
-    brief: "If AI is the engine, AIX is the steering wheel"
+    brief: "If AI is the engine, AIX is the steering wheel",
+    youtube: "2Kb5Rtl_vG4"
   },
   {
     title: "When Product Forgets About Commercial",
@@ -140,7 +146,8 @@ const sessions = [
       "Embedding commercial team members in product creation builds the empathy that makes go-to-market coherent"
     ],
     who: "Product leaders and PMs at companies where product and sales operate in separate worlds",
-    brief: "If product and commercial don't talk, nobody wins"
+    brief: "If product and commercial don't talk, nobody wins",
+    youtube: "xABZ7N8McwU"
   },
   {
     title: "It's the End of the World As We Know It",
@@ -155,7 +162,8 @@ const sessions = [
       "Pragmatic systems thinking — not optimism or doom — is the best tool for navigating structural disruption"
     ],
     who: "PMs willing to think beyond their current role and ask what their actual durable value is",
-    brief: "PM as a job may not last — PM as a skill will"
+    brief: "PM as a job may not last — PM as a skill will",
+    youtube: "tizQV_3wYJY"
   },
   {
     title: "Product Ikigai: Lead with Purpose, Build for Impact",
@@ -170,7 +178,8 @@ const sessions = [
       "Products built with Ikigai create lasting loyalty; products without it create features nobody remembers"
     ],
     who: "PMs and founders who want their products to have meaning beyond metrics",
-    brief: "Build products with a reason for being"
+    brief: "Build products with a reason for being",
+    youtube: "pL9wJqxH1YU"
   },
   {
     title: "Product Management Is Not Dead: How to Be Indispensable in the Age of AI",
@@ -185,7 +194,8 @@ const sessions = [
       "The stakes and complexity of real-world problems are rising — that's a PM tailwind, not a headwind"
     ],
     who: "PMs at all levels who want a clear-eyed answer to 'will AI replace product managers?'",
-    brief: "The PM skills that matter most are the ones AI can't replicate"
+    brief: "The PM skills that matter most are the ones AI can't replicate",
+    youtube: "7ppsR1JpaG8"
   },
   {
     title: "Strategy Isn't a Roadmap: Think Like a Strategic Product Leader",
@@ -200,7 +210,8 @@ const sessions = [
       "Strategy clarifies what you will NOT do — that's what makes it a strategy and not a wish list"
     ],
     who: "PMs and product leaders who want to speak credibly about strategy — and know what it actually means",
-    brief: "Strategy is the change you're making, not the plan you're following"
+    brief: "Strategy is the change you're making, not the plan you're following",
+    youtube: "rtQzGAQFelg"
   },
   {
     title: "The Invisible Career Partner: How Virtual Assistants Unlock Promotions, Books, and Global Opportunities",
@@ -215,7 +226,8 @@ const sessions = [
       "A VA can expand your career presence globally while you stay focused on your core work"
     ],
     who: "PMs who want to build thought leadership, pursue speaking, or unlock global roles without burning out",
-    brief: "Your second half works while you focus on what only you can do"
+    brief: "Your second half works while you focus on what only you can do",
+    youtube: "AHuMRzBXppw"
   },
   {
     title: "What AI Doesn't Tell You About AI",
@@ -230,7 +242,8 @@ const sessions = [
       "Question what you get back: the same prompt can produce confident-sounding wrong answers"
     ],
     who: "Anyone who uses AI tools and wants to understand what's actually happening under the hood",
-    brief: "AI doesn't know things — it predicts them. That matters."
+    brief: "AI doesn't know things — it predicts them. That matters.",
+    youtube: "x-jCJj9HVkI"
   },
   {
     title: "What If Products Weren't Just Tools but the Foundation for Building Ecosystems?",
@@ -245,16 +258,21 @@ const sessions = [
       "Bold product visions attract strategic partners; incremental visions attract vendors"
     ],
     who: "Founders and PMs thinking about ecosystem strategy, platform design, or market disruption",
-    brief: "Every platform started as someone asking 'what if we went further?'"
+    brief: "Every platform started as someone asking 'what if we went further?'",
+    youtube: "-F0TWSkFpc0"
   }
 ];
 
 const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+const ytIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>`;
 
 function render(list) {
   const container = document.getElementById('sessions');
   container.innerHTML = '';
   list.forEach((s) => {
+    const ytLink = s.youtube
+      ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtube}" target="_blank" rel="noopener">${ytIcon} Watch recording</a>`
+      : '';
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
@@ -277,6 +295,7 @@ function render(list) {
         <div class="section-label">Best For</div>
         <div class="who">${s.who}</div>
         <div class="brief-row">${s.brief}</div>
+        ${ytLink}
       </div>`;
     card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
     container.appendChild(card);
