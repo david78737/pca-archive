@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCA30 — ProductCamp Austin 30 · Session Archive</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e8eaf0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #b0b8cc;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+      color: #b0b8cc;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+    }
+
+    .filter-btn {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid #3a3d5a;
+      background: transparent;
+      color: #c0c8dc;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover { border-color: #5b6ad4; color: #e0e4f8; }
+    .filter-btn.active { background: #5b6ad4; border-color: #5b6ad4; color: #fff; }
+
+    .search-wrap {
+      padding: 1.25rem 2rem 0;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #2a2d3a;
+      background: #1a1d27;
+      color: #e8eaf0;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-wrap input:focus { border-color: #5b6ad4; }
+    .search-wrap input::placeholder { color: #7888a0; }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    .count {
+      font-size: 0.8rem;
+      color: #8090a8;
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover { border-color: #3a3d5a; }
+    .card.open { border-color: #5b6ad4; }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .card-header:hover .card-title { color: #c7ccf0; }
+
+    .card-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e8eaf0;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+
+    .card-presenter {
+      font-size: 0.8rem;
+      color: #b0b8cc;
+      margin-top: 0.25rem;
+    }
+
+    .card-badges {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+
+    .badge-format { border-color: #4a4d6a; color: #b0b8cc; }
+    .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+    .badge-level-advanced { border-color: #6a3a3a; color: #e08888; }
+    .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+
+    .chevron {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #8090a8;
+      transition: transform 0.2s;
+      margin-top: 2px;
+    }
+
+    .card.open .chevron { transform: rotate(180deg); }
+
+    .card-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid #2a2d3a;
+    }
+
+    .card.open .card-body { display: block; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5b6ad4;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .synopsis { font-size: 0.9rem; color: #dde2f0; line-height: 1.65; }
+
+    .takeaways {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .takeaways li {
+      font-size: 0.875rem;
+      color: #dde2f0;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .takeaways li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #5b6ad4;
+    }
+
+    .who, .brief {
+      font-size: 0.875rem;
+      color: #dde2f0;
+      line-height: 1.6;
+    }
+
+    .brief {
+      background: #12141c;
+      border-left: 3px solid #5b6ad4;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #8090a8;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: #7888a0;
+      border-top: 1px solid #2a2d3a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin · Spring 2024</div>
+  <h1>PCA30 Session Archive</h1>
+  <div class="subtitle">11 sessions · Product Management · AI · Sales · Careers · Community</div>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="Essentials">Essentials</button>
+  <button class="filter-btn" data-filter="Advanced">Advanced</button>
+  <button class="filter-btn" data-filter="Entrepreneurs">Entrepreneurs</button>
+  <button class="filter-btn" data-filter="Workshop">Workshop</button>
+  <button class="filter-btn" data-filter="Presentation">Presentation</button>
+</div>
+
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Search sessions, presenters, topics…" />
+</div>
+
+<main>
+  <div class="count" id="count"></div>
+  <div id="cards"></div>
+  <div class="no-results" id="no-results" style="display:none">No sessions match your filter.</div>
+</main>
+
+<footer>PCA30 · ProductCamp Austin 30 · Archived with ONDA Replay</footer>
+
+<script>
+const sessions = [
+  {
+    title: "Sales Discovery Skills: Be the Best Salesperson Not in Sales",
+    presenter: "Isaiah McPeak",
+    level: "Essentials",
+    format: "Workshop",
+    synopsis: "McPeak has been the founding product person at seven companies and closed — unintentionally, without commission, without a sales title — a $36 million enterprise deal. His conclusion: product managers who stay on the 'cost side of the business' by focusing only on delivery will always be seen as overhead; PMs who get comfortable helping elicit and close value will be seen as revenue generators. The session is built around a sales discovery model from Dr. Steven Tomlinson, anchored in a trust-depth framework: trust is defined as the next risk someone is willing to take with you, and the model sequences conversation moves so that invasive questions (budget, authority) arrive only after enough reciprocal exchange has made them natural.",
+    takeaways: [
+      "The difference between a product manager who's viewed as cost and one who's viewed as revenue is their willingness to be in the room during sales conversations — not just discovery interviews, but actual deals",
+      "Trust is not a soft concept in sales: it is the next risk someone is willing to take with you, and managing the sequence of exchanges that build it is a learnable skill with a clear mental model",
+      "BANT (budget, authority, need, timeline) in conventional sales puts money first; the discovery model inverts this — money comes last because it's the highest-risk exchange and only lands well after enough back-and-forth has made it the obvious next step"
+    ],
+    who: "Product managers who are regularly pulled into sales conversations or enterprise deals but lack a framework for navigating those conversations with confidence rather than dread.",
+    brief: "Before your next customer meeting that has any sales dimension, write down the one question you most need answered — and then identify the two or three exchanges that have to happen before the other side will feel safe enough to answer it honestly."
+  },
+  {
+    title: "Confessions of a Product Hitman: Raw Truths About Failure in Product Development",
+    presenter: "David Monteiro",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Montero, an eight-year product management veteran who came up through project management and hardware development, structures this session around the Venn diagram that appears when you Google 'product management' — feasibility, viability, desirability — and then highlights the book almost nobody reads: Winning at New Products, which focuses squarely on failure rather than success. Using real stories from her career — including a six-month framework migration that nearly destroyed a partner ecosystem, and a product roadmap torpedoed by promises sales made without telling anyone — she makes the case that the silent killers of product development are not technical failures but organizational ones: HIPPO decisions, misaligned visions, and the false confidence that a solid roadmap provides when it's not grounded in product vision.",
+    takeaways: [
+      "There is no such thing as 'just a technical decision' in product management — a framework migration, an API change, a toolchain update all have business model implications that product managers must trace before they sign off",
+      "The fastest way to learn about your product's actual value proposition is to learn it from sales, not from documentation — how sales presents the product to customers reveals the gap between what you built and what the market heard you promise",
+      "A product roadmap without a product vision is a to-do list: it prioritizes activity without a destination, and every HIPPO in the org will fill the vacuum with their own destination if you don't create one"
+    ],
+    who: "Product managers with three or more years of experience who want an honest, failure-forward framework for diagnosing why their roadmaps aren't translating into the outcomes they expected.",
+    brief: "Schedule 30 minutes with a salesperson this week and ask them to walk you through how they pitch your product to a new customer — listen for the gap between what they say and what you'd say, because that gap is where your next roadmap should start."
+  },
+  {
+    title: "Competitive Intelligence for Product Managers",
+    presenter: "Ross Weems",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Weems opens with an audience word cloud — research, analysis, spy — and then systematically builds the framework most product managers wish they had been taught earlier. The session covers the full competitive intelligence workflow: defining objectives before collecting data, identifying both direct and indirect competitors through sales teams and churn data, mining friendly new customers and returning churned customers for unfiltered competitive context, and building a documented win-loss system that can actually answer the questions executive leadership will eventually ask. The practical emphasis is on the human sources that most PMs underuse: sales, customer success, and the candid accounts of customers who recently chose or left you.",
+    takeaways: [
+      "Your sales team is the most underused competitive intelligence asset you have — they know in real time what competitors are doing in every deal, and they'll tell you exactly what capabilities they wish you had",
+      "Newly signed customers are uniquely valuable CI sources: they just completed a vendor assessment, they picked you, and they'll tell you exactly why — including what the alternatives did wrong that made your weaknesses easier to forgive",
+      "A documented win-loss system is the difference between competitive intelligence and competitive intuition — if you don't know why you're winning and why you're losing, you're flying blind on the roadmap decisions that affect revenue most directly"
+    ],
+    who: "Product managers at companies with multiple competitors who want a repeatable, structured approach to competitive intelligence that goes beyond feature comparison tables.",
+    brief: "Identify the last five deals you won and the last five you lost, and ask the sales team what the deciding factor was in each — if you can't get that answer in under an hour, you don't have a competitive intelligence function, and that's the gap to close first."
+  },
+  {
+    title: "Lessons Learned Delivering an AI-Driven Product",
+    presenter: "Carrie Goldberger",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Two years after joining her company's Data Intelligence team to ship an AI product from scratch, Goldberger returns with a practitioner's view of what the books don't tell you. Her framework for identifying AI use cases starts with the Opportunity Solution Tree from Continuous Discovery Habits, reframed around a key diagnostic: where in your workflow does uncertainty exist? That uncertainty is where AI earns its keep. The AI Canvas (from Prediction Machines) then forces teams to slow down and verify they have the right data, feedback loops, and judgment criteria before committing. Most importantly, the session gives serious treatment to the question of how to design for failure — because any ML model is wrong some percentage of the time by definition, and the product team has to decide in advance which failure mode is more acceptable for their specific users.",
+    takeaways: [
+      "The right question for identifying AI use cases is not 'where can we add AI?' but 'where does uncertainty exist in our users' workflow?' — uncertainty is precisely where prediction reduces friction, and it gives you a defensible reason for every AI feature",
+      "Designing for how your model fails is as important as designing for when it succeeds — a false positive and a false negative create very different user experiences, and which one you optimize against must be a deliberate product decision, not an accident of model training",
+      "The CRAFT framework (Clarity, Robustness, Action, Forethought, and Scale) is a practical checklist for identifying where generative AI specifically adds value, as opposed to where a rules-based or search-based solution would serve users better"
+    ],
+    who: "Product managers at companies investing in AI features who want a practitioner's toolkit for evaluating use cases, structuring model decisions, and designing responsible user experiences around AI outputs.",
+    brief: "For any AI feature currently on your roadmap, write down in one sentence what happens to the user when the model is wrong — if you can't write that sentence, you're not ready to build the feature yet."
+  },
+  {
+    title: "The Unspoken Secrets to Creating Successful Products",
+    presenter: "Elena Leonova",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Leonova has spent 15 years in product management and helped build a product that held 25% of global digital commerce market share — and she opens the session with something most product leaders won't say in public: 75% of products fail, and she has made many of the mistakes that cause it. The session is structured as a series of hard-won lessons, each anchored in a real failure from her career. The front-end framework migration that nearly collapsed a partner ecosystem. The product roadmap that was built on rigorous customer research while sales was promising customers features that didn't exist. The pattern across all these stories is the same: product managers who stay in their lane — discovery, engineering, UX — and abdicate the organizational and commercial dimensions of product leadership create the conditions for failure even when they're technically excellent.",
+    takeaways: [
+      "No technical decision is outside the product manager's domain: every architectural, tooling, or framework choice has downstream effects on partners, pricing, and ecosystem trust that only become visible when it's too late to reverse them",
+      "Learn your product from the sales perspective before you learn it from the PM perspective — how the market has been trained to understand your product's value is the reality you're working within, regardless of what you built",
+      "Customer success and sales are not downstream functions from product; they are primary intelligence sources whose daily interactions with customers contain the signals that most roadmaps systematically ignore until a crisis forces them to pay attention"
+    ],
+    who: "Product managers at B2B or platform companies who want an experience-based framework for the organizational and commercial dimensions of product leadership — the parts that PM training courses consistently underweight.",
+    brief: "Ask your customer success team this week to tell you the last three times a customer was surprised — positively or negatively — by a product behavior they didn't expect, and trace each surprise back to a product decision that was made without consulting CS."
+  },
+  {
+    title: "Expand Your Reach: Leveraging Sourcing Agents and Shopify Experts for Worldwide Success",
+    presenter: "Chris Lopez",
+    level: "Entrepreneurs",
+    format: "Presentation",
+    synopsis: "Lopez, a digital consultant who has spent a decade helping entrepreneurs find talent and build global supply chains, walks through a model most product managers in software have never encountered: using specialized regional sourcing agents — people with on-the-ground relationships with manufacturers in specific parts of China, India, and Southeast Asia — as the connective tissue between product idea and e-commerce execution. The system he describes is designed for speed: a sourcing agent finds and qualifies a manufacturer, a Shopify expert deploys the storefront, and the whole machine can go live in a weekend. The session is grounded in concrete examples including the surge of AI-generated seasonal product sites and the drop-ship model that makes it possible.",
+    takeaways: [
+      "A sourcing agent is not a middleman who adds cost — they are a relationship asset who eliminates months of cold outreach, scam risk, and cultural navigation that a solo entrepreneur cannot replicate at any price",
+      "The Shopify expert and the sourcing agent function as a single team when connected correctly: the manufacturer provides product data through a standardized import format, and the storefront goes live with photos, listings, and reviews in hours rather than weeks",
+      "Product-market timing in physical goods is compressible: the entrepreneurs who win seasonal e-commerce aren't the ones with the best product, they're the ones with the fastest deployment system — sourcing agents and Shopify specialists are the system"
+    ],
+    who: "Entrepreneurs and product managers exploring physical product development, drop-shipping, or global manufacturing who want a concrete operational model rather than generic supply chain theory.",
+    brief: "Identify one physical product category you know well and find one sourcing agent on a platform like Alibaba or Upwork who specializes in manufacturing for that category — have one conversation and ask them to show you five manufacturers they work with; the education in that single call will cost you nothing."
+  },
+  {
+    title: "From Corporate Chains to Consulting Gains: A PMM's Journey to Independence",
+    presenter: "Bertrand Hazard",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Hazard helped run ProductCamp Austin on his personal checking account for three years at the beginning, then spent 25 years as a VP of Product Marketing and VP of Marketing at companies ranging from brand startups to enterprise software before setting up his own fractional PMM consulting practice in January 2022. The session is structured as a detailed, honest account of that transition: the bad boss who accelerated the decision, the approaching-50 reckoning about time horizons, the book that helped him understand his underlying drivers, and the step-by-step mechanics of getting the first clients, pricing services, and building a sustainable practice. The core argument is that launching a consulting practice is easier than it looks — but not for everyone, and he is honest about why.",
+    takeaways: [
+      "The inflection point for most consulting transitions is not a moment of inspiration but a moment of pain — the bad boss, the political role that has consumed the craft, the birthday that reframes the time remaining — and waiting for inspiration is usually waiting forever",
+      "Your underlying drivers at 50 are the same ones you had at 25 — understanding them before you make the transition tells you whether consulting will satisfy those drivers or just move the frustration to a different address",
+      "The first three clients define the practice: they set your rate, your reputation, and your category — and the fastest path to getting them is the people who already know what you can do, not a LinkedIn announcement or a cold pitch"
+    ],
+    who: "Senior product marketing professionals at the VP or director level who are weighing a move to fractional or independent consulting and want a candid, experienced account of what the transition actually involves.",
+    brief: "Write down the three things about your work that give you energy even when everything else is hard — then honestly assess whether those three things are more available inside a company or outside one, because that answer tells you more than any career framework will."
+  },
+  {
+    title: "Together We Create: Integrating Passionate Customers into Product Development",
+    presenter: "Jake McKee",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "McKee opens with a quote from a Whirlpool product designer that stopped him cold: 'It would be devastating to design a product and then discover later that customers hate using it.' His response — 'Why didn't you know in advance?' — is the question this session is built to answer. McKee's Community Driven Product Development (CDPD) methodology argues that the black box of product development has become so risk-averse that it is now impenetrable, and that the small decisions made in that box accumulate silently into big failures that only reveal themselves at launch. CDPD embeds select passionate customers directly into the development process at the right moments, using four strategic tasks: finding the right people, engaging them at the right time, focusing on the right outcomes, and planning and executing the right activities.",
+    takeaways: [
+      "Process organizes the mess of product development but does not solve the underlying problem — 30,000 products launch every year and 95% fail regardless of how much process was applied, which means something structural about how we include customer insight is broken",
+      "The passionate customers in your user base are the ones most likely to give you honest, deep feedback before launch — not the average users, not the vocal complainers, but the people who care enough to tell you what's actually wrong while there's still time to fix it",
+      "Community Driven Product Development is not the same as traditional user research: it is not episodic interviews but continuous embedded engagement with a small, carefully selected group whose insight shows up inside the development process rather than feeding into it from outside"
+    ],
+    who: "Product managers and product leaders at companies with passionate user bases who want a structured methodology for getting customer insight inside the development black box rather than treating it as a pre-launch sanity check.",
+    brief: "Identify ten customers who would be genuinely devastated if your product went away — they exist in your user base, they just haven't been asked to be part of the process; reach out to three of them this week and tell them you'd like their honest opinion on something you're building."
+  },
+  {
+    title: "Empowering Product Management with AI",
+    presenter: "Amit Navare",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Navare, a developer-turned-product-manager who has worked at Kaiser Permanente, CVS, and Staples, frames AI for product managers across two dimensions: AI as a toolbox for building products better (data analysis, experimentation, documentation), and AI as a product capability (AI-powered features). The session is structured around a four-level automation framework — from no automation to fully autonomous operations like self-driving cars — that gives PMs a common language for scoping AI ambition. The central argument is that the product manager's judgment, not the model, determines what level of AI is right for a given context; and that the PMs who thrive in AI-driven organizations are the ones who own the question 'should we build this AI feature at all?' rather than deferring it to data science.",
+    takeaways: [
+      "AI as a PM toolbox and AI as a product capability are two distinct decisions that should be made separately — using AI to write PRDs faster is a different conversation from deciding whether your product should offer AI-powered features",
+      "The product manager, not the data scientist, is the right person to decide what level of AI automation is appropriate for a feature — that decision has business model, trust, and user experience implications that are product questions, not technical ones",
+      "Balanced roadmaps in an AI-driven organization include both AI-powered innovation and proven non-AI features — the teams that over-rotate on AI features without maintaining their core experience create fragility that shows up as churn when the AI disappoints"
+    ],
+    who: "Product managers at organizations investing in AI who want a framework for evaluating AI feature opportunities that doesn't require a background in machine learning but does require clear product thinking.",
+    brief: "For any AI feature request that comes to you in the next month, answer four questions before agreeing to scope it: what level of automation is this, what does the user experience look like when it fails, who owns the feedback loop when the model degrades, and who approved the data used to train it."
+  },
+  {
+    title: "Sucky Economy: Strategies for Finding a Job",
+    presenter: "Mark Stephan",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Steffen runs two companies — Product Hire, a career site for product professionals since 2017, and Talent Agent, a reverse recruiting service for tech workers — giving him unusual visibility into how the job market actually works rather than how job seekers think it works. The numbers are brutal: cold application reply rates have dropped from 5% in 2019 to under 0.5% today; companies like Netflix receive 5,000–10,000 applications per role; the average search for a senior PM is running six to ten months. His core message is that treating your career like a product — building brand, managing visibility, cultivating relationships before you need them — is the only strategy that actually works in this environment, because referrals remain the dominant path into most roles even when the front door is flooded.",
+    takeaways: [
+      "Cold applications are statistically not a job search strategy in the current market — with sub-0.5% reply rates, the only productive use of time is building the relationships that produce referrals, which still convert at 20% or better",
+      "More than 85% of jobs are filled through some form of referral and more than 60% of jobs are never posted publicly — the job you need probably exists but is not on LinkedIn, and you will only find it through the network you have or will build",
+      "Manage your career like a product: set a vision, build a brand, make your impact visible, and be proactive — not because it feels strategic but because the invisible option in a market with 10,000 applicants per role is not actually an option"
+    ],
+    who: "Product managers actively in a job search or expecting one within the next year who want honest market data and a referral-first strategy rather than resume optimization advice.",
+    brief: "Make a list of fifteen people in your professional network you haven't talked to in the last six months — then reach out to five of them this week with something genuinely useful to them, not an ask, and see what happens to the quality of your next career conversation."
+  },
+  {
+    title: "Drive Greater Innovation and Success Using Jobs-to-Be-Done",
+    presenter: "Tom Evans",
+    level: "Advanced",
+    format: "Workshop",
+    synopsis: "Evans opens with his own story: years of complaining about hotel rooms having no convenient outlet near the ironing board — until someone pointed out he was defining the solution, not the problem. His actual job was to get wrinkles out of his shirts. The product he eventually adopted was Downy Wrinkle Releaser. He would never have found it if he'd stayed focused on the outlet. That reframing — from solution-defined problems to job-defined needs — is the core of Jobs-to-Be-Done, which Evans teaches through the history of portable music (medieval minstrels → Westinghouse transistor radio → Walkman → iPod) to show how every successful product innovation was a response to a need that already existed, not a new need that the product created.",
+    takeaways: [
+      "A job is not a feature request and it is not a pain point — it is the outcome the customer is trying to achieve, and framing it that way opens the solution space dramatically rather than locking it to the product category you already occupy",
+      "Most product teams jump to solutions before they've agreed on the job — Jobs-to-Be-Done is structural pressure to stay in the problem space long enough to understand what the customer is actually trying to accomplish, including the emotional and social dimensions that functional requirements don't capture",
+      "Apple didn't invent the need for portable music — that need predates recorded sound — they found a way to serve it so much better than existing solutions that the new product felt inevitable in retrospect; Jobs-to-Be-Done is the framework that makes that kind of insight reproducible"
+    ],
+    who: "Product managers and UX researchers who find their teams consistently jumping to solutions before the problem is well understood, and who want a hands-on framework for keeping discovery in the problem space long enough to find non-obvious solutions.",
+    brief: "Take the top item on your current roadmap and rewrite it as a job statement — 'when [situation], I want to [motivation], so that [outcome]' — then ask whether your proposed solution is the only way to satisfy that job or just the most obvious one."
+  }
+];
+
+let activeFilter = 'all';
+
+function levelBadgeClass(level) {
+  if (level === 'Advanced') return 'badge-level-advanced';
+  if (level === 'Entrepreneurs') return 'badge-level-entrepreneurs';
+  return 'badge-level-essentials';
+}
+
+function renderCards() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  const container = document.getElementById('cards');
+  const noResults = document.getElementById('no-results');
+  const countEl = document.getElementById('count');
+
+  const filtered = sessions.filter(s => {
+    const matchesFilter = activeFilter === 'all' ||
+      s.level === activeFilter || s.format === activeFilter;
+    const matchesSearch = !query ||
+      s.title.toLowerCase().includes(query) ||
+      s.presenter.toLowerCase().includes(query) ||
+      s.synopsis.toLowerCase().includes(query) ||
+      s.takeaways.some(t => t.toLowerCase().includes(query));
+    return matchesFilter && matchesSearch;
+  });
+
+  countEl.textContent = `${filtered.length} of ${sessions.length} sessions`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    noResults.style.display = 'block';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  container.innerHTML = filtered.map((s, i) => `
+    <div class="card" id="card-${i}">
+      <div class="card-header" onclick="toggle(${i})">
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="card-badges">
+            <span class="badge badge-format">${s.format}</span>
+            <span class="badge ${levelBadgeClass(s.level)}">${s.level}</span>
+          </div>
+        </div>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 8l5 5 5-5"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Who Should Read This</div>
+        <div class="who">${s.who}</div>
+        <div class="section-label">The Brief</div>
+        <div class="brief">${s.brief}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggle(i) {
+  const card = document.getElementById(`card-${i}`);
+  card.classList.toggle('open');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderCards();
+  });
+});
+
+document.getElementById('search').addEventListener('input', renderCards);
+
+renderCards();
+</script>
+</body>
+</html>
