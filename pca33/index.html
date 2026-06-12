@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCA33 Session Archive — ProductCamp Austin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e8eaf0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  a { color: #7b8ef0; }
+
+  header { background: #1a1d27; border-bottom: 1px solid #2a2d3a; padding: 24px 32px 20px; }
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: #6b7090; margin-bottom: 4px; }
+  header h1 { font-size: 26px; font-weight: 700; color: #e8eaf0; }
+
+  .controls { padding: 20px 32px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .filter-btn { background: #1a1d27; border: 1px solid #2a2d3a; color: #a0a4b8; border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .filter-btn:hover { background: #22253a; color: #e8eaf0; }
+  .filter-btn.active { background: #2a2d4a; border-color: #5b6ad4; color: #e8eaf0; }
+  #search { margin-left: auto; background: #1a1d27; border: 1px solid #2a2d3a; color: #e8eaf0; border-radius: 6px; padding: 6px 12px; font-size: 13px; width: 220px; outline: none; }
+  #search::placeholder { color: #555870; }
+  #search:focus { border-color: #5b6ad4; }
+
+  #count { padding: 10px 32px 4px; font-size: 12px; color: #555870; }
+
+  .sessions { padding: 12px 32px 48px; display: flex; flex-direction: column; gap: 10px; }
+
+  .card { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 10px; overflow: hidden; transition: border-color .15s; }
+  .card.open { border-color: #5b6ad4; }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px; cursor: pointer; -webkit-user-select: none; user-select: none; }
+  .card-header:hover .card-title { color: #c8ccf0; }
+  .chevron { flex-shrink: 0; margin-top: 3px; width: 18px; height: 18px; color: #555870; transition: transform .2s; }
+  .card.open .chevron { transform: rotate(90deg); }
+  .card-meta { flex: 1; min-width: 0; }
+  .card-title { font-size: 15px; font-weight: 600; color: #b8bcdc; margin-bottom: 6px; transition: color .15s; }
+  .card-presenter { font-size: 13px; color: #7b8090; margin-bottom: 6px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: 11px; font-weight: 500; border: 1px solid; border-radius: 4px; padding: 2px 7px; text-transform: uppercase; letter-spacing: .06em; }
+  .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+  .badge-level-advanced  { border-color: #6a3a3a; color: #e08888; }
+  .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+  .badge-format { border-color: #3a4a6a; color: #88aae0; }
+
+  .card-body { display: none; padding: 0 18px 18px 48px; }
+  .card.open .card-body { display: block; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #5b6ad4; margin: 14px 0 6px; }
+  .synopsis { color: #c0c4d8; line-height: 1.65; }
+  .takeaways { list-style: none; }
+  .takeaways li { color: #a8accc; padding: 3px 0 3px 16px; position: relative; }
+  .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
+  .who { color: #a8accc; font-style: italic; }
+  .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 16px; }
+    .controls { padding: 14px 16px 0; }
+    #search { width: 100%; margin-left: 0; }
+    #count { padding: 8px 16px 2px; }
+    .sessions { padding: 10px 16px 40px; }
+    .card-body { padding-left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin &middot; Fall 2025</div>
+  <h1>PCA33 Session Archive</h1>
+</header>
+
+<div class="controls">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="essentials">Essentials</button>
+  <button class="filter-btn" data-filter="advanced">Advanced</button>
+  <button class="filter-btn" data-filter="entrepreneurs">Entrepreneurs</button>
+  <input id="search" type="search" placeholder="Search sessions…" autocomplete="off">
+</div>
+
+<div id="count"></div>
+
+<div class="sessions" id="sessions"></div>
+
+<script>
+const sessions = [
+  {
+    title: "AI Agents: Vibe Coding Exposed Limits of Their Super Powers",
+    presenter: "Drew Bixby",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "Drew (Lifter Insights, background in ML, agents, and AI data collection) built a Swahili language learning app using Replit and AI coding agents — and shares the real experience honestly. AI agents produced a working app in 20 minutes. Then the tweaking phase arrived. Fixing one thing broke another. Token limits hit mid-feature. The app had no login, no database, no separated front and back end. The lesson isn't that agents are bad — it's that they're an incredible starting point that accumulates invisible technical debt.",
+    takeaways: [
+      "AI agents replace wireframes for prototyping — you get something working and clickable in minutes",
+      "The tweaking phase is where it breaks: fixing one element routinely corrupts something else",
+      "Context windows and daily token limits are real mid-project walls, not edge cases",
+      "AI agents don't architect — they ship a monolith without separation of concerns; plan for that"
+    ],
+    who: "Product people and founders experimenting with AI-generated MVPs or prototypes",
+    brief: "Agents are great at starting. The hard part is what comes next."
+  },
+  {
+    title: "AI Product Operations: The Most Exciting Career You Haven't Heard of Yet",
+    presenter: "Dan Corbin",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Dan (Pragmatic Institute instructor, executive product advisor working with companies globally) makes the case for AI Product Operations as an emerging discipline: the end-to-end practice of embedding AI into workflows through guardrails, iteration, and governance. The reason 95% of AI pilots fail isn't that AI isn't powerful enough — it's that companies don't have people who know how to operationalize it. AI ProdOps is Agile for AI, with its own visionary, operator, and implementer roles.",
+    takeaways: [
+      "95% of AI pilots fail — not because of AI capability gaps, but because of AI operations gaps",
+      "AI operations = embedding AI through clear workflows, monitoring, and scalable systems — not flashy demos",
+      "Three roles: AI visionary (owns outcomes), AI operator (bridges business + AI), AI implementer (builds + maintains)",
+      "This is Agile for AI — project sponsor, product owner, scrum master, applied to AI deployment"
+    ],
+    who: "PMs and product leaders looking to build or lead AI operations functions inside their organizations",
+    brief: "The reason AI pilots fail isn't the AI — it's the missing operational layer"
+  },
+  {
+    title: "Beyond Differentiators: Innovation on Common Ground",
+    presenter: "Jerry Gutierrez",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "Jerry (owner of Synthman Group, product and marketing consultant) argues that most product teams skip past the common ground — the non-negotiable skeleton of traits a product must have before differentiation even matters. He introduces a communication model built around shared lexicon to solve the breakdown where sales renames features, PMs don't know what's being sold, and executives talk past customers about value.",
+    takeaways: [
+      "Before differentiating, define the skeleton: the traits your product must have just to compete",
+      "A shared product lexicon across PM, sales, and marketing eliminates the costly misalignment",
+      "Sales regularly renames features and sells them without PM knowing — define terms together early",
+      "A research-based communication model saved one client a full recruiting cycle by clarifying a single role definition"
+    ],
+    who: "PMs, founders, and marketers who've watched a good product get lost in translation between teams",
+    brief: "Agree on the skeleton before you compete on the differentiators"
+  },
+  {
+    title: "Building a Product Data Moat in the Age of AI",
+    presenter: "Alex M",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Alex (former AI/ML scientist at General Motors, now product at Web AI with a master's in data science) challenges the assumption that building on frontier AI models gives you a competitive moat. His thesis: AI is a shared, static resource — everyone API-calls to the same model. The real moat is Data × Users, a compounding flywheel that grows with time. AI adds lift on top of a strong data foundation, not a moat by itself.",
+    takeaways: [
+      "AI is not a moat — every competitor has access to the same frontier models via API",
+      "Frontier model providers keep releasing new versions, making any 'AI moat' obsolete within months",
+      "The real formula: Moat = (Data × Users) + AI as lift — data and users compound, AI amplifies",
+      "Start with one deeply understood user; let the data foundation grow from there"
+    ],
+    who: "PMs and founders building AI-enabled products who want to understand where durable defensibility comes from",
+    brief: "AI gives you lift. Data and users give you a moat."
+  },
+  {
+    title: "Discover Candidate-Market Fit: A New Lens for Your Job Search Journey",
+    presenter: "Sonya Lewis",
+    level: "essentials",
+    format: "Case Study",
+    synopsis: "Sonya (dietitian turned UX designer turned PM, now in active job search) applies product-market fit thinking to her own career. A recruiter stopped her with one question: 'What is the market buying?' She couldn't answer. That conversation led her to the Manookin Two-Pager, a voice-of-customer listening tour, and a much more targeted search. The session is a candid case study on using PM methods to solve a PM's most personal problem.",
+    takeaways: [
+      "'What is the market buying?' — if you can't answer that for your own skills, your search is broadcasting, not targeting",
+      "Having many viable options (paradox of choice) is a problem to solve with frameworks, not a privilege to enjoy",
+      "Voice-of-customer listening tours work for job searching: talk to people in roles you want before applying",
+      "Candidate-market fit = the intersection of your strongest skills and current market demand — not what you want to do"
+    ],
+    who: "PMs in active job search who want a more strategic, product-minded approach to finding their next role",
+    brief: "Apply product-market fit thinking to yourself"
+  },
+  {
+    title: "From Product Manager to AI PM: Reinventing Yourself in the Age of AI",
+    presenter: "Biren Shah",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Biren (18-year PM veteran, VP-level, left in 2024 to reinvent himself as an AI-ready product leader) shares his six-month reinvention journey: advanced prompting, RAG systems, no-code tools, and a chatbot he built from scratch. He presents seven mindsets and five skills for AI PM success, framed against real data — 46% of leaders cite scale gaps as the top AI barrier, and 30% of Gen AI projects are abandoned in production.",
+    takeaways: [
+      "The top reason AI projects fail is messy data — that's a product problem, not a model problem",
+      "Not every business problem is an AI use case — judgment about when NOT to use AI is a core AI PM skill",
+      "Seven mindsets: curiosity, customer obsession, data fluency, ethical grounding, trust thinking, evals mindset, and learning velocity",
+      "Build your own RAG chatbot or agent — even a small side project teaches you more than any certification"
+    ],
+    who: "Experienced PMs who feel AI is moving past them and want a structured path to becoming AI-ready",
+    brief: "Reinvention is a six-month process, not a weekend course"
+  },
+  {
+    title: "How to Work Smarter with an AI Assistant",
+    presenter: "Ty Avnit",
+    level: "essentials",
+    format: "Workshop",
+    synopsis: "Live demo session that starts with fundamentals and ends with a working AI assistant connected to real tools. Using an accessible storytelling approach, the session walks through LLMs, tools, and MCP (Model Context Protocol) — the mechanism that lets an AI assistant reach into Gmail, Calendar, Slack, and other apps on your behalf. The key shift: from asking AI questions to delegating actual workflows to it.",
+    takeaways: [
+      "LLMs are frozen at a training date — MCP and tools give them live access to your actual data",
+      "MCP (Model Context Protocol) sounds complex; the concept is simple: give the AI permission to use your apps",
+      "You can connect an assistant to Gmail, Calendar, and Slack without writing code",
+      "The mental shift: stop querying AI, start delegating tasks — scheduling, summarizing, finding information across tools"
+    ],
+    who: "Anyone curious about AI assistants who wants a practical, demo-first starting point — no technical background required",
+    brief: "Stop querying AI. Start delegating to it."
+  },
+  {
+    title: "The Automation Advantage: Freeing Your Time, Energy, and Career Potential",
+    presenter: "Chris Lopez",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Chris (digital nomad, longtime PCA presenter) takes automation out of the office and into life design. Three frameworks: the Delegation Ladder (what to outsource), the Career Experiment Canvas (test new directions without betting your livelihood), and the Data-Driven Life Audit (measure what gives you energy vs. what drains it). The premise: digital nomads stay creative because they don't have routines that limit them — you can design the same freedom without leaving Austin.",
+    takeaways: [
+      "Automation isn't only for work — any repetitive low-value task in your life is a delegation candidate",
+      "Career Experiment Canvas: test a new direction as a side project before transitioning — treat it like an MVP",
+      "Data-Driven Life Audit: track one thing per week; categorize tasks by energy level; decide what to automate vs. double down on",
+      "If your dreams could be delegated, automate the operational layer and keep the creative layer for yourself"
+    ],
+    who: "PMs and entrepreneurs who feel stuck in routines that limit their creativity and career potential",
+    brief: "Treat your life like a product roadmap and delegate accordingly"
+  },
+  {
+    title: "AI Won't Steal Your Job If You Think Like an AI PM",
+    presenter: "Parth Pratap",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Parth (Google Research, Harvard data science, 56 mobile apps, 25M+ customers) reframes the AI anxiety narrative: your skills need evolving, not rescuing. Drawing on the iPhone's 94-feature first launch and four industrial revolutions, he argues that the core PM superpowers — problem focus, outcome orientation, customer obsession, and deep work — are exactly what AI amplifies. The PM who chases every AI framework will be replaced; the one who does deep work won't.",
+    takeaways: [
+      "The iPhone shipped 94 features, not 4,000 — outcome focus beats feature volume every time",
+      "Stop trying to keep up with every new AI model; deep work on core PM skills is the durable advantage",
+      "Customer obsession: sit with a user for 8 hours, take 11 pages of notes, say nothing — that's the superpower AI can't replicate",
+      "80% of the time, you don't need AI to solve a problem — judgment about when to reach for it is itself an AI PM skill"
+    ],
+    who: "PMs at any level who want clarity on what to prioritize as AI reshapes the role",
+    brief: "AI amplifies the PM who focuses. It replaces the one who reacts."
+  }
+];
+
+const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+
+function render(list) {
+  const container = document.getElementById('sessions');
+  container.innerHTML = '';
+  list.forEach((s) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L14 9.586l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 6.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="badges">
+            <span class="badge badge-level-${s.level}">${levelLabel[s.level]}</span>
+            <span class="badge badge-format">${s.format}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Best For</div>
+        <div class="who">${s.who}</div>
+        <div class="brief-row">${s.brief}</div>
+      </div>`;
+    card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
+    container.appendChild(card);
+  });
+  document.getElementById('count').textContent = `${list.length} session${list.length !== 1 ? 's' : ''}`;
+}
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function applyFilters() {
+  const q = searchQuery.toLowerCase();
+  const filtered = sessions.filter(s => {
+    const matchLevel = activeFilter === 'all' || s.level === activeFilter;
+    const matchSearch = !q || [s.title, s.presenter, s.synopsis, ...(s.takeaways || []), s.who].join(' ').toLowerCase().includes(q);
+    return matchLevel && matchSearch;
+  });
+  render(filtered);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  applyFilters();
+});
+
+applyFilters();
+</script>
+</body>
+</html>
