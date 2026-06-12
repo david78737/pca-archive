@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCA29 — ProductCamp Austin 29 · Session Archive</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e8eaf0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #b0b8cc;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+      color: #b0b8cc;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+    }
+
+    .filter-btn {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid #3a3d5a;
+      background: transparent;
+      color: #c0c8dc;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover { border-color: #5b6ad4; color: #e0e4f8; }
+    .filter-btn.active { background: #5b6ad4; border-color: #5b6ad4; color: #fff; }
+
+    .search-wrap {
+      padding: 1.25rem 2rem 0;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #2a2d3a;
+      background: #1a1d27;
+      color: #e8eaf0;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-wrap input:focus { border-color: #5b6ad4; }
+    .search-wrap input::placeholder { color: #7888a0; }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    .count {
+      font-size: 0.8rem;
+      color: #8090a8;
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover { border-color: #3a3d5a; }
+    .card.open { border-color: #5b6ad4; }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .card-header:hover .card-title { color: #c7ccf0; }
+
+    .card-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e8eaf0;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+
+    .card-presenter {
+      font-size: 0.8rem;
+      color: #b0b8cc;
+      margin-top: 0.25rem;
+    }
+
+    .card-badges {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+
+    .badge-format { border-color: #4a4d6a; color: #b0b8cc; }
+    .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+    .badge-level-advanced { border-color: #6a3a3a; color: #e08888; }
+    .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+
+    .chevron {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #8090a8;
+      transition: transform 0.2s;
+      margin-top: 2px;
+    }
+
+    .card.open .chevron { transform: rotate(180deg); }
+
+    .card-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid #2a2d3a;
+    }
+
+    .card.open .card-body { display: block; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5b6ad4;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .synopsis { font-size: 0.9rem; color: #dde2f0; line-height: 1.65; }
+
+    .takeaways {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .takeaways li {
+      font-size: 0.875rem;
+      color: #dde2f0;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .takeaways li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #5b6ad4;
+    }
+
+    .who, .brief {
+      font-size: 0.875rem;
+      color: #dde2f0;
+      line-height: 1.6;
+    }
+
+    .brief {
+      background: #12141c;
+      border-left: 3px solid #5b6ad4;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #8090a8;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: #7888a0;
+      border-top: 1px solid #2a2d3a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin · September 9, 2023</div>
+  <h1>PCA29 Session Archive</h1>
+  <div class="subtitle">7 sessions · Product Management · AI · Data · Branding · Trust</div>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="Essentials">Essentials</button>
+  <button class="filter-btn" data-filter="Advanced">Advanced</button>
+  <button class="filter-btn" data-filter="Entrepreneurs">Entrepreneurs</button>
+  <button class="filter-btn" data-filter="Workshop">Workshop</button>
+  <button class="filter-btn" data-filter="Presentation">Presentation</button>
+</div>
+
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Search sessions, presenters, topics…" />
+</div>
+
+<main>
+  <div class="count" id="count"></div>
+  <div id="cards"></div>
+  <div class="no-results" id="no-results" style="display:none">No sessions match your filter.</div>
+</main>
+
+<footer>PCA29 · ProductCamp Austin 29 · Archived with ONDA Replay</footer>
+
+<script>
+const sessions = [
+  {
+    title: "Unlocking Success Through Psychological Safety",
+    presenter: "Dan Corbin",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Corbin, an instructor at Pragmatic Marketing who has led product teams at HGV, anchors this session in Google's two-year study of 180 teams — the finding that psychological safety is the single most important factor in high-performing teams, outranking all others. He walks through five concrete steps to build it: communicating courageously, mastering active listening, embracing conflict as information, demonstrating accountability, and sustaining the conditions over time. His own 'Dan Dorbin' alter ego — a safe vehicle for publicly admitting his own failures — illustrates how leaders model the vulnerability that makes safety real.",
+    takeaways: [
+      "Psychological safety is a learnable organizational condition, not a personality trait — teams achieve it through specific, repeatable practices, not by hiring nicer people",
+      "Product managers without authority over anyone must be unfailingly honest brokers: telling engineering one thing and leadership another destroys the credibility that influence depends on",
+      "Vulnerability from the top down is the ignition mechanism — when leaders visibly admit mistakes and learn from them, the rest of the team takes the permission to do the same"
+    ],
+    who: "Product managers and team leads who want practical, research-backed steps for turning a guarded or siloed team into one where people say what they actually think.",
+    brief: "Before your next team meeting, share one thing you personally got wrong this week and what you learned from it — you'll be surprised how quickly that single act changes the room."
+  },
+  {
+    title: "Uncommon Trust",
+    presenter: "Thom Singer",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Singer, CEO of the Austin Technology Council and a certified practitioner of David Horsager's Trust Edge framework, spent 15 years speaking about professional relationships before discovering that he had been teaching people to be known and liked — but not trusted. This session draws on 20 years of Horsager's research across 5,000 companies and multiple governments to show that trust is not a soft concept but a measurable, manageable organizational asset with direct causal links to retention, productivity, innovation, and revenue. The inverse — low trust — is, according to the research, the single largest hidden expense any company carries.",
+    takeaways: [
+      "Trust is the operating system underneath every professional outcome: when it's high, output rises, retention improves, and innovation accelerates; when it's low, every process degrades, regardless of talent or process quality",
+      "The number one question every colleague, manager, and customer is silently asking about you is 'can I trust you?' — knowing this reframes every interaction as a trust-building or trust-destroying event",
+      "Trust, like a 300-year-old redwood, takes sustained deliberate effort to build and can be destroyed in minutes — the asymmetry demands that trust maintenance be treated as an ongoing practice, not a milestone"
+    ],
+    who: "Leaders, managers, and individual contributors who suspect that low trust is degrading their team's performance but have never had a framework rigorous enough to diagnose and address it.",
+    brief: "Identify the one colleague or direct report who trusts you least — and ask yourself honestly what specific behavior created that gap, then take one concrete action this week to close it."
+  },
+  {
+    title: "Rise of the AI-Driven Product Manager",
+    presenter: "Sarat Tummala",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "A senior product manager at Google who has shipped products to over a billion users — including the COVID exposure notification system and Ukrainian emergency alerts via Google Play Services — starts this session by honestly confronting his own anxiety: AI does product pitches, strategy, and roadmaps, exactly the things he does. His 'will I lose my job?' graph plots jobs on axes of documentation depth and task repetitiveness, then uses it to show why PMs are relatively safer than radiologists — but not safe by default. The session lands on Jensen Huang's insight: the person who will take your job is not AI, it's the person who knows how to use AI better than you.",
+    takeaways: [
+      "AI is not replacing PMs — it is creating a competency gap between PMs who treat it as a force multiplier and those who treat it as a threat; the gap will widen fast",
+      "Use AI for directional analysis, brainstorming, and bias-surfacing — not for deterministic answers; AI will always answer your question, but whether the answer is right requires human judgment every time",
+      "Pick one AI tool and stick with it long enough to know its failure modes — familiarity with its mistakes is what makes it useful, the same way you trust a colleague because you know how they think"
+    ],
+    who: "Product managers who are anxious about AI displacement and want an honest, experience-grounded framework for integrating AI into their work rather than watching from the sidelines.",
+    brief: "Build your next internal presentation using AI as a scaffold — let it give you a structure, then tear apart every assumption it made; the final deck will be better and you'll have learned where the tool fails."
+  },
+  {
+    title: "What's This Data Pipeline Thing You Keep Talking About?",
+    presenter: "Travis James Fell",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "A former director of reporting opens with a cautionary fable: Bobby, a talented analyst whose scripts the finance department depended on, who never thought about data quality — and paid for it. The tale frames the session's core thesis: data management is a dark art that nobody thinks about until it's too late, and product managers who oversee data products or work alongside data teams need at minimum a working vocabulary and mental model for what's happening beneath the surface. The 'data sugar factory' metaphor — raw cane from many sources, refined into crystals usable everywhere — makes the pipeline architecture concrete and memorable.",
+    takeaways: [
+      "No single source of truth is the most common and most expensive data failure — every downstream process that recreates its own version of the truth compounds the divergence until the data can no longer be trusted",
+      "Data governance is not an IT concern, it is a product strategy: the policies that define what data means, who owns it, and how it's maintained determine whether your analytics can answer real business questions",
+      "Data contracts — explicit agreements between data producers and consumers about format, schema, and quality — are the single highest-leverage intervention for preventing the class of failures that sink data products"
+    ],
+    who: "Product managers who oversee data products, manage analytics teams, or find themselves nodding along in data architecture meetings without fully understanding what they're agreeing to.",
+    brief: "Draw the current data flow for your most important product metric — from raw source to the number that appears on the executive dashboard — and find the first place where there is no documented owner for what happens to the data."
+  },
+  {
+    title: "Product Branding: How It Helps Marketing, Sales & Profits",
+    presenter: "Jeffrey Fry",
+    level: "Entrepreneurs",
+    format: "Presentation",
+    synopsis: "An electrical engineer who discovered his talent for naming and branding as a child — calling his grandfather 'Blingo' before he could say Abuelo — walks through a career spent building brands for semiconductor companies, including coining 'Prism chipset' at Intercel and creating categories that let smaller players compete against 800-pound gorillas like Texas Instruments. The central argument is simple: brands speak to the gut, not the head, and no rational analysis of your product will make up for the absence of an emotional identity. The session includes a live audience exercise in brand naming, grounded in one memorable principle: the middle is death.",
+    takeaways: [
+      "A brand is what speaks for you when you're not in the room — it is your product's reputation, personality, and emotional signal all compressed into something that travels on its own",
+      "Category creation is the most powerful competitive move available to a small product: if you can define a category you're the only one in, you are automatically number one",
+      "Differentiate or die — average products in crowded categories are invisible; a brand that is memorable for one specific thing beats a brand that is competent at many things every time"
+    ],
+    who: "Founders, product managers, and marketers at early-stage companies or new product lines who are still treating branding as a logo exercise rather than a strategic positioning decision.",
+    brief: "Write down the one thing your product does better than anyone else in the world — if you can't name it in five words, your brand doesn't exist yet."
+  },
+  {
+    title: "Map the Value of Your Product with the Value Proposition Canvas",
+    presenter: "Yuliia Panasiuk",
+    level: "Entrepreneurs",
+    format: "Workshop",
+    synopsis: "Julia, a product marketing manager at Expedia Group who applied the Value Proposition Canvas to help a Ukrainian refugee nonprofit (SweetLaw) define its positioning, teaches the framework from first principles for an audience that largely hadn't used it. The canvas maps customer jobs, pains, and gains on the right side against the product's features, pain relievers, and gain creators on the left — and the session's key insight is that 'fit' between the two sides is the test of whether a product is actually solving what it claims to solve. The startup founder seeking an MVP is the running example throughout, keeping the framework grounded in a scenario most of the audience could inhabit.",
+    takeaways: [
+      "Customer jobs are not just functional tasks — they include emotional needs, social signaling, and self-actualization, and ignoring those dimensions produces products that work but don't get adopted",
+      "The canvas is not a one-time artifact but an interview guide: the trigger questions on each cell are the questions you should be asking in every customer discovery session, before and after product usage",
+      "Do a separate canvas for each distinct customer segment and for each major competitor — overlap and gaps between those canvases reveal both where you're differentiated and where you're exposed"
+    ],
+    who: "Startup founders, product managers, and product marketers who are preparing for discovery, refining a value proposition, or trying to articulate why their product is meaningfully different from alternatives.",
+    brief: "Take your current product and fill in the 'customer pains' cell of the canvas honestly — if you can't name at least five specific pains your customers experience before, during, and after using your product, you need more discovery before any roadmap work."
+  },
+  {
+    title: "Positioned to Disrupt: Top Strategies from a PLG Company That Actually Works",
+    presenter: "Kirti Joshi",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Kirti, a product marketer at Sonar — a Swiss developer tools company that grew from open source roots to 7 million developers — shares three PLG strategies drawn from direct experience rather than theory. The session is deliberately interactive, with audience members sharing their own PLG wins and failures alongside Kirti's examples. The core thesis: product-led growth is not a feature model, it is a trust model — you give users enough value to form a genuine opinion of your product, and their authentic voice becomes your most powerful marketing asset at essentially zero cost.",
+    takeaways: [
+      "Give more to get more is counterintuitive but empirically reliable: the freemium model works because users who experience genuine value become advocates, and advocates are exponentially more persuasive than any paid channel",
+      "Your most authentic marketers are already in your user base — the companies that systematically identify, amplify, and reward those voices grow faster than companies that spend the same budget on traditional demand generation",
+      "Dogfooding is not a QA shortcut — it is a strategy for making employees into advocates: when your own team uses your product in real workflows, they find real problems and develop real conviction that travels outside the building"
+    ],
+    who: "Product managers and marketers at companies with some free or community tier who want to understand how to convert that user base into a growth engine rather than just a cost center.",
+    brief: "Name three users of your product who have said something publicly positive about it — then find out if you have any systematic way to identify and amplify the next hundred people like them; if not, that's the gap."
+  }
+];
+
+let activeFilter = 'all';
+
+function levelBadgeClass(level) {
+  if (level === 'Advanced') return 'badge-level-advanced';
+  if (level === 'Entrepreneurs') return 'badge-level-entrepreneurs';
+  return 'badge-level-essentials';
+}
+
+function renderCards() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  const container = document.getElementById('cards');
+  const noResults = document.getElementById('no-results');
+  const countEl = document.getElementById('count');
+
+  const filtered = sessions.filter(s => {
+    const matchesFilter = activeFilter === 'all' ||
+      s.level === activeFilter || s.format === activeFilter;
+    const matchesSearch = !query ||
+      s.title.toLowerCase().includes(query) ||
+      s.presenter.toLowerCase().includes(query) ||
+      s.synopsis.toLowerCase().includes(query) ||
+      s.takeaways.some(t => t.toLowerCase().includes(query));
+    return matchesFilter && matchesSearch;
+  });
+
+  countEl.textContent = `${filtered.length} of ${sessions.length} sessions`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    noResults.style.display = 'block';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  container.innerHTML = filtered.map((s, i) => `
+    <div class="card" id="card-${i}">
+      <div class="card-header" onclick="toggle(${i})">
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="card-badges">
+            <span class="badge badge-format">${s.format}</span>
+            <span class="badge ${levelBadgeClass(s.level)}">${s.level}</span>
+          </div>
+        </div>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 8l5 5 5-5"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Who Should Read This</div>
+        <div class="who">${s.who}</div>
+        <div class="section-label">The Brief</div>
+        <div class="brief">${s.brief}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggle(i) {
+  const card = document.getElementById(`card-${i}`);
+  card.classList.toggle('open');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderCards();
+  });
+});
+
+document.getElementById('search').addEventListener('input', renderCards);
+
+renderCards();
+</script>
+</body>
+</html>
