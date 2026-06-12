@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCA28 — ProductCamp Austin 28 · Session Archive</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e8eaf0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #b0b8cc;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+      color: #b0b8cc;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      background: #1a1d27;
+      border-bottom: 1px solid #2a2d3a;
+    }
+
+    .filter-btn {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid #3a3d5a;
+      background: transparent;
+      color: #c0c8dc;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover { border-color: #5b6ad4; color: #e0e4f8; }
+    .filter-btn.active { background: #5b6ad4; border-color: #5b6ad4; color: #fff; }
+
+    .search-wrap {
+      padding: 1.25rem 2rem 0;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #2a2d3a;
+      background: #1a1d27;
+      color: #e8eaf0;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-wrap input:focus { border-color: #5b6ad4; }
+    .search-wrap input::placeholder { color: #7888a0; }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    .count {
+      font-size: 0.8rem;
+      color: #8090a8;
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover { border-color: #3a3d5a; }
+    .card.open { border-color: #5b6ad4; }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .card-header:hover .card-title { color: #c7ccf0; }
+
+    .card-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e8eaf0;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+
+    .card-presenter {
+      font-size: 0.8rem;
+      color: #b0b8cc;
+      margin-top: 0.25rem;
+    }
+
+    .card-badges {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+
+    .badge-format { border-color: #4a4d6a; color: #b0b8cc; }
+    .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+    .badge-level-advanced { border-color: #6a3a3a; color: #e08888; }
+    .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+
+    .chevron {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #8090a8;
+      transition: transform 0.2s;
+      margin-top: 2px;
+    }
+
+    .card.open .chevron { transform: rotate(180deg); }
+
+    .card-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid #2a2d3a;
+    }
+
+    .card.open .card-body { display: block; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5b6ad4;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .synopsis { font-size: 0.9rem; color: #dde2f0; line-height: 1.65; }
+
+    .takeaways {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .takeaways li {
+      font-size: 0.875rem;
+      color: #dde2f0;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .takeaways li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #5b6ad4;
+    }
+
+    .who, .brief {
+      font-size: 0.875rem;
+      color: #dde2f0;
+      line-height: 1.6;
+    }
+
+    .brief {
+      background: #12141c;
+      border-left: 3px solid #5b6ad4;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #8090a8;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: #7888a0;
+      border-top: 1px solid #2a2d3a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin · Spring 2023</div>
+  <h1>PCA28 Session Archive</h1>
+  <div class="subtitle">19 sessions · Product Management · AI · Careers · Leadership</div>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="Essentials">Essentials</button>
+  <button class="filter-btn" data-filter="Advanced">Advanced</button>
+  <button class="filter-btn" data-filter="Workshop">Workshop</button>
+  <button class="filter-btn" data-filter="Presentation">Presentation</button>
+</div>
+
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Search sessions, presenters, topics…" />
+</div>
+
+<main>
+  <div class="count" id="count"></div>
+  <div id="cards"></div>
+  <div class="no-results" id="no-results" style="display:none">No sessions match your filter.</div>
+</main>
+
+<footer>PCA28 · ProductCamp Austin 28 · Archived with ONDA Replay</footer>
+
+<script>
+const sessions = [
+  {
+    title: "4 Product Design Leadership Lessons from Ted Lasso",
+    presenter: "Cindy Bremmer",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Bremmer draws on her decade-long journey building a product design agency to extract four leadership lessons embedded in the Ted Lasso series. Using vivid scenes from the show as mirrors for real workplace situations — toxic clients, accountability failures, and team morale crises — she makes the case that great product leadership requires emotional courage, not just process mastery. The talk is equal parts personal memoir and practical framework, grounded in situations most product leaders will recognize immediately.",
+    takeaways: [
+      "Courage to make tough and unpopular decisions is a learnable leadership skill, not a personality trait — and delaying decisions out of fear always costs more than acting",
+      "Accountability must be modeled, not just mandated — teams watch whether leaders actually own their mistakes before deciding whether they will",
+      "Psychological safety is the precondition for honest teams; leaders create it by seeking support visibly and admitting uncertainty first"
+    ],
+    who: "Product managers and team leads who feel the gap between knowing the right leadership move and having the courage to make it — especially those managing difficult clients or low-morale teams.",
+    brief: "The next time you know what needs to be done but keep delaying, ask yourself what Ted Lasso would do — and then ask a trusted colleague to hold you to it."
+  },
+  {
+    title: "9 Uncommon Skills of Great PMs",
+    presenter: "Jake Stevens & Isaiah",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Stevens and his business partner present nine skills that separate good product managers from great ones — not the standard PM toolkit, but the under-developed capabilities that actually determine career trajectory. The session covers everything from cross-cultural communication and public speaking to human psychology and data visualization, all framed as tools to deploy situationally rather than rules to follow rigidly. The framing 'tools, not rules' captures the entire thesis: great PMs adapt, they don't apply.",
+    takeaways: [
+      "Cross-cultural communication is a competitive advantage as remote and global teams become the norm — symbols and examples land where words often fail",
+      "Public speaking is a force multiplier: decent content presented well consistently outperforms brilliant content presented poorly",
+      "Understanding human psychology — including your own blind spots — is the most undervalued skill in a PM's toolkit"
+    ],
+    who: "Product managers at any level who want to develop the interpersonal and cognitive skills that formal PM training rarely covers — especially those working on distributed or cross-cultural teams.",
+    brief: "Pick the one skill from this list where you already have the most natural ability and double down on it — your fastest path to standing out is to be genuinely excellent at one uncommon thing."
+  },
+  {
+    title: "Adopting the Negotiation Frame for Product Managers",
+    presenter: "PCA28 Presenter",
+    level: "Advanced",
+    format: "Workshop",
+    synopsis: "This interactive workshop makes the case that negotiation is not a separate skill from product management — it is product management, renamed. Through exercises and small group discussions, the session reveals that the active listening, mirroring, labeling, and expectation-setting that PMs already practice in discovery are the same mechanics used in expert negotiation. The framework 'connect, communicate, close' gives attendees a memorable structure to apply immediately.",
+    takeaways: [
+      "The skills at the core of negotiation — active listening, mirroring, labeling, avoiding premature solutioning — are identical to the skills at the core of good product discovery",
+      "Product managers hold more organizational leverage than they typically recognize; understanding and using that leverage ethically is a career accelerator",
+      "Objective criteria (company priorities, shared metrics) are the fastest path to productive negotiation — they depersonalize disagreement and remove the need to win arguments"
+    ],
+    who: "Product managers who regularly navigate competing stakeholder priorities, resource constraints, or cross-team dependencies and want a more intentional framework for those conversations.",
+    brief: "Before your next difficult stakeholder conversation, write down the objective criteria — shared priorities, agreed metrics, company goals — that you can anchor the discussion to instead of trading opinions."
+  },
+  {
+    title: "AI and Product Management: What I Learned from Silicon Valley",
+    presenter: "Chris Wilke",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Fresh from a Silicon Valley conference with some of the top product minds in AI, Wilke distills seven principles that define great product leadership in the generative AI era. Drawing on talks from leaders at LinkedIn, Facebook, Vanta, and Monte Carlo, the session maps a clear path from product-led thinking to building AI-era moats. A live ChatGPT demo grounds the theory in something attendees can start using the same week.",
+    takeaways: [
+      "Driving clarity — on roadmaps, metrics, messaging, and team direction — is the single highest-leverage thing a product manager can do in any environment, but especially in AI",
+      "Community is the moat that AI cannot easily replicate; building user-generated and curated community around your product is the durable differentiator as software costs collapse",
+      "Focus on outcomes over outputs: the product manager who can identify and track the right metric — not the most convenient proxy — will consistently make better decisions"
+    ],
+    who: "Product managers at growth-stage or enterprise companies who want to understand how elite product leaders are orienting their strategy around generative AI.",
+    brief: "Write down the three most important metrics for your product right now — then honestly assess whether they measure outcomes or activity, and change at least one if needed."
+  },
+  {
+    title: "AI-First Design Thinking: Transforming Product Innovation",
+    presenter: "HP Enterprise PM",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "This session demystifies AI for product managers who understand its potential but struggle to act on it, anchoring the concepts in the familiar five-stage design thinking process. The presenter walks through how supervised, unsupervised, and reinforced learning actually work — using everyday examples like spam filtering and Netflix recommendations — then explores how these mechanisms can be embedded into product development at any company. The ethical dimensions of AI bias and privacy get serious treatment alongside the opportunity framing.",
+    takeaways: [
+      "AI is data-dependent by definition — the quality and completeness of your training data determines the quality of your model, making data strategy inseparable from AI strategy",
+      "The bias problem in AI is not abstract: historically biased data produces historically biased outputs, and product managers have a specific responsibility to understand and counteract this",
+      "You don't need to be a data scientist to embed AI thinking into product development — starting with data collection strategy and user behavior tracking is within every PM's reach today"
+    ],
+    who: "Product managers at organizations that are investing in or evaluating AI features who need a conceptually honest foundation before they can lead productive conversations with engineering and data teams.",
+    brief: "Identify one user behavior in your product you're currently not tracking that would meaningfully improve your model's relevance — then work backwards from that to a data collection plan."
+  },
+  {
+    title: "Cracking the Code: How to Access Elusive B2B Users for Product Discovery",
+    presenter: "Author, B2B Innovators Map",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "This session directly addresses the most common gap in B2B product development: the inability to access real users for meaningful discovery. The presenter — a 20-year veteran with experience at Fortune 500s and Silicon Valley startups, and author of the B2B Innovators Map — argues that the solution is not clever tactics but systematic relationship-building through a 'discovery network' that the product team owns independently of sales. The framework for finding, nurturing, and activating that network is immediately replicable.",
+    takeaways: [
+      "The majority of B2B new product failures trace back to building from secondhand information — the fix is not better analysis but direct customer access, which requires a discovery network the PM team owns",
+      "Building a discovery network of 30 people in your exact target market gives you enough signal to make defensible product decisions without needing enterprise-scale research budgets",
+      "Becoming a trusted advisor to your target users — through content, events, and thought leadership — is the fastest path to the kind of candid customer access that sales will never provide"
+    ],
+    who: "Product managers at B2B companies who are tired of building products based on secondhand sales feedback and want a systematic method for getting direct access to the users who actually do the work.",
+    brief: "Name five people in your target market you could call today who would take the meeting — that's the beginning of your discovery network, and it starts with people you already know."
+  },
+  {
+    title: "Designing for the Battlefield: Lessons Learned from Teaching Soldiers",
+    presenter: "Hoolie",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Hoolie arrived at the Army Software Factory prepared for resistance and left with a profound lesson about the distortions we bring to every design engagement. Teaching active duty soldiers to build software exposed a series of assumptions — about domain expertise, about who should lead, about what 'understanding the user' really means — that apply to every product team working in high-stakes or specialized environments. The talk is framed around the Army's five product principles, which turn out to have direct civilian parallels.",
+    takeaways: [
+      "The most dangerous moment in any discovery engagement is when you think you already know the user — arriving at neutral and actively resetting your mental models is a precondition for honest research",
+      "Domain expertise embedded in the product team — not just accessed through interviews — produces fundamentally different outcomes, especially for high-consequence products",
+      "Plans are artifacts; planning is the activity that matters. The conversations that happen while building a plan often contain the real insight that no artifact can capture"
+    ],
+    who: "Product managers, UX researchers, and designers who work in specialized domains — healthcare, defense, infrastructure, regulated industries — where user assumptions are especially costly.",
+    brief: "Before your next discovery sprint, write down the three assumptions about your users you would bet money on — then design your first interview to test exactly those."
+  },
+  {
+    title: "From Chaos to Clarity: Better Product Decisions with the Cynefin Framework",
+    presenter: "Dan Walsh",
+    level: "Advanced",
+    format: "Workshop",
+    synopsis: "Walsh spent 18 years at Intel before building a consulting practice around applied complexity theory, and this hands-on workshop brings the Cynefin framework to life for product managers who need to make better decisions under uncertainty. By distinguishing between clear, complicated, complex, and chaotic problem domains, the framework gives teams a shared language for aligning on how to approach a given situation — which turns out to be the most common source of unproductive team disagreement.",
+    takeaways: [
+      "Most product disagreements about 'how to proceed' are actually disagreements about which domain you're in — agreeing on that first makes the right approach obvious to everyone",
+      "Complex problems (cause and effect are only visible in retrospect) require probe-sense-respond approaches, not the best-practice playbooks that work in complicated domains",
+      "The 'cliff' between clear and chaotic domains is real and dangerous — teams that mistake a complex situation for a clear one are most likely to make irreversible decisions"
+    ],
+    who: "Product managers and team leads navigating ambiguous or rapidly changing problem spaces who want a rigorous way to think about what kind of situation they're actually in before choosing how to respond.",
+    brief: "The next time your team disagrees about how to move forward on a product decision, ask everyone to place the problem on the Cynefin spectrum first — chances are the disagreement is about the domain, not the solution."
+  },
+  {
+    title: "From Zero to Product Manager: Breaking into the Industry",
+    presenter: "Eric",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Eric broke into product management from the travel industry with no software background, and just recovered from a layoff to land a new PM role — giving him two firsthand experiences of the hardest parts of the transition. The session is structured as an honest conversation about what actually works: building a credible narrative from non-traditional experience, identifying and filling specific skill gaps, and the grinding practice of mock interviewing that no one else will tell you is necessary.",
+    takeaways: [
+      "The story you tell about your background matters more than the background itself — a coherent narrative that maps your existing skills to PM competencies will open doors that a resume alone cannot",
+      "Identifying your specific gaps and visibly addressing them (certifications, courses, side projects) signals hunger and self-awareness — two qualities that make risk-tolerant hiring managers take a chance",
+      "Mock interviewing with peers is the highest-ROI practice available to job seekers and is systematically underused — put in the reps before you need them"
+    ],
+    who: "Career changers and recent graduates looking to break into product management who need a realistic, experience-grounded roadmap rather than another generic 'how to become a PM' framework.",
+    brief: "Write down your three strongest skills from your current or previous career, then map each one explicitly to a core PM competency — that map is the story you need to start telling."
+  },
+  {
+    title: "GA4 Doesn't Suck as Much as You Think: Hidden Gems",
+    presenter: "Craig",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Craig nearly died in 2021, spent months learning to walk again, and built his recovery around the same principle he brings to analytics: ask the right questions, measure what matters, and take predetermined action on the answers. That framework — questions, answers, actions — is the lens through which he teaches GA4, reframing it not as a reporting tool (where it frustrates everyone) but as a measurement platform that rewards configuration over convenience. The session cuts through the noise for anyone facing the Universal Analytics migration.",
+    takeaways: [
+      "GA4 is a measurement platform, not a reporting platform — teams that treat it like a drop-in replacement for Universal Analytics will get garbage; teams that configure it deliberately will get compound insight",
+      "Events must be configured before they happen: if you haven't tagged your user journey steps in advance, you cannot reconstruct what users actually did after the fact",
+      "Asking the right questions — uniquely tailored to your business, not the industry average — is the precondition for any useful analytics; average questions produce average answers"
+    ],
+    who: "Product managers, marketers, and analytics owners who are dreading or have already started the Universal Analytics migration and want a framework for configuring GA4 to actually answer their business questions.",
+    brief: "Before touching GA4 settings, write down the three questions your business most needs answered about user behavior — then configure your events to answer exactly those, and nothing else."
+  },
+  {
+    title: "Getting Tactical About Your Product Career",
+    presenter: "Caleb Smith",
+    level: "Essentials",
+    format: "Workshop",
+    synopsis: "Seven years into a product career that started in sales and wound through a master's in engineering management, Caleb Smith facilitates an open discussion about the mechanics of career progression in product. The session is structured as a conversation rather than a lecture, surfacing common inflection points — the agile knowledge gap, the mentor-finding challenge, the transition from general skills to specific credibility — and giving attendees frameworks for identifying their own next move.",
+    takeaways: [
+      "Domain knowledge gaps (like agile mechanics) can end a promising transition before it starts — identify yours early and address them visibly, not just competently",
+      "Mentors matter more than credentials at most career junctures; the fastest path to a mentor is asking smart questions and demonstrating genuine curiosity, not asking for advice",
+      "Career trajectory in product is not linear — the most common acceleration pattern is a deliberate lateral move that builds a missing capability, followed by an upward move from a stronger position"
+    ],
+    who: "Mid-career product managers who feel stuck at a plateau and want a tactical, experience-based framework for identifying and closing the specific gaps holding them back.",
+    brief: "Name the one capability that, if you had it at twice its current level, would make the most difference to your career in the next two years — then design a 90-day plan to get there."
+  },
+  {
+    title: "How to Catch ChatGPT in a Lie",
+    presenter: "Glenn Ford",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "Ford spent five years in and around large machine learning models at companies that build training data for self-driving cars, making him one of the more grounded voices in the AI hype cycle. His core argument: assume the model is wrong, then determine exactly how it is wrong. The session delivers concrete, actionable tactics for responsible AI use — from fact-checking hallucinated citations to recognizing the tell-tale signs of AI-generated text — without dismissing the genuine power of these tools.",
+    takeaways: [
+      "The default posture toward any LLM output should be trust-but-verify, not trust — models are prediction engines, not fact engines, and their confidence is structurally decoupled from their accuracy",
+      "The more a model writes, the more opportunities for error: long-form AI outputs require proportionally more fact-checking, not less, regardless of how fluent they sound",
+      "The word 'overall' at the end of a paragraph is a reliable signal that ChatGPT wrote it — knowing the tells lets you catch AI-generated content whether you wrote it or someone handed it to you"
+    ],
+    who: "Product managers, marketers, and knowledge workers who are actively using generative AI tools and want to develop a more sophisticated, appropriately skeptical relationship with them.",
+    brief: "The next time you use ChatGPT to generate something you'll share externally, pick three specific factual claims in the output and verify each one independently before publishing."
+  },
+  {
+    title: "Making the Jump: Essential Skills for Transitioning to a Leadership Role",
+    presenter: "Monica Chardier",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Chardier has done both jobs at Dell — hands-on PM and product leadership — and uses that firsthand contrast to make the transition legible in a way that most career advice skips. The core insight is structural: the skills that make you excellent as a PM (direct ownership, decisive action, clear accountability) are actively harmful when applied to a leadership role without modification. The shift from 'doing' to 'coaching for outcomes' is the hardest part, and she gives it the honest treatment it deserves.",
+    takeaways: [
+      "The primary metric for a people leader is team performance and development, not personal output — the faster you accept this, the faster you become an effective leader",
+      "The temptation to solve problems for your team rather than coaching them through problems is real, persistent, and corrosive — it creates dependency instead of capability",
+      "Leadership requires a fundamentally different relationship to problems: as an IC you solve them, as a leader you create the conditions for your team to solve them"
+    ],
+    who: "Senior product managers who are on track for a leadership role — or recently stepped into one — and want an honest map of what will need to change about how they work.",
+    brief: "Identify one situation this week where you solved a problem for someone on your team instead of coaching them through it — then replay it in your head with the coaching approach and practice that language."
+  },
+  {
+    title: "Networking for Career Success",
+    presenter: "Tom",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "The CEO of the Austin Technology Council reframes networking not as an event-based activity but as the ongoing practice of human engagement — a skill that becomes increasingly critical as remote work erodes the informal relationship-building that used to happen automatically in offices. Using his E=MC² model (Engagement = Meaningful Connections), he makes the case that career safety in uncertain times depends far more on whether people know and trust you than on how good you are at your job.",
+    takeaways: [
+      "In any reduction in force decision, the people who survive are the ones who are known and liked — technical performance is table stakes, relationship depth is what tips the balance",
+      "Remote work eliminated the ambient relationship-building that offices provided for free; you now have to be intentional about the interactions that used to happen accidentally",
+      "Every interaction is a chance to make a meaningful connection or a transactional one — the cumulative difference between those two approaches over a career is enormous"
+    ],
+    who: "Product professionals at any stage who underinvest in relationship-building — either because they find it uncomfortable, prefer to let their work speak for itself, or underestimate how much it shapes their career outcomes.",
+    brief: "Identify three colleagues you interact with regularly but don't really know as people — then have one genuinely personal conversation with each of them this week."
+  },
+  {
+    title: "Product Innovation with Game Thinking",
+    presenter: "GM Innovation Strategy PM",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "Working in General Motors' innovation division — where he's helped launch products that reached $1B in revenue — this PM discovered Dr. Amy Jo Kim's Game Thinking framework and found it offered three genuine upgrades to standard design thinking. The session focuses on the three most actionable elements: identifying and building for super fans first, designing mastery paths and habit-building loops into the product, and using play testing (not user testing) for early validation.",
+    takeaways: [
+      "Building for 100 people who love your product beats building for a million who kind of like it — the super fan funnel gives you a rigorous method for finding those people, not just a catchy principle",
+      "Mastery paths and habit-forming loops are not manipulation tactics — they are the product design patterns that make a tool genuinely useful by helping users get better at the underlying skill over time",
+      "Play testing treats early engagement as a game experience to be tuned, not a feature list to be validated — it surfaces engagement and dropout signals that traditional user testing misses entirely"
+    ],
+    who: "Product managers responsible for engagement, retention, or new product discovery who want to apply behavioral design principles with more rigor than typical gamification advice provides.",
+    brief: "Map your product's current onboarding flow against the mastery path concept — identify where users are expected to level up and whether the product actually helps them get there."
+  },
+  {
+    title: "Product Strategy: Building a Financial Model",
+    presenter: "Amazon B2B PM",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "A B2B product manager from Amazon's commercial segment walks through the full arc of getting a product strategy approved — from the five-element strategy framework (problem, segment, value proposition, competitive edge, channels) through narrative construction to financial modeling. The practical emphasis on writing a clear one-page memo, using future customer testimonials to illustrate the opportunity, and building ROI cases that leaders can actually evaluate makes this session unusually concrete for a strategy talk.",
+    takeaways: [
+      "A product strategy without a financial model is a pitch without a close — leaders approve resources based on ROI clarity, not strategic elegance, and PMs who can build both models consistently advance faster",
+      "Future customer testimonials — what will users actually say when this exists — are among the most persuasive elements in a strategy narrative, because they make the abstract outcome concrete and human",
+      "Knowing how the approving leader thinks (what they optimize for, what makes them say no) is as important as the quality of the strategy itself — the same content needs different framing for different audiences"
+    ],
+    who: "Product managers at mid-to-large organizations who regularly need to gain leadership approval for roadmap investments and want to build the financial modeling skills that shorten that cycle.",
+    brief: "The next strategy you need approved: write the one-page memo before building the deck, then check whether every financial assumption in the model is explicitly tied to a customer behavior you've actually observed."
+  },
+  {
+    title: "The Legal and Business Risks of AI: What Product Managers Need to Know",
+    presenter: "Dan Corbin",
+    level: "Advanced",
+    format: "Presentation",
+    synopsis: "At the inflection point of the generative AI era, Corbin offers a counterweight to the hype: a clear-eyed inventory of the contractual, privacy, disinformation, and discrimination risks that product managers need to understand before embedding AI in their products. The session is deliberately practical rather than alarmist, positioning AI risk awareness not as a reason to avoid the technology but as the specific knowledge that lets product professionals use it with authority and protect their organizations in the process.",
+    takeaways: [
+      "Using AI tools on customer data, confidential company data, or partner data without reviewing applicable contracts and terms of service is a real liability — this should be a checklist step before any AI integration, not an afterthought",
+      "LLMs will produce confident, fluent hallucinations and discrimination-amplifying outputs — product managers who don't understand these failure modes will not catch them until they've caused damage",
+      "Start AI integration on internal workflows before external-facing ones — the bar for vetting is dramatically lower internally, and the learning translates directly to more responsible external deployment"
+    ],
+    who: "Product managers integrating or evaluating AI features who want to understand the specific risks before they become the person who has to explain a failure to leadership or legal.",
+    brief: "Before your next AI feature ships, run through three questions: what data does this touch, what happens when it hallucinates, and who is responsible for reviewing outputs before they reach users."
+  },
+  {
+    title: "Top 20 Tips to Become a Product Professional",
+    presenter: "HP Veteran PM",
+    level: "Essentials",
+    format: "Presentation",
+    synopsis: "A product professional with 20-plus years across hardware, software, and services — including a Technical Academy Award at HP — delivers a high-density session of career principles distilled from a long and varied career. The emphasis is not on tools or frameworks but on the professional habits, mindsets, and positioning choices that compound over time: owning your career identity, bringing solutions not problems, managing in all directions, and speaking the language of business.",
+    takeaways: [
+      "Your LinkedIn headline should describe the value you create, not the title you hold — a role description tells people where you've been, but a value statement tells them what you can do for them",
+      "Coming to leadership with a problem and no proposed solutions is a missed opportunity; bringing choices (plural) signals both preparation and collaborative intent",
+      "Learning the language of finance — even at a basic level — unlocks your ability to compete for resources and advocate for your roadmap in the terms that ultimately determine approvals"
+    ],
+    who: "Product professionals at any career stage who want to develop the durable habits and positioning strategies that drive long-term career success — especially those who feel technically strong but underrecognized.",
+    brief: "Rewrite your LinkedIn headline today to describe the value you deliver rather than the title you hold — then ask three colleagues if it accurately captures what you actually do."
+  },
+  {
+    title: "Your PM Tools Are Awful. Try These Instead.",
+    presenter: "John Milburn",
+    level: "Essentials",
+    format: "Workshop",
+    synopsis: "Milburn spent a decade at Pragmatic Marketing teaching product management and has spent six years since consulting with companies who are still using the wrong tools for each phase of the product lifecycle. This interactive session maps the tool landscape across discovery, ideation, strategy, and requirements — using live audience input via Mentimeter — and exposes the most common mismatch: using project management tools (like Jira) for ideation, or roadmapping tools for things roadmapping tools weren't designed to do.",
+    takeaways: [
+      "Most PM tool frustration comes from tool-job mismatch, not tool quality — the question is never 'what's the best tool?' but 'what job does this tool need to do at this phase of my process?'",
+      "Discovery is fundamentally a qualitative, relationship-driven activity that no tool can automate — the tools help with data collection and analysis, but the interviews themselves are irreplaceable",
+      "Roadmapping tools (Aha!, ProductBoard, Jira) are frequently misapplied to phases they weren't designed for; knowing what each tool was built for is the prerequisite for choosing it well"
+    ],
+    who: "Product managers who feel like their current toolchain creates more friction than it removes, or who suspect they're using the right tools in the wrong phases of their process.",
+    brief: "List the five tools your team uses most often in product work — then write next to each one the phase it's supposed to serve and whether that's actually how you're using it."
+  }
+];
+
+let activeFilter = 'all';
+
+function levelBadgeClass(level) {
+  if (level === 'Advanced') return 'badge-level-advanced';
+  if (level === 'Entrepreneurs') return 'badge-level-entrepreneurs';
+  return 'badge-level-essentials';
+}
+
+function renderCards() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  const container = document.getElementById('cards');
+  const noResults = document.getElementById('no-results');
+  const countEl = document.getElementById('count');
+
+  const filtered = sessions.filter(s => {
+    const matchesFilter = activeFilter === 'all' ||
+      s.level === activeFilter || s.format === activeFilter;
+    const matchesSearch = !query ||
+      s.title.toLowerCase().includes(query) ||
+      s.presenter.toLowerCase().includes(query) ||
+      s.synopsis.toLowerCase().includes(query) ||
+      s.takeaways.some(t => t.toLowerCase().includes(query));
+    return matchesFilter && matchesSearch;
+  });
+
+  countEl.textContent = `${filtered.length} of ${sessions.length} sessions`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    noResults.style.display = 'block';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  container.innerHTML = filtered.map((s, i) => `
+    <div class="card" id="card-${i}">
+      <div class="card-header" onclick="toggle(${i})">
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="card-badges">
+            <span class="badge badge-format">${s.format}</span>
+            <span class="badge ${levelBadgeClass(s.level)}">${s.level}</span>
+          </div>
+        </div>
+        <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 8l5 5 5-5"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Who Should Read This</div>
+        <div class="who">${s.who}</div>
+        <div class="section-label">The Brief</div>
+        <div class="brief">${s.brief}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggle(i) {
+  const card = document.getElementById(`card-${i}`);
+  card.classList.toggle('open');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderCards();
+  });
+});
+
+document.getElementById('search').addEventListener('input', renderCards);
+
+renderCards();
+</script>
+</body>
+</html>
