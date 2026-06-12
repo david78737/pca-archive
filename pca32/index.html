@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCA32 Session Archive — ProductCamp Austin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e8eaf0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  a { color: #7b8ef0; }
+
+  header { background: #1a1d27; border-bottom: 1px solid #2a2d3a; padding: 24px 32px 20px; }
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: #6b7090; margin-bottom: 4px; }
+  header h1 { font-size: 26px; font-weight: 700; color: #e8eaf0; }
+
+  .controls { padding: 20px 32px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .filter-btn { background: #1a1d27; border: 1px solid #2a2d3a; color: #a0a4b8; border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .filter-btn:hover { background: #22253a; color: #e8eaf0; }
+  .filter-btn.active { background: #2a2d4a; border-color: #5b6ad4; color: #e8eaf0; }
+  #search { margin-left: auto; background: #1a1d27; border: 1px solid #2a2d3a; color: #e8eaf0; border-radius: 6px; padding: 6px 12px; font-size: 13px; width: 220px; outline: none; }
+  #search::placeholder { color: #555870; }
+  #search:focus { border-color: #5b6ad4; }
+
+  #count { padding: 10px 32px 4px; font-size: 12px; color: #555870; }
+
+  .sessions { padding: 12px 32px 48px; display: flex; flex-direction: column; gap: 10px; }
+
+  .card { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 10px; overflow: hidden; transition: border-color .15s; }
+  .card.open { border-color: #5b6ad4; }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px; cursor: pointer; -webkit-user-select: none; user-select: none; }
+  .card-header:hover .card-title { color: #c8ccf0; }
+  .chevron { flex-shrink: 0; margin-top: 3px; width: 18px; height: 18px; color: #555870; transition: transform .2s; }
+  .card.open .chevron { transform: rotate(90deg); }
+  .card-meta { flex: 1; min-width: 0; }
+  .card-title { font-size: 15px; font-weight: 600; color: #b8bcdc; margin-bottom: 6px; transition: color .15s; }
+  .card-presenter { font-size: 13px; color: #7b8090; margin-bottom: 6px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: 11px; font-weight: 500; border: 1px solid; border-radius: 4px; padding: 2px 7px; text-transform: uppercase; letter-spacing: .06em; }
+  .badge-level-essentials { border-color: #3a6a3a; color: #88d888; }
+  .badge-level-advanced  { border-color: #6a3a3a; color: #e08888; }
+  .badge-level-entrepreneurs { border-color: #6a5a3a; color: #e0c088; }
+  .badge-format { border-color: #3a4a6a; color: #88aae0; }
+
+  .card-body { display: none; padding: 0 18px 18px 48px; }
+  .card.open .card-body { display: block; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #5b6ad4; margin: 14px 0 6px; }
+  .synopsis { color: #c0c4d8; line-height: 1.65; }
+  .takeaways { list-style: none; }
+  .takeaways li { color: #a8accc; padding: 3px 0 3px 16px; position: relative; }
+  .takeaways li::before { content: "→"; position: absolute; left: 0; color: #5b6ad4; }
+  .who { color: #a8accc; font-style: italic; }
+  .brief-row { margin-top: 12px; font-size: 12px; color: #555870; }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 16px; }
+    .controls { padding: 14px 16px 0; }
+    #search { width: 100%; margin-left: 0; }
+    #count { padding: 8px 16px 2px; }
+    .sessions { padding: 10px 16px 40px; }
+    .card-body { padding-left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ProductCamp Austin &middot; Spring 2025</div>
+  <h1>PCA32 Session Archive</h1>
+</header>
+
+<div class="controls">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="essentials">Essentials</button>
+  <button class="filter-btn" data-filter="advanced">Advanced</button>
+  <button class="filter-btn" data-filter="entrepreneurs">Entrepreneurs</button>
+  <input id="search" type="search" placeholder="Search sessions…" autocomplete="off">
+</div>
+
+<div id="count"></div>
+
+<div class="sessions" id="sessions"></div>
+
+<script>
+const sessions = [
+  {
+    title: "AI Meets Ambition: Build Your Career Assistant",
+    presenter: "Lisa Bounds",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Lisa (former Dell and MedTech startup, currently navigating the same brutal job market as her audience) teaches how to build a custom ChatGPT that deeply knows you — trained on your resume, strengths, and voice — so it can tailor applications, simulate ATS scoring, draft outreach, and prep STAR stories on demand. Requires ChatGPT Plus ($20/month). Live demo-based session with actionable setup steps.",
+    takeaways: [
+      "Build a custom GPT with a detailed system prompt — the more specific it knows you, the better it performs",
+      "Use it to tailor resumes and cover letters per role without starting from scratch each time",
+      "Simulate ATS scoring before you submit — know how your application will be screened",
+      "You can't control Workday's bad UX, but you can control how well-prepared your materials are"
+    ],
+    who: "Active job seekers and career-pivoting PMs who want AI to do the tedious application work",
+    brief: "Your custom GPT as a career co-pilot"
+  },
+  {
+    title: "Engineering The Future: Agile for Hardware with MAHD™",
+    presenter: "Vishal Sheth",
+    level: "entrepreneurs",
+    format: "Presentation",
+    synopsis: "Vishal (partner at the MAHD Framework, implemented in 100+ hardware organizations since 2017) makes the case that both Waterfall and standard Scrum fail physical product teams — Waterfall because integration comes too late, Scrum because it assumes digital flexibility that hardware doesn't have. MAHD bridges the gap with hardware-specific sprints that surface integration failures early and drive cross-functional collaboration through the full development cycle.",
+    takeaways: [
+      "Waterfall fails hardware because everyone follows their Gantt chart in a silo until the end — then it doesn't fit together",
+      "Standard Scrum fails hardware because you can't sprint to a physical prototype the way you can deploy software",
+      "MAHD's key insight: learning cycles must happen early, when changes are cheap, not at integration",
+      "Cross-functional collaboration in hardware isn't a nice-to-have — it's the mechanism that prevents late-stage disasters"
+    ],
+    who: "PMs, founders, and engineers building physical products that combine hardware, software, and firmware",
+    brief: "Agile that actually works for hardware"
+  },
+  {
+    title: "Introducing AIX: A Framework for AI Experience Design",
+    presenter: "Jake McKee",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Just as UX brought discipline and shared language to interface design, AIX (AI Experience Design) provides a framework for designing how users experience, interpret, and trust AI in your product. Jake's thesis: AI features are powerful but opaque, and opacity erodes trust. If AI is the engine, AIX is the steering wheel. The framework draws on the arc from early web design to modern UX standards as a model for what AI design maturity looks like.",
+    takeaways: [
+      "AI features without intentional experience design create confusion and erode user trust",
+      "Just as UX evolved from IT-owned to customer-experience-owned, AI design needs the same shift",
+      "Design the human-AI relationship, not just the output — consistency and predictability matter",
+      "Opacity in AI behavior is a design failure; users need to understand what the system is doing and why"
+    ],
+    who: "PMs, designers, and product leaders building AI-powered features who want a shared design vocabulary",
+    brief: "If AI is the engine, AIX is the steering wheel"
+  },
+  {
+    title: "When Product Forgets About Commercial",
+    presenter: "Lisa Hendrickson",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Lisa (former COO of a sustainable manufacturing startup, global head at S&P Global, adjunct professor at FIT) delivers a cautionary story: product and commercial teams systematically underestimate each other's complexity, and the result is launches that nobody knows how to sell. Without embedding commercial thinking into roadmaps and go-to-market planning, you build things the market can't absorb — even when the product is genuinely good.",
+    takeaways: [
+      "Each team believes the other's work is simpler than it is — that gap is where launches fail",
+      "Commercial teams develop a 1-3 point view of product value; product teams assume everyone will just 'get it'",
+      "New product almost always requires an education layer in GTM — commercial teams can't create it alone",
+      "Embedding commercial team members in product creation builds the empathy that makes go-to-market coherent"
+    ],
+    who: "Product leaders and PMs at companies where product and sales operate in separate worlds",
+    brief: "If product and commercial don't talk, nobody wins"
+  },
+  {
+    title: "It's the End of the World As We Know It",
+    presenter: "Mark Stephan",
+    level: "advanced",
+    format: "Town Hall",
+    synopsis: "Mark (founder of Product Hired, Talent Agent, and a new fractional AI agency) breaks from his usual job market data format to deliver a macro-systemic challenge: 40-year, 80-year, and 200-year economic cycles are all converging around 2027 — and he's been tracking this since the 90s. The session is a thinking exercise: if PM as a job category disappears, what is the durable capability underneath it? His answer: dot-connector. Futurist. Systems thinker.",
+    takeaways: [
+      "PM's real skill is connecting disparate signals into patterns others miss — that's the hard-to-automate core",
+      "Stop thinking of yourself as a job category; start thinking of yourself as a capability",
+      "Global economic, political, and technological cycles are closing simultaneously for the first time in history",
+      "Pragmatic systems thinking — not optimism or doom — is the best tool for navigating structural disruption"
+    ],
+    who: "PMs willing to think beyond their current role and ask what their actual durable value is",
+    brief: "PM as a job may not last — PM as a skill will"
+  },
+  {
+    title: "Product Ikigai: Lead with Purpose, Build for Impact",
+    presenter: "Bhaskar Manam",
+    level: "entrepreneurs",
+    format: "Town Hall",
+    synopsis: "Applying the Japanese Ikigai philosophy — the intersection of what you love, what you're good at, what the world needs, and what you get paid for — to product management. Bhaskar uses Google Glass as a case study: technically brilliant, profitable on paper, but it failed because it lacked a resonant purpose. The three traditional product dimensions (feasibility, profitability, usability) are necessary but not sufficient — Ikigai adds the fourth.",
+    takeaways: [
+      "Feasibility, profitability, usability are necessary but not sufficient — purpose is the fourth dimension",
+      "Google Glass nailed three dimensions and missed the one that users actually care about: why should I want this?",
+      "Ikigai aligns your product's reason for being with user passion, company mission, and market reality",
+      "Products built with Ikigai create lasting loyalty; products without it create features nobody remembers"
+    ],
+    who: "PMs and founders who want their products to have meaning beyond metrics",
+    brief: "Build products with a reason for being"
+  },
+  {
+    title: "Product Management Is Not Dead: How to Be Indispensable in the Age of AI",
+    presenter: "Tom Evans",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Tom (longtime PCA organizer and PM) uses live polling to surface where the audience actually underinvests — the result: most PMs spend less than one hour per week with customers. His argument: as AI handles more execution, the five core PM powers (customer empathy, systems thinking, navigating ambiguity, building shared purpose, and humanity) become the differentiated value — not in spite of AI, but because of it.",
+    takeaways: [
+      "Most PMs spend under 1 hour/week with customers — target 10% of your time as a floor",
+      "The five core PM powers are all deeply human and harder to automate as problems grow more complex",
+      "AI as a thinking partner amplifies good PM judgment; it doesn't substitute for judgment",
+      "The stakes and complexity of real-world problems are rising — that's a PM tailwind, not a headwind"
+    ],
+    who: "PMs at all levels who want a clear-eyed answer to 'will AI replace product managers?'",
+    brief: "The PM skills that matter most are the ones AI can't replicate"
+  },
+  {
+    title: "Strategy Isn't a Roadmap: Think Like a Strategic Product Leader",
+    presenter: "Elena Leonova",
+    level: "advanced",
+    format: "Workshop",
+    synopsis: "Elena (CPO at Spriker, formerly Adobe Commerce/Magento) runs an interactive exercise: participants play Head of Product at a fictional travel company with 90 days to define a product strategy. Using PESTLE-based external factor analysis and live voting, she walks through why roadmaps, company goals, and even vision statements are not strategy — and what a real strategic lens actually looks like.",
+    takeaways: [
+      "A roadmap is execution, not strategy — stop presenting them as the same thing",
+      "Company goals give you a north star but not a path; strategy is the change you're creating to get there",
+      "PESTLE analysis grounds strategy in external reality before you set internal direction",
+      "Strategy clarifies what you will NOT do — that's what makes it a strategy and not a wish list"
+    ],
+    who: "PMs and product leaders who want to speak credibly about strategy — and know what it actually means",
+    brief: "Strategy is the change you're making, not the plan you're following"
+  },
+  {
+    title: "The Invisible Career Partner: How Virtual Assistants Unlock Promotions, Books, and Global Opportunities",
+    presenter: "Chris Lopez",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Chris (ten-plus PCA appearances) shows how combining a virtual assistant with AI tools creates a second half of you that works while you're doing your job — researching conferences, drafting talks, managing LinkedIn, pursuing global opportunities. The core ROI argument: calculate your hourly rate, then calculate what you're doing below that rate. The gap is your delegation backlog.",
+    takeaways: [
+      "Calculate your effective hourly rate — everything you do below that rate is a delegation candidate",
+      "VA + AI case study: mid-level PM went from zero speaking presence to four conference offers in one quarter",
+      "High-priority VA tasks: data entry, conference research, outreach follow-up, social media, scheduling",
+      "A VA can expand your career presence globally while you stay focused on your core work"
+    ],
+    who: "PMs who want to build thought leadership, pursue speaking, or unlock global roles without burning out",
+    brief: "Your second half works while you focus on what only you can do"
+  },
+  {
+    title: "What AI Doesn't Tell You About AI",
+    presenter: "Drew & Kendall Bixby",
+    level: "essentials",
+    format: "Presentation",
+    synopsis: "Drew (Lifter Insights, background in ML, agents, and AI data collection) peels back the probability engine underneath AI. Core insight: AI and humans are both matrices of probabilities — which is why AI often feels uncannily right, and also why hallucinations happen in patterned, predictable ways rather than randomly. DeepSeek as a milestone is contextualized: probably not for the reasons you think.",
+    takeaways: [
+      "AI is not a knowledge database — it's a matrix of probabilities predicting the most likely next token",
+      "Humans are also probability machines — that's why AI mirrors us and why it can feel so right",
+      "Hallucinations are patterned, not random; understanding the pattern makes you a better AI skeptic",
+      "Question what you get back: the same prompt can produce confident-sounding wrong answers"
+    ],
+    who: "Anyone who uses AI tools and wants to understand what's actually happening under the hood",
+    brief: "AI doesn't know things — it predicts them. That matters."
+  },
+  {
+    title: "What If Products Weren't Just Tools but the Foundation for Building Ecosystems?",
+    presenter: "Jessica Marriott",
+    level: "advanced",
+    format: "Presentation",
+    synopsis: "Jessica (founder of Forward Thinkers) challenges product people to think beyond features toward ecosystems, using her own mission to disrupt the ski boot market — unchanged since buckles were added in the 1930s — as a live example. She maps out eight expansion vectors for an AI-adaptive boot with biometric feedback, showing how a single bold product vision becomes the seed of a platform. Draws from Apple, Tesla, and Prada's astronaut partnership.",
+    takeaways: [
+      "Industries with no disruption in decades are the highest-opportunity targets — find the 1936 buckle in your space",
+      "A product becomes a platform when others can build on, around, or with it",
+      "Map your product's expansion vectors before you launch — eight is better than one",
+      "Bold product visions attract strategic partners; incremental visions attract vendors"
+    ],
+    who: "Founders and PMs thinking about ecosystem strategy, platform design, or market disruption",
+    brief: "Every platform started as someone asking 'what if we went further?'"
+  }
+];
+
+const levelLabel = { essentials: "Essentials", advanced: "Advanced", entrepreneurs: "Entrepreneurs" };
+
+function render(list) {
+  const container = document.getElementById('sessions');
+  container.innerHTML = '';
+  list.forEach((s) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L14 9.586l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 6.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        <div class="card-meta">
+          <div class="card-title">${s.title}</div>
+          <div class="card-presenter">${s.presenter}</div>
+          <div class="badges">
+            <span class="badge badge-level-${s.level}">${levelLabel[s.level]}</span>
+            <span class="badge badge-format">${s.format}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Synopsis</div>
+        <div class="synopsis">${s.synopsis}</div>
+        <div class="section-label">Key Takeaways</div>
+        <ul class="takeaways">${s.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="section-label">Best For</div>
+        <div class="who">${s.who}</div>
+        <div class="brief-row">${s.brief}</div>
+      </div>`;
+    card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
+    container.appendChild(card);
+  });
+  document.getElementById('count').textContent = `${list.length} session${list.length !== 1 ? 's' : ''}`;
+}
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function applyFilters() {
+  const q = searchQuery.toLowerCase();
+  const filtered = sessions.filter(s => {
+    const matchLevel = activeFilter === 'all' || s.level === activeFilter;
+    const matchSearch = !q || [s.title, s.presenter, s.synopsis, ...(s.takeaways || []), s.who].join(' ').toLowerCase().includes(q);
+    return matchLevel && matchSearch;
+  });
+  render(filtered);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  applyFilters();
+});
+
+applyFilters();
+</script>
+</body>
+</html>
