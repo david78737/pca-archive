@@ -172,33 +172,22 @@
   /* ── Action buttons (YouTube + ONDA download) ── */
   .action-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; align-items: center; }
 
-  /* YouTube: full logo badge, clickable */
+  /* YouTube logo — image badge */
   .yt-btn {
     display: inline-block; text-decoration: none; line-height: 0;
-    border-radius: 4px; overflow: hidden;
     transition: opacity .15s;
   }
-  .yt-btn:hover { opacity: .85; }
-  .yt-btn svg { display: block; height: 40px; width: auto; }
+  .yt-btn:hover { opacity: .8; }
+  .yt-btn img { display: block; height: 36px; width: auto; }
 
-  /* ONDA: compound badge — logo left, text right */
+  /* ONDA — image badge */
   .onda-btn {
-    display: inline-flex; align-items: stretch; text-decoration: none;
-    border: 2px solid #005962; border-radius: 6px; overflow: hidden;
-    height: 40px; transition: opacity .15s;
+    display: inline-block; text-decoration: none; line-height: 0;
+    transition: opacity .15s;
   }
   .onda-btn:hover { opacity: .85; }
   .onda-btn.placeholder { opacity: .35; cursor: default; pointer-events: none; }
-  .onda-logo-cell {
-    background: #005962; width: 40px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .onda-logo-cell svg { width: 28px; height: 28px; }
-  .onda-text-cell {
-    background: #fff; color: #005962;
-    font-weight: 700; font-size: 13px; letter-spacing: .01em;
-    padding: 0 14px; display: flex; align-items: center; white-space: nowrap;
-  }
+  .onda-btn img { display: block; height: 56px; width: auto; }
 
   .loading, .empty { text-align: center; padding: 4rem 2rem; color: #454860; font-size: 14px; }
 
@@ -454,26 +443,21 @@ function render() {
     const takeaways = JSON.parse(row.takeaways || '[]');
     const tags      = JSON.parse(row.tags || '[]');
 
-    // YouTube badge — red wordmark logo, links to video
+    // YouTube — official logo image, links to video
     const ytBtn = row.youtube
       ? `<a class="yt-btn" href="https://www.youtube.com/watch?v=${row.youtube}" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-           <svg viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg">
-             <rect width="120" height="36" rx="5" fill="#FF0000"/>
-             <polygon points="16,10 16,26 28,18" fill="#fff"/>
-             <text x="35" y="24" font-family="Arial,sans-serif" font-size="15" font-weight="bold" fill="#fff">YouTube</text>
-           </svg>
+           <img src="img/yt-logo.svg" alt="Watch on YouTube">
          </a>`
       : '';
 
-    // ONDA compound badge — wave logo square left, "Download ONDA" text right
+    // ONDA — compound badge image
     const ondaDisabled = !row.onda_url;
     const ondaBtn = `<a class="onda-btn${ondaDisabled ? ' placeholder' : ''}"
          href="${row.onda_url || '#'}"
          ${row.onda_url ? 'target="_blank" rel="noopener"' : ''}
          title="${ondaDisabled ? 'Coming soon — .onda file being assembled' : 'Download .onda bundle'}"
          aria-disabled="${ondaDisabled}">
-           <span class="onda-logo-cell"><svg><use href="#onda-wave"/></svg></span>
-           <span class="onda-text-cell">Download ONDA</span>
+           <img src="img/onda-download.png" alt="Download ONDA">
          </a>`;
 
     const actionRow = `<div class="action-row">${ytBtn}${ondaBtn}</div>`;
