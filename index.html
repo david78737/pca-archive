@@ -23,7 +23,7 @@
     padding: 14px 24px;
   }
   .header-inner {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: baseline;
@@ -35,7 +35,7 @@
 
   /* ── Two-panel layout ── */
   .layout {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: flex-start;
@@ -82,25 +82,26 @@
   .tag-list { display: flex; flex-direction: column; gap: 2px; }
 
   .tag-btn {
-    display: flex; align-items: center; justify-content: space-between;
-    background: transparent; border: 1px solid transparent;
-    border-radius: 4px; padding: 4px 8px;
+    display: flex; align-items: center; justify-content: flex-start;
+    background: #141720; border: 1px solid #252838;
+    border-radius: 20px; padding: 4px 11px;
     font-size: 12px; cursor: pointer; text-align: left; width: 100%;
     transition: background .1s, color .1s, border-color .1s;
   }
   /* Group: active */
   .tag-btn.active {
-    background: #1a1d40; border-color: #5b6ad4; color: #d8e0ff; font-weight: 600;
+    background: #1e2248; border-color: #5b6ad4; color: #dce4ff; font-weight: 600;
   }
-  .tag-btn.active:hover { background: #1e2248; }
+  .tag-btn.active:hover { background: #222650; }
   /* Group: related (appear in filtered sessions) */
-  .tag-btn.related { color: #b0b8d8; }
-  .tag-btn.related:hover { background: #1a1d27; color: #d0d8f0; border-color: #2e3248; }
+  .tag-btn.related { color: #c0c8e8; border-color: #2e3550; }
+  .tag-btn.related:hover { background: #1a1d2e; color: #d8e0f8; border-color: #4a5490; }
   /* Group: remaining (not in filtered sessions) */
-  .tag-btn.remaining { color: #4a5068; }
-  .tag-btn.remaining:hover { background: #141620; color: #7880a0; border-color: #252838; }
+  .tag-btn.remaining { color: #7880a0; border-color: #1e2030; }
+  .tag-btn.remaining:hover { background: #161820; color: #9098b8; border-color: #2e3248; }
 
-  .tag-count { font-size: 10px; opacity: .6; flex-shrink: 0; margin-left: 6px; }
+  .tag-count { font-size: 10px; flex-shrink: 0; opacity: .75; }
+  .tag-count::before { content: " · "; }
   .tag-divider { border: none; border-top: 1px solid #1e2030; margin: 6px 0; }
 
   /* ── Right panel ── */
@@ -162,7 +163,7 @@
   .loading, .empty { text-align: center; padding: 4rem 2rem; color: #454860; font-size: 14px; }
 
   footer {
-    max-width: 1200px; margin: 0 auto;
+    max-width: 1000px; margin: 0 auto;
     text-align: center; padding: 2rem; font-size: 11px; color: #333550;
     border-top: 1px solid #1a1d27;
   }
@@ -202,24 +203,24 @@
     <div class="filter-group">
       <div class="filter-label">Event</div>
       <div class="filter-chips">
-        <button class="filter-btn active" data-group="event" data-filter="all">All</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA34">PCA34</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA33">PCA33</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA32">PCA32</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA31">PCA31</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA30">PCA30</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA29">PCA29</button>
-        <button class="filter-btn" data-group="event" data-filter="PCA28">PCA28</button>
+        <button type="button" class="filter-btn active" data-group="event" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA34">PCA34</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA33">PCA33</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA32">PCA32</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA31">PCA31</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA30">PCA30</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA29">PCA29</button>
+        <button type="button" class="filter-btn" data-group="event" data-filter="PCA28">PCA28</button>
       </div>
     </div>
 
     <div class="filter-group">
       <div class="filter-label">Level</div>
       <div class="filter-chips">
-        <button class="filter-btn active" data-group="level" data-filter="all">All</button>
-        <button class="filter-btn" data-group="level" data-filter="Essentials">Essentials</button>
-        <button class="filter-btn" data-group="level" data-filter="Advanced">Advanced</button>
-        <button class="filter-btn" data-group="level" data-filter="Entrepreneurs">Entrepreneurs</button>
+        <button type="button" class="filter-btn active" data-group="level" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-group="level" data-filter="Essentials">Essentials</button>
+        <button type="button" class="filter-btn" data-group="level" data-filter="Advanced">Advanced</button>
+        <button type="button" class="filter-btn" data-group="level" data-filter="Entrepreneurs">Entrepreneurs</button>
       </div>
     </div>
 
@@ -320,6 +321,7 @@ function renderTags(filteredRows) {
 
 function makeTagBtn(tag, group, count) {
   const btn = document.createElement('button');
+  btn.type = 'button';
   btn.className = `tag-btn ${group}`;
   btn.dataset.tag = tag;
   btn.innerHTML = tag + (count !== null ? `<span class="tag-count">${count}</span>` : '');
