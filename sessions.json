@@ -1,0 +1,2558 @@
+[
+  {
+    "title": "4 Product Design Leadership Lessons from Ted Lasso",
+    "presenter": "Cindy Brummer",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Bremmer draws on her decade-long journey building a product design agency to extract four leadership lessons embedded in the Ted Lasso series. Using vivid scenes from the show as mirrors for real workplace situations — toxic clients, accountability failures, and team morale crises — she makes the case that great product leadership requires emotional courage, not just process mastery. The talk is equal parts personal memoir and practical framework, grounded in situations most product leaders will recognize immediately.",
+    "takeaways": [
+      "Courage to make tough and unpopular decisions is a learnable leadership skill, not a personality trait — and delaying decisions out of fear always costs more than acting",
+      "Accountability must be modeled, not just mandated — teams watch whether leaders actually own their mistakes before deciding whether they will",
+      "Psychological safety is the precondition for honest teams; leaders create it by seeking support visibly and admitting uncertainty first"
+    ],
+    "who": "Product managers and team leads who feel the gap between knowing the right leadership move and having the courage to make it — especially those managing difficult clients or low-morale teams.",
+    "brief": "The next time you know what needs to be done but keep delaying, ask yourself what Ted Lasso would do — and then ask a trusted colleague to hold you to it.",
+    "youtube": "j1ppNhQBcVg",
+    "event": "PCA28",
+    "tags": [
+      "leadership",
+      "lasso",
+      "courage",
+      "leader",
+      "design",
+      "lesson",
+      "situation",
+      "client"
+    ]
+  },
+  {
+    "title": "9 Uncommon Skills of Great PMs",
+    "presenter": "Isaiah McPeak",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Stevens and his business partner present nine skills that separate good product managers from great ones — not the standard PM toolkit, but the under-developed capabilities that actually determine career trajectory. The session covers everything from cross-cultural communication and public speaking to human psychology and data visualization, all framed as tools to deploy situationally rather than rules to follow rigidly. The framing 'tools, not rules' captures the entire thesis: great PMs adapt, they don't apply.",
+    "takeaways": [
+      "Cross-cultural communication is a competitive advantage as remote and global teams become the norm — symbols and examples land where words often fail",
+      "Public speaking is a force multiplier: decent content presented well consistently outperforms brilliant content presented poorly",
+      "Understanding human psychology — including your own blind spots — is the most undervalued skill in a PM's toolkit"
+    ],
+    "who": "Product managers at any level who want to develop the interpersonal and cognitive skills that formal PM training rarely covers — especially those working on distributed or cross-cultural teams.",
+    "brief": "Pick the one skill from this list where you already have the most natural ability and double down on it — your fastest path to standing out is to be genuinely excellent at one uncommon thing.",
+    "youtube": "5l380z9CJpU",
+    "event": "PCA28",
+    "tags": [
+      "skill",
+      "great",
+      "cross",
+      "cultural",
+      "uncommon",
+      "toolkit",
+      "cover",
+      "communication"
+    ]
+  },
+  {
+    "title": "Adopting the Negotiation Frame for Product Managers",
+    "presenter": "Andrew Overby",
+    "level": "Advanced",
+    "format": "Workshop",
+    "synopsis": "This interactive workshop makes the case that negotiation is not a separate skill from product management — it is product management, renamed. Through exercises and small group discussions, the session reveals that the active listening, mirroring, labeling, and expectation-setting that PMs already practice in discovery are the same mechanics used in expert negotiation. The framework 'connect, communicate, close' gives attendees a memorable structure to apply immediately.",
+    "takeaways": [
+      "The skills at the core of negotiation — active listening, mirroring, labeling, avoiding premature solutioning — are identical to the skills at the core of good product discovery",
+      "Product managers hold more organizational leverage than they typically recognize; understanding and using that leverage ethically is a career accelerator",
+      "Objective criteria (company priorities, shared metrics) are the fastest path to productive negotiation — they depersonalize disagreement and remove the need to win arguments"
+    ],
+    "who": "Product managers who regularly navigate competing stakeholder priorities, resource constraints, or cross-team dependencies and want a more intentional framework for those conversations.",
+    "brief": "Before your next difficult stakeholder conversation, write down the objective criteria — shared priorities, agreed metrics, company goals — that you can anchor the discussion to instead of trading opinions.",
+    "youtube": "X4YarLJik3c",
+    "event": "PCA28",
+    "tags": [
+      "negotiation",
+      "skill",
+      "priority",
+      "discussion",
+      "active",
+      "listening",
+      "mirroring",
+      "labeling"
+    ]
+  },
+  {
+    "title": "AI and Product Management: What I Learned from Silicon Valley",
+    "presenter": "Chris Wilke",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Fresh from a Silicon Valley conference with some of the top product minds in AI, Wilke distills seven principles that define great product leadership in the generative AI era. Drawing on talks from leaders at LinkedIn, Facebook, Vanta, and Monte Carlo, the session maps a clear path from product-led thinking to building AI-era moats. A live ChatGPT demo grounds the theory in something attendees can start using the same week.",
+    "takeaways": [
+      "Driving clarity — on roadmaps, metrics, messaging, and team direction — is the single highest-leverage thing a product manager can do in any environment, but especially in AI",
+      "Community is the moat that AI cannot easily replicate; building user-generated and curated community around your product is the durable differentiator as software costs collapse",
+      "Focus on outcomes over outputs: the product manager who can identify and track the right metric — not the most convenient proxy — will consistently make better decisions"
+    ],
+    "who": "Product managers at growth-stage or enterprise companies who want to understand how elite product leaders are orienting their strategy around generative AI.",
+    "brief": "Write down the three most important metrics for your product right now — then honestly assess whether they measure outcomes or activity, and change at least one if needed.",
+    "youtube": "fDtBZg5GqkA",
+    "event": "PCA28",
+    "tags": [
+      "ai",
+      "metric",
+      "silicon",
+      "valley",
+      "generative",
+      "leader",
+      "building",
+      "community"
+    ]
+  },
+  {
+    "title": "AI-First Design Thinking: Transforming Product Innovation",
+    "presenter": "Srilatha Kolluru",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "This session demystifies AI for product managers who understand its potential but struggle to act on it, anchoring the concepts in the familiar five-stage design thinking process. The presenter walks through how supervised, unsupervised, and reinforced learning actually work — using everyday examples like spam filtering and Netflix recommendations — then explores how these mechanisms can be embedded into product development at any company. The ethical dimensions of AI bias and privacy get serious treatment alongside the opportunity framing.",
+    "takeaways": [
+      "AI is data-dependent by definition — the quality and completeness of your training data determines the quality of your model, making data strategy inseparable from AI strategy",
+      "The bias problem in AI is not abstract: historically biased data produces historically biased outputs, and product managers have a specific responsibility to understand and counteract this",
+      "You don't need to be a data scientist to embed AI thinking into product development — starting with data collection strategy and user behavior tracking is within every PM's reach today"
+    ],
+    "who": "Product managers at organizations that are investing in or evaluating AI features who need a conceptually honest foundation before they can lead productive conversations with engineering and data teams.",
+    "brief": "Identify one user behavior in your product you're currently not tracking that would meaningfully improve your model's relevance — then work backwards from that to a data collection plan.",
+    "youtube": "h5WKyhYD0uM",
+    "event": "PCA28",
+    "tags": [
+      "ai",
+      "data",
+      "thinking",
+      "strategy",
+      "design",
+      "development",
+      "bias",
+      "quality"
+    ]
+  },
+  {
+    "title": "Cracking the Code: How to Access Elusive B2B Users for Product Discovery",
+    "presenter": "Daniel Elizalde",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "This session directly addresses the most common gap in B2B product development: the inability to access real users for meaningful discovery. The presenter — a 20-year veteran with experience at Fortune 500s and Silicon Valley startups, and author of the B2B Innovators Map — argues that the solution is not clever tactics but systematic relationship-building through a 'discovery network' that the product team owns independently of sales. The framework for finding, nurturing, and activating that network is immediately replicable.",
+    "takeaways": [
+      "The majority of B2B new product failures trace back to building from secondhand information — the fix is not better analysis but direct customer access, which requires a discovery network the PM team owns",
+      "Building a discovery network of 30 people in your exact target market gives you enough signal to make defensible product decisions without needing enterprise-scale research budgets",
+      "Becoming a trusted advisor to your target users — through content, events, and thought leadership — is the fastest path to the kind of candid customer access that sales will never provide"
+    ],
+    "who": "Product managers at B2B companies who are tired of building products based on secondhand sales feedback and want a systematic method for getting direct access to the users who actually do the work.",
+    "brief": "Name five people in your target market you could call today who would take the meeting — that's the beginning of your discovery network, and it starts with people you already know.",
+    "youtube": "9n0F3s3kzSk",
+    "event": "PCA28",
+    "tags": [
+      "discovery",
+      "access",
+      "network",
+      "users",
+      "building",
+      "sales",
+      "target",
+      "systematic"
+    ]
+  },
+  {
+    "title": "Designing for the Battlefield: Lessons Learned from Teaching Soldiers",
+    "presenter": "Jennifer Houlihan",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Houlihan arrived at the Army Software Factory prepared for resistance and left with a profound lesson about the distortions we bring to every design engagement. Teaching active duty soldiers to build software exposed a series of assumptions — about domain expertise, about who should lead, about what 'understanding the user' really means — that apply to every product team working in high-stakes or specialized environments. The talk is framed around the Army's five product principles, which turn out to have direct civilian parallels.",
+    "takeaways": [
+      "The most dangerous moment in any discovery engagement is when you think you already know the user — arriving at neutral and actively resetting your mental models is a precondition for honest research",
+      "Domain expertise embedded in the product team — not just accessed through interviews — produces fundamentally different outcomes, especially for high-consequence products",
+      "Plans are artifacts; planning is the activity that matters. The conversations that happen while building a plan often contain the real insight that no artifact can capture"
+    ],
+    "who": "Product managers, UX researchers, and designers who work in specialized domains — healthcare, defense, infrastructure, regulated industries — where user assumptions are especially costly.",
+    "brief": "Before your next discovery sprint, write down the three assumptions about your users you would bet money on — then design your first interview to test exactly those.",
+    "youtube": "bx6HEMNZcLQ",
+    "event": "PCA28",
+    "tags": [
+      "assumption",
+      "domain",
+      "user",
+      "lesson",
+      "teaching",
+      "soldier",
+      "software",
+      "design"
+    ]
+  },
+  {
+    "title": "From Chaos to Clarity: Better Product Decisions with the Cynefin Framework",
+    "presenter": "Dan Walsh",
+    "level": "Advanced",
+    "format": "Workshop",
+    "synopsis": "Walsh spent 18 years at Intel before building a consulting practice around applied complexity theory, and this hands-on workshop brings the Cynefin framework to life for product managers who need to make better decisions under uncertainty. By distinguishing between clear, complicated, complex, and chaotic problem domains, the framework gives teams a shared language for aligning on how to approach a given situation — which turns out to be the most common source of unproductive team disagreement.",
+    "takeaways": [
+      "Most product disagreements about 'how to proceed' are actually disagreements about which domain you're in — agreeing on that first makes the right approach obvious to everyone",
+      "Complex problems (cause and effect are only visible in retrospect) require probe-sense-respond approaches, not the best-practice playbooks that work in complicated domains",
+      "The 'cliff' between clear and chaotic domains is real and dangerous — teams that mistake a complex situation for a clear one are most likely to make irreversible decisions"
+    ],
+    "who": "Product managers and team leads navigating ambiguous or rapidly changing problem spaces who want a rigorous way to think about what kind of situation they're actually in before choosing how to respond.",
+    "brief": "The next time your team disagrees about how to move forward on a product decision, ask everyone to place the problem on the Cynefin spectrum first — chances are the disagreement is about the domain, not the solution.",
+    "youtube": "bhGZ2zQmiNg",
+    "event": "PCA28",
+    "tags": [
+      "domain",
+      "decision",
+      "problem",
+      "disagreement",
+      "cynefin",
+      "framework",
+      "clear",
+      "complex"
+    ]
+  },
+  {
+    "title": "From Zero to Product Manager: Breaking into the Industry",
+    "presenter": "Eric Aguirre",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Eric broke into product management from the travel industry with no software background, and just recovered from a layoff to land a new PM role — giving him two firsthand experiences of the hardest parts of the transition. The session is structured as an honest conversation about what actually works: building a credible narrative from non-traditional experience, identifying and filling specific skill gaps, and the grinding practice of mock interviewing that no one else will tell you is necessary.",
+    "takeaways": [
+      "The story you tell about your background matters more than the background itself — a coherent narrative that maps your existing skills to PM competencies will open doors that a resume alone cannot",
+      "Identifying your specific gaps and visibly addressing them (certifications, courses, side projects) signals hunger and self-awareness — two qualities that make risk-tolerant hiring managers take a chance",
+      "Mock interviewing with peers is the highest-ROI practice available to job seekers and is systematically underused — put in the reps before you need them"
+    ],
+    "who": "Career changers and recent graduates looking to break into product management who need a realistic, experience-grounded roadmap rather than another generic 'how to become a PM' framework.",
+    "brief": "Write down your three strongest skills from your current or previous career, then map each one explicitly to a core PM competency — that map is the story you need to start telling.",
+    "youtube": "0lg01gLPFVU",
+    "event": "PCA28",
+    "tags": [
+      "background",
+      "experience",
+      "skill",
+      "industry",
+      "narrative",
+      "identifying",
+      "gaps",
+      "practice"
+    ]
+  },
+  {
+    "title": "GA4 Doesn't Suck as Much as You Think: Hidden Gems",
+    "presenter": "Craig Andrews",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Craig nearly died in 2021, spent months learning to walk again, and built his recovery around the same principle he brings to analytics: ask the right questions, measure what matters, and take predetermined action on the answers. That framework — questions, answers, actions — is the lens through which he teaches GA4, reframing it not as a reporting tool (where it frustrates everyone) but as a measurement platform that rewards configuration over convenience. The session cuts through the noise for anyone facing the Universal Analytics migration.",
+    "takeaways": [
+      "GA4 is a measurement platform, not a reporting platform — teams that treat it like a drop-in replacement for Universal Analytics will get garbage; teams that configure it deliberately will get compound insight",
+      "Events must be configured before they happen: if you haven't tagged your user journey steps in advance, you cannot reconstruct what users actually did after the fact",
+      "Asking the right questions — uniquely tailored to your business, not the industry average — is the precondition for any useful analytics; average questions produce average answers"
+    ],
+    "who": "Product managers, marketers, and analytics owners who are dreading or have already started the Universal Analytics migration and want a framework for configuring GA4 to actually answer their business questions.",
+    "brief": "Before touching GA4 settings, write down the three questions your business most needs answered about user behavior — then configure your events to answer exactly those, and nothing else.",
+    "youtube": "qMh6yLwIjKM",
+    "event": "PCA28",
+    "tags": [
+      "analytic",
+      "question",
+      "platform",
+      "universal",
+      "business",
+      "average",
+      "action",
+      "framework"
+    ]
+  },
+  {
+    "title": "Getting Tactical About Your Product Career",
+    "presenter": "Caleb Smith",
+    "level": "Essentials",
+    "format": "Workshop",
+    "synopsis": "Seven years into a product career that started in sales and wound through a master's in engineering management, Caleb Smith facilitates an open discussion about the mechanics of career progression in product. The session is structured as a conversation rather than a lecture, surfacing common inflection points — the agile knowledge gap, the mentor-finding challenge, the transition from general skills to specific credibility — and giving attendees frameworks for identifying their own next move.",
+    "takeaways": [
+      "Domain knowledge gaps (like agile mechanics) can end a promising transition before it starts — identify yours early and address them visibly, not just competently",
+      "Mentors matter more than credentials at most career junctures; the fastest path to a mentor is asking smart questions and demonstrating genuine curiosity, not asking for advice",
+      "Career trajectory in product is not linear — the most common acceleration pattern is a deliberate lateral move that builds a missing capability, followed by an upward move from a stronger position"
+    ],
+    "who": "Mid-career product managers who feel stuck at a plateau and want a tactical, experience-based framework for identifying and closing the specific gaps holding them back.",
+    "brief": "Name the one capability that, if you had it at twice its current level, would make the most difference to your career in the next two years — then design a 90-day plan to get there.",
+    "youtube": "KF8WbpXsz-k",
+    "event": "PCA28",
+    "tags": [
+      "career",
+      "mentor",
+      "tactical",
+      "mechanic",
+      "common",
+      "agile",
+      "knowledge",
+      "transition"
+    ]
+  },
+  {
+    "title": "How to Catch ChatGPT in a Lie",
+    "presenter": "Glen Ford",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Ford spent five years in and around large machine learning models at companies that build training data for self-driving cars, making him one of the more grounded voices in the AI hype cycle. His core argument: assume the model is wrong, then determine exactly how it is wrong. The session delivers concrete, actionable tactics for responsible AI use — from fact-checking hallucinated citations to recognizing the tell-tale signs of AI-generated text — without dismissing the genuine power of these tools.",
+    "takeaways": [
+      "The default posture toward any LLM output should be trust-but-verify, not trust — models are prediction engines, not fact engines, and their confidence is structurally decoupled from their accuracy",
+      "The more a model writes, the more opportunities for error: long-form AI outputs require proportionally more fact-checking, not less, regardless of how fluent they sound",
+      "The word 'overall' at the end of a paragraph is a reliable signal that ChatGPT wrote it — knowing the tells lets you catch AI-generated content whether you wrote it or someone handed it to you"
+    ],
+    "who": "Product managers, marketers, and knowledge workers who are actively using generative AI tools and want to develop a more sophisticated, appropriately skeptical relationship with them.",
+    "brief": "The next time you use ChatGPT to generate something you'll share externally, pick three specific factual claims in the output and verify each one independently before publishing.",
+    "youtube": "GCJaDdNdOH0",
+    "event": "PCA28",
+    "tags": [
+      "ai",
+      "model",
+      "chatgpt",
+      "fact",
+      "output",
+      "catch",
+      "wrong",
+      "checking"
+    ]
+  },
+  {
+    "title": "Making the Jump: Essential Skills for Transitioning to a Leadership Role",
+    "presenter": "Monica Chartier",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Chartier has done both jobs at Dell — hands-on PM and product leadership — and uses that firsthand contrast to make the transition legible in a way that most career advice skips. The core insight is structural: the skills that make you excellent as a PM (direct ownership, decisive action, clear accountability) are actively harmful when applied to a leadership role without modification. The shift from 'doing' to 'coaching for outcomes' is the hardest part, and she gives it the honest treatment it deserves.",
+    "takeaways": [
+      "The primary metric for a people leader is team performance and development, not personal output — the faster you accept this, the faster you become an effective leader",
+      "The temptation to solve problems for your team rather than coaching them through problems is real, persistent, and corrosive — it creates dependency instead of capability",
+      "Leadership requires a fundamentally different relationship to problems: as an IC you solve them, as a leader you create the conditions for your team to solve them"
+    ],
+    "who": "Senior product managers who are on track for a leadership role — or recently stepped into one — and want an honest map of what will need to change about how they work.",
+    "brief": "Identify one situation this week where you solved a problem for someone on your team instead of coaching them through it — then replay it in your head with the coaching approach and practice that language.",
+    "youtube": "-hAUyRRNvs8",
+    "event": "PCA28",
+    "tags": [
+      "leadership",
+      "coaching",
+      "problem",
+      "role",
+      "leader",
+      "solve",
+      "skill",
+      "honest"
+    ]
+  },
+  {
+    "title": "Networking for Career Success",
+    "presenter": "Thom Singer",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "The CEO of the Austin Technology Council reframes networking not as an event-based activity but as the ongoing practice of human engagement — a skill that becomes increasingly critical as remote work erodes the informal relationship-building that used to happen automatically in offices. Using his E=MC² model (Engagement = Meaningful Connections), he makes the case that career safety in uncertain times depends far more on whether people know and trust you than on how good you are at your job.",
+    "takeaways": [
+      "In any reduction in force decision, the people who survive are the ones who are known and liked — technical performance is table stakes, relationship depth is what tips the balance",
+      "Remote work eliminated the ambient relationship-building that offices provided for free; you now have to be intentional about the interactions that used to happen accidentally",
+      "Every interaction is a chance to make a meaningful connection or a transactional one — the cumulative difference between those two approaches over a career is enormous"
+    ],
+    "who": "Product professionals at any stage who underinvest in relationship-building — either because they find it uncomfortable, prefer to let their work speak for itself, or underestimate how much it shapes their career outcomes.",
+    "brief": "Identify three colleagues you interact with regularly but don't really know as people — then have one genuinely personal conversation with each of them this week.",
+    "youtube": "hvg7TDKbzs8",
+    "event": "PCA28",
+    "tags": [
+      "career",
+      "relationship",
+      "building",
+      "networking",
+      "engagement",
+      "remote",
+      "office",
+      "meaningful"
+    ]
+  },
+  {
+    "title": "Product Innovation with Game Thinking",
+    "presenter": "Ian Brand",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Working in General Motors' innovation division — where he's helped launch products that reached $1B in revenue — this PM discovered Dr. Amy Jo Kim's Game Thinking framework and found it offered three genuine upgrades to standard design thinking. The session focuses on the three most actionable elements: identifying and building for super fans first, designing mastery paths and habit-building loops into the product, and using play testing (not user testing) for early validation.",
+    "takeaways": [
+      "Building for 100 people who love your product beats building for a million who kind of like it — the super fan funnel gives you a rigorous method for finding those people, not just a catchy principle",
+      "Mastery paths and habit-forming loops are not manipulation tactics — they are the product design patterns that make a tool genuinely useful by helping users get better at the underlying skill over time",
+      "Play testing treats early engagement as a game experience to be tuned, not a feature list to be validated — it surfaces engagement and dropout signals that traditional user testing misses entirely"
+    ],
+    "who": "Product managers responsible for engagement, retention, or new product discovery who want to apply behavioral design principles with more rigor than typical gamification advice provides.",
+    "brief": "Map your product's current onboarding flow against the mastery path concept — identify where users are expected to level up and whether the product actually helps them get there.",
+    "youtube": "nXAtRu_ReeE",
+    "event": "PCA28",
+    "tags": [
+      "building",
+      "testing",
+      "game",
+      "thinking",
+      "design",
+      "mastery",
+      "engagement",
+      "innovation"
+    ]
+  },
+  {
+    "title": "Product Strategy: Building a Financial Model",
+    "presenter": "Nicholas Ivanecky",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "A B2B product manager from Amazon's commercial segment walks through the full arc of getting a product strategy approved — from the five-element strategy framework (problem, segment, value proposition, competitive edge, channels) through narrative construction to financial modeling. The practical emphasis on writing a clear one-page memo, using future customer testimonials to illustrate the opportunity, and building ROI cases that leaders can actually evaluate makes this session unusually concrete for a strategy talk.",
+    "takeaways": [
+      "A product strategy without a financial model is a pitch without a close — leaders approve resources based on ROI clarity, not strategic elegance, and PMs who can build both models consistently advance faster",
+      "Future customer testimonials — what will users actually say when this exists — are among the most persuasive elements in a strategy narrative, because they make the abstract outcome concrete and human",
+      "Knowing how the approving leader thinks (what they optimize for, what makes them say no) is as important as the quality of the strategy itself — the same content needs different framing for different audiences"
+    ],
+    "who": "Product managers at mid-to-large organizations who regularly need to gain leadership approval for roadmap investments and want to build the financial modeling skills that shorten that cycle.",
+    "brief": "The next strategy you need approved: write the one-page memo before building the deck, then check whether every financial assumption in the model is explicitly tied to a customer behavior you've actually observed.",
+    "youtube": "dZxGwidv3NE",
+    "event": "PCA28",
+    "tags": [
+      "strategy",
+      "financial",
+      "model",
+      "building",
+      "customer",
+      "leader",
+      "segment",
+      "approved"
+    ]
+  },
+  {
+    "title": "The Legal and Business Risks of AI: What Product Managers Need to Know",
+    "presenter": "Dan Corbin",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "At the inflection point of the generative AI era, Corbin offers a counterweight to the hype: a clear-eyed inventory of the contractual, privacy, disinformation, and discrimination risks that product managers need to understand before embedding AI in their products. The session is deliberately practical rather than alarmist, positioning AI risk awareness not as a reason to avoid the technology but as the specific knowledge that lets product professionals use it with authority and protect their organizations in the process.",
+    "takeaways": [
+      "Using AI tools on customer data, confidential company data, or partner data without reviewing applicable contracts and terms of service is a real liability — this should be a checklist step before any AI integration, not an afterthought",
+      "LLMs will produce confident, fluent hallucinations and discrimination-amplifying outputs — product managers who don't understand these failure modes will not catch them until they've caused damage",
+      "Start AI integration on internal workflows before external-facing ones — the bar for vetting is dramatically lower internally, and the learning translates directly to more responsible external deployment"
+    ],
+    "who": "Product managers integrating or evaluating AI features who want to understand the specific risks before they become the person who has to explain a failure to leadership or legal.",
+    "brief": "Before your next AI feature ships, run through three questions: what data does this touch, what happens when it hallucinates, and who is responsible for reviewing outputs before they reach users.",
+    "youtube": "zR1yJaAkFj4",
+    "event": "PCA28",
+    "tags": [
+      "ai",
+      "data",
+      "risks",
+      "legal",
+      "discrimination",
+      "reviewing",
+      "integration",
+      "output"
+    ]
+  },
+  {
+    "title": "Top 20 Tips to Become a Product Professional",
+    "presenter": "Andy Bowden",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "A product professional with 20-plus years across hardware, software, and services — including a Technical Academy Award at HP — delivers a high-density session of career principles distilled from a long and varied career. The emphasis is not on tools or frameworks but on the professional habits, mindsets, and positioning choices that compound over time: owning your career identity, bringing solutions not problems, managing in all directions, and speaking the language of business.",
+    "takeaways": [
+      "Your LinkedIn headline should describe the value you create, not the title you hold — a role description tells people where you've been, but a value statement tells them what you can do for them",
+      "Coming to leadership with a problem and no proposed solutions is a missed opportunity; bringing choices (plural) signals both preparation and collaborative intent",
+      "Learning the language of finance — even at a basic level — unlocks your ability to compete for resources and advocate for your roadmap in the terms that ultimately determine approvals"
+    ],
+    "who": "Product professionals at any career stage who want to develop the durable habits and positioning strategies that drive long-term career success — especially those who feel technically strong but underrecognized.",
+    "brief": "Rewrite your LinkedIn headline today to describe the value you deliver rather than the title you hold — then ask three colleagues if it accurately captures what you actually do.",
+    "youtube": "SRXkU_qWlJs",
+    "event": "PCA28",
+    "tags": [
+      "career",
+      "value",
+      "deliver",
+      "habit",
+      "positioning",
+      "choice",
+      "bringing",
+      "solution"
+    ]
+  },
+  {
+    "title": "Your PM Tools Are Awful. Try These Instead.",
+    "presenter": "John Milburn",
+    "level": "Essentials",
+    "format": "Workshop",
+    "synopsis": "Milburn spent a decade at Pragmatic Marketing teaching product management and has spent six years since consulting with companies who are still using the wrong tools for each phase of the product lifecycle. This interactive session maps the tool landscape across discovery, ideation, strategy, and requirements — using live audience input via Mentimeter — and exposes the most common mismatch: using project management tools (like Jira) for ideation, or roadmapping tools for things roadmapping tools weren't designed to do.",
+    "takeaways": [
+      "Most PM tool frustration comes from tool-job mismatch, not tool quality — the question is never 'what's the best tool?' but 'what job does this tool need to do at this phase of my process?'",
+      "Discovery is fundamentally a qualitative, relationship-driven activity that no tool can automate — the tools help with data collection and analysis, but the interviews themselves are irreplaceable",
+      "Roadmapping tools (Aha!, ProductBoard, Jira) are frequently misapplied to phases they weren't designed for; knowing what each tool was built for is the prerequisite for choosing it well"
+    ],
+    "who": "Product managers who feel like their current toolchain creates more friction than it removes, or who suspect they're using the right tools in the wrong phases of their process.",
+    "brief": "List the five tools your team uses most often in product work — then write next to each one the phase it's supposed to serve and whether that's actually how you're using it.",
+    "youtube": "vWl-Y9JDqCA",
+    "event": "PCA28",
+    "tags": [
+      "tools",
+      "tool",
+      "phase",
+      "roadmapping",
+      "spent",
+      "wrong",
+      "discovery",
+      "ideation"
+    ]
+  },
+  {
+    "title": "Unlocking Success Through Psychological Safety",
+    "presenter": "Dan Corbin",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Corbin, an instructor at Pragmatic Marketing who has led product teams at HGV, anchors this session in Google's two-year study of 180 teams — the finding that psychological safety is the single most important factor in high-performing teams, outranking all others. He walks through five concrete steps to build it: communicating courageously, mastering active listening, embracing conflict as information, demonstrating accountability, and sustaining the conditions over time. His own 'Dan Dorbin' alter ego — a safe vehicle for publicly admitting his own failures — illustrates how leaders model the vulnerability that makes safety real.",
+    "takeaways": [
+      "Psychological safety is a learnable organizational condition, not a personality trait — teams achieve it through specific, repeatable practices, not by hiring nicer people",
+      "Product managers without authority over anyone must be unfailingly honest brokers: telling engineering one thing and leadership another destroys the credibility that influence depends on",
+      "Vulnerability from the top down is the ignition mechanism — when leaders visibly admit mistakes and learn from them, the rest of the team takes the permission to do the same"
+    ],
+    "who": "Product managers and team leads who want practical, research-backed steps for turning a guarded or siloed team into one where people say what they actually think.",
+    "brief": "Before your next team meeting, share one thing you personally got wrong this week and what you learned from it — you'll be surprised how quickly that single act changes the room.",
+    "youtube": "Xe7o83bLinU",
+    "event": "PCA29",
+    "tags": [
+      "safety",
+      "psychological",
+      "single",
+      "steps",
+      "condition",
+      "leader",
+      "vulnerability",
+      "thing"
+    ]
+  },
+  {
+    "title": "Uncommon Trust",
+    "presenter": "Thom Singer",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Singer, CEO of the Austin Technology Council and a certified practitioner of David Horsager's Trust Edge framework, spent 15 years speaking about professional relationships before discovering that he had been teaching people to be known and liked — but not trusted. This session draws on 20 years of Horsager's research across 5,000 companies and multiple governments to show that trust is not a soft concept but a measurable, manageable organizational asset with direct causal links to retention, productivity, innovation, and revenue. The inverse — low trust — is, according to the research, the single largest hidden expense any company carries.",
+    "takeaways": [
+      "Trust is the operating system underneath every professional outcome: when it's high, output rises, retention improves, and innovation accelerates; when it's low, every process degrades, regardless of talent or process quality",
+      "The number one question every colleague, manager, and customer is silently asking about you is 'can I trust you?' — knowing this reframes every interaction as a trust-building or trust-destroying event",
+      "Trust, like a 300-year-old redwood, takes sustained deliberate effort to build and can be destroyed in minutes — the asymmetry demands that trust maintenance be treated as an ongoing practice, not a milestone"
+    ],
+    "who": "Leaders, managers, and individual contributors who suspect that low trust is degrading their team's performance but have never had a framework rigorous enough to diagnose and address it.",
+    "brief": "Identify the one colleague or direct report who trusts you least — and ask yourself honestly what specific behavior created that gap, then take one concrete action this week to close it.",
+    "youtube": "NisIgzflrWs",
+    "event": "PCA29",
+    "tags": [
+      "trust",
+      "framework",
+      "research",
+      "company",
+      "retention",
+      "innovation",
+      "process",
+      "colleague"
+    ]
+  },
+  {
+    "title": "Rise of the AI-Driven Product Manager",
+    "presenter": "Sarat Tummala",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "A senior product manager at Google who has shipped products to over a billion users — including the COVID exposure notification system and Ukrainian emergency alerts via Google Play Services — starts this session by honestly confronting his own anxiety: AI does product pitches, strategy, and roadmaps, exactly the things he does. His 'will I lose my job?' graph plots jobs on axes of documentation depth and task repetitiveness, then uses it to show why PMs are relatively safer than radiologists — but not safe by default. The session lands on Jensen Huang's insight: the person who will take your job is not AI, it's the person who knows how to use AI better than you.",
+    "takeaways": [
+      "AI is not replacing PMs — it is creating a competency gap between PMs who treat it as a force multiplier and those who treat it as a threat; the gap will widen fast",
+      "Use AI for directional analysis, brainstorming, and bias-surfacing — not for deterministic answers; AI will always answer your question, but whether the answer is right requires human judgment every time",
+      "Pick one AI tool and stick with it long enough to know its failure modes — familiarity with its mistakes is what makes it useful, the same way you trust a colleague because you know how they think"
+    ],
+    "who": "Product managers who are anxious about AI displacement and want an honest, experience-grounded framework for integrating AI into their work rather than watching from the sidelines.",
+    "brief": "Build your next internal presentation using AI as a scaffold — let it give you a structure, then tear apart every assumption it made; the final deck will be better and you'll have learned where the tool fails.",
+    "youtube": "NchFNTVfk2U",
+    "event": "PCA29",
+    "tags": [
+      "ai",
+      "google",
+      "treat",
+      "tool",
+      "rise",
+      "driven",
+      "senior",
+      "shipped"
+    ]
+  },
+  {
+    "title": "What's This Data Pipeline Thing You Keep Talking About?",
+    "presenter": "Travis James Fell",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "A former director of reporting opens with a cautionary fable: Bobby, a talented analyst whose scripts the finance department depended on, who never thought about data quality — and paid for it. The tale frames the session's core thesis: data management is a dark art that nobody thinks about until it's too late, and product managers who oversee data products or work alongside data teams need at minimum a working vocabulary and mental model for what's happening beneath the surface. The 'data sugar factory' metaphor — raw cane from many sources, refined into crystals usable everywhere — makes the pipeline architecture concrete and memorable.",
+    "takeaways": [
+      "No single source of truth is the most common and most expensive data failure — every downstream process that recreates its own version of the truth compounds the divergence until the data can no longer be trusted",
+      "Data governance is not an IT concern, it is a product strategy: the policies that define what data means, who owns it, and how it's maintained determine whether your analytics can answer real business questions",
+      "Data contracts — explicit agreements between data producers and consumers about format, schema, and quality — are the single highest-leverage intervention for preventing the class of failures that sink data products"
+    ],
+    "who": "Product managers who oversee data products, manage analytics teams, or find themselves nodding along in data architecture meetings without fully understanding what they're agreeing to.",
+    "brief": "Draw the current data flow for your most important product metric — from raw source to the number that appears on the executive dashboard — and find the first place where there is no documented owner for what happens to the data.",
+    "youtube": "zfMlyFe76wA",
+    "event": "PCA29",
+    "tags": [
+      "data",
+      "source",
+      "pipeline",
+      "quality",
+      "until",
+      "oversee",
+      "architecture",
+      "single"
+    ]
+  },
+  {
+    "title": "Product Branding: How It Helps Marketing, Sales & Profits",
+    "presenter": "Jeffrey Fry",
+    "level": "Entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "An electrical engineer who discovered his talent for naming and branding as a child — calling his grandfather 'Blingo' before he could say Abuelo — walks through a career spent building brands for semiconductor companies, including coining 'Prism chipset' at Intercel and creating categories that let smaller players compete against 800-pound gorillas like Texas Instruments. The central argument is simple: brands speak to the gut, not the head, and no rational analysis of your product will make up for the absence of an emotional identity. The session includes a live audience exercise in brand naming, grounded in one memorable principle: the middle is death.",
+    "takeaways": [
+      "A brand is what speaks for you when you're not in the room — it is your product's reputation, personality, and emotional signal all compressed into something that travels on its own",
+      "Category creation is the most powerful competitive move available to a small product: if you can define a category you're the only one in, you are automatically number one",
+      "Differentiate or die — average products in crowded categories are invisible; a brand that is memorable for one specific thing beats a brand that is competent at many things every time"
+    ],
+    "who": "Founders, product managers, and marketers at early-stage companies or new product lines who are still treating branding as a logo exercise rather than a strategic positioning decision.",
+    "brief": "Write down the one thing your product does better than anyone else in the world — if you can't name it in five words, your brand doesn't exist yet.",
+    "youtube": "on6IkuggdQQ",
+    "event": "PCA29",
+    "tags": [
+      "brand",
+      "category",
+      "branding",
+      "thing",
+      "naming",
+      "company",
+      "emotional",
+      "exercise"
+    ]
+  },
+  {
+    "title": "Map the Value of Your Product with the Value Proposition Canvas",
+    "presenter": "Yuliia Panasiuk",
+    "level": "Entrepreneurs",
+    "format": "Workshop",
+    "synopsis": "Julia, a product marketing manager at Expedia Group who applied the Value Proposition Canvas to help a Ukrainian refugee nonprofit (SweetLaw) define its positioning, teaches the framework from first principles for an audience that largely hadn't used it. The canvas maps customer jobs, pains, and gains on the right side against the product's features, pain relievers, and gain creators on the left — and the session's key insight is that 'fit' between the two sides is the test of whether a product is actually solving what it claims to solve. The startup founder seeking an MVP is the running example throughout, keeping the framework grounded in a scenario most of the audience could inhabit.",
+    "takeaways": [
+      "Customer jobs are not just functional tasks — they include emotional needs, social signaling, and self-actualization, and ignoring those dimensions produces products that work but don't get adopted",
+      "The canvas is not a one-time artifact but an interview guide: the trigger questions on each cell are the questions you should be asking in every customer discovery session, before and after product usage",
+      "Do a separate canvas for each distinct customer segment and for each major competitor — overlap and gaps between those canvases reveal both where you're differentiated and where you're exposed"
+    ],
+    "who": "Startup founders, product managers, and product marketers who are preparing for discovery, refining a value proposition, or trying to articulate why their product is meaningfully different from alternatives.",
+    "brief": "Take your current product and fill in the 'customer pains' cell of the canvas honestly — if you can't name at least five specific pains your customers experience before, during, and after using your product, you need more discovery before any roadmap work.",
+    "youtube": "mSgLUdOWLmA",
+    "event": "PCA29",
+    "tags": [
+      "canva",
+      "customer",
+      "value",
+      "proposition",
+      "pains",
+      "discovery",
+      "framework",
+      "audience"
+    ]
+  },
+  {
+    "title": "Positioned to Disrupt: Top Strategies from a PLG Company That Actually Works",
+    "presenter": "Kirti Joshi",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Kirti, a product marketer at Sonar — a Swiss developer tools company that grew from open source roots to 7 million developers — shares three PLG strategies drawn from direct experience rather than theory. The session is deliberately interactive, with audience members sharing their own PLG wins and failures alongside Kirti's examples. The core thesis: product-led growth is not a feature model, it is a trust model — you give users enough value to form a genuine opinion of your product, and their authentic voice becomes your most powerful marketing asset at essentially zero cost.",
+    "takeaways": [
+      "Give more to get more is counterintuitive but empirically reliable: the freemium model works because users who experience genuine value become advocates, and advocates are exponentially more persuasive than any paid channel",
+      "Your most authentic marketers are already in your user base — the companies that systematically identify, amplify, and reward those voices grow faster than companies that spend the same budget on traditional demand generation",
+      "Dogfooding is not a QA shortcut — it is a strategy for making employees into advocates: when your own team uses your product in real workflows, they find real problems and develop real conviction that travels outside the building"
+    ],
+    "who": "Product managers and marketers at companies with some free or community tier who want to understand how to convert that user base into a growth engine rather than just a cost center.",
+    "brief": "Name three users of your product who have said something publicly positive about it — then find out if you have any systematic way to identify and amplify the next hundred people like them; if not, that's the gap.",
+    "youtube": "G0FNYkvTkVM",
+    "event": "PCA29",
+    "tags": [
+      "company",
+      "strategy",
+      "marketer",
+      "model",
+      "users",
+      "advocate",
+      "works",
+      "developer"
+    ]
+  },
+  {
+    "title": "Sales Discovery Skills: Be the Best Salesperson Not in Sales",
+    "presenter": "Isaiah McPeak",
+    "level": "Essentials",
+    "format": "Workshop",
+    "synopsis": "McPeak has been the founding product person at seven companies and closed — unintentionally, without commission, without a sales title — a $36 million enterprise deal. His conclusion: product managers who stay on the 'cost side of the business' by focusing only on delivery will always be seen as overhead; PMs who get comfortable helping elicit and close value will be seen as revenue generators. The session is built around a sales discovery model from Dr. Steven Tomlinson, anchored in a trust-depth framework: trust is defined as the next risk someone is willing to take with you, and the model sequences conversation moves so that invasive questions (budget, authority) arrive only after enough reciprocal exchange has made them natural.",
+    "takeaways": [
+      "The difference between a product manager who's viewed as cost and one who's viewed as revenue is their willingness to be in the room during sales conversations — not just discovery interviews, but actual deals",
+      "Trust is not a soft concept in sales: it is the next risk someone is willing to take with you, and managing the sequence of exchanges that build it is a learnable skill with a clear mental model",
+      "BANT (budget, authority, need, timeline) in conventional sales puts money first; the discovery model inverts this — money comes last because it's the highest-risk exchange and only lands well after enough back-and-forth has made it the obvious next step"
+    ],
+    "who": "Product managers who are regularly pulled into sales conversations or enterprise deals but lack a framework for navigating those conversations with confidence rather than dread.",
+    "brief": "Before your next customer meeting that has any sales dimension, write down the one question you most need answered — and then identify the two or three exchanges that have to happen before the other side will feel safe enough to answer it honestly.",
+    "youtube": "RGXb9fHRjDc",
+    "event": "PCA30",
+    "tags": [
+      "sales",
+      "discovery",
+      "model",
+      "conversation",
+      "exchange",
+      "trust",
+      "risk",
+      "enough"
+    ]
+  },
+  {
+    "title": "Confessions of a Product Hitman: Raw Truths About Failure in Product Development",
+    "presenter": "David Monteiro",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Montero, an eight-year product management veteran who came up through project management and hardware development, structures this session around the Venn diagram that appears when you Google 'product management' — feasibility, viability, desirability — and then highlights the book almost nobody reads: Winning at New Products, which focuses squarely on failure rather than success. Using real stories from her career — including a six-month framework migration that nearly destroyed a partner ecosystem, and a product roadmap torpedoed by promises sales made without telling anyone — she makes the case that the silent killers of product development are not technical failures but organizational ones: HIPPO decisions, misaligned visions, and the false confidence that a solid roadmap provides when it's not grounded in product vision.",
+    "takeaways": [
+      "There is no such thing as 'just a technical decision' in product management — a framework migration, an API change, a toolchain update all have business model implications that product managers must trace before they sign off",
+      "The fastest way to learn about your product's actual value proposition is to learn it from sales, not from documentation — how sales presents the product to customers reveals the gap between what you built and what the market heard you promise",
+      "A product roadmap without a product vision is a to-do list: it prioritizes activity without a destination, and every HIPPO in the org will fill the vacuum with their own destination if you don't create one"
+    ],
+    "who": "Product managers with three or more years of experience who want an honest, failure-forward framework for diagnosing why their roadmaps aren't translating into the outcomes they expected.",
+    "brief": "Schedule 30 minutes with a salesperson this week and ask them to walk you through how they pitch your product to a new customer — listen for the gap between what they say and what you'd say, because that gap is where your next roadmap should start.",
+    "youtube": "b6ELlnV2T0A",
+    "event": "PCA30",
+    "tags": [
+      "roadmap",
+      "failure",
+      "development",
+      "framework",
+      "sales",
+      "vision",
+      "api",
+      "migration"
+    ]
+  },
+  {
+    "title": "Competitive Intelligence for Product Managers",
+    "presenter": "Ross Weems",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Weems opens with an audience word cloud — research, analysis, spy — and then systematically builds the framework most product managers wish they had been taught earlier. The session covers the full competitive intelligence workflow: defining objectives before collecting data, identifying both direct and indirect competitors through sales teams and churn data, mining friendly new customers and returning churned customers for unfiltered competitive context, and building a documented win-loss system that can actually answer the questions executive leadership will eventually ask. The practical emphasis is on the human sources that most PMs underuse: sales, customer success, and the candid accounts of customers who recently chose or left you.",
+    "takeaways": [
+      "Your sales team is the most underused competitive intelligence asset you have — they know in real time what competitors are doing in every deal, and they'll tell you exactly what capabilities they wish you had",
+      "Newly signed customers are uniquely valuable CI sources: they just completed a vendor assessment, they picked you, and they'll tell you exactly why — including what the alternatives did wrong that made your weaknesses easier to forgive",
+      "A documented win-loss system is the difference between competitive intelligence and competitive intuition — if you don't know why you're winning and why you're losing, you're flying blind on the roadmap decisions that affect revenue most directly"
+    ],
+    "who": "Product managers at companies with multiple competitors who want a repeatable, structured approach to competitive intelligence that goes beyond feature comparison tables.",
+    "brief": "Identify the last five deals you won and the last five you lost, and ask the sales team what the deciding factor was in each — if you can't get that answer in under an hour, you don't have a competitive intelligence function, and that's the gap to close first.",
+    "youtube": "TvByPXxSILs",
+    "event": "PCA30",
+    "tags": [
+      "competitive",
+      "intelligence",
+      "customer",
+      "sales",
+      "competitor",
+      "wish",
+      "data",
+      "documented"
+    ]
+  },
+  {
+    "title": "Lessons Learned Delivering an AI-Driven Product",
+    "presenter": "Carrie Goldberger",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Two years after joining her company's Data Intelligence team to ship an AI product from scratch, Goldberger returns with a practitioner's view of what the books don't tell you. Her framework for identifying AI use cases starts with the Opportunity Solution Tree from Continuous Discovery Habits, reframed around a key diagnostic: where in your workflow does uncertainty exist? That uncertainty is where AI earns its keep. The AI Canvas (from Prediction Machines) then forces teams to slow down and verify they have the right data, feedback loops, and judgment criteria before committing. Most importantly, the session gives serious treatment to the question of how to design for failure — because any ML model is wrong some percentage of the time by definition, and the product team has to decide in advance which failure mode is more acceptable for their specific users.",
+    "takeaways": [
+      "The right question for identifying AI use cases is not 'where can we add AI?' but 'where does uncertainty exist in our users' workflow?' — uncertainty is precisely where prediction reduces friction, and it gives you a defensible reason for every AI feature",
+      "Designing for how your model fails is as important as designing for when it succeeds — a false positive and a false negative create very different user experiences, and which one you optimize against must be a deliberate product decision, not an accident of model training",
+      "The CRAFT framework (Clarity, Robustness, Action, Forethought, and Scale) is a practical checklist for identifying where generative AI specifically adds value, as opposed to where a rules-based or search-based solution would serve users better"
+    ],
+    "who": "Product managers at companies investing in AI features who want a practitioner's toolkit for evaluating use cases, structuring model decisions, and designing responsible user experiences around AI outputs.",
+    "brief": "For any AI feature currently on your roadmap, write down in one sentence what happens to the user when the model is wrong — if you can't write that sentence, you're not ready to build the feature yet.",
+    "youtube": "cdpLvUC32YQ",
+    "event": "PCA30",
+    "tags": [
+      "ai",
+      "model",
+      "uncertainty",
+      "feature",
+      "identifying",
+      "cases",
+      "users",
+      "designing"
+    ]
+  },
+  {
+    "title": "The Unspoken Secrets to Creating Successful Products",
+    "presenter": "Elena Leonova",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Leonova has spent 15 years in product management and helped build a product that held 25% of global digital commerce market share — and she opens the session with something most product leaders won't say in public: 75% of products fail, and she has made many of the mistakes that cause it. The session is structured as a series of hard-won lessons, each anchored in a real failure from her career. The front-end framework migration that nearly collapsed a partner ecosystem. The product roadmap that was built on rigorous customer research while sales was promising customers features that didn't exist. The pattern across all these stories is the same: product managers who stay in their lane — discovery, engineering, UX — and abdicate the organizational and commercial dimensions of product leadership create the conditions for failure even when they're technically excellent.",
+    "takeaways": [
+      "No technical decision is outside the product manager's domain: every architectural, tooling, or framework choice has downstream effects on partners, pricing, and ecosystem trust that only become visible when it's too late to reverse them",
+      "Learn your product from the sales perspective before you learn it from the PM perspective — how the market has been trained to understand your product's value is the reality you're working within, regardless of what you built",
+      "Customer success and sales are not downstream functions from product; they are primary intelligence sources whose daily interactions with customers contain the signals that most roadmaps systematically ignore until a crisis forces them to pay attention"
+    ],
+    "who": "Product managers at B2B or platform companies who want an experience-based framework for the organizational and commercial dimensions of product leadership — the parts that PM training courses consistently underweight.",
+    "brief": "Ask your customer success team this week to tell you the last three times a customer was surprised — positively or negatively — by a product behavior they didn't expect, and trace each surprise back to a product decision that was made without consulting CS.",
+    "youtube": "sEMEaJwC1yA",
+    "event": "PCA30",
+    "tags": [
+      "customer",
+      "framework",
+      "sales",
+      "market",
+      "failure",
+      "partner",
+      "ecosystem",
+      "roadmap"
+    ]
+  },
+  {
+    "title": "Expand Your Reach: Leveraging Sourcing Agents and Shopify Experts for Worldwide Success",
+    "presenter": "Chris Lopez",
+    "level": "Entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Lopez, a digital consultant who has spent a decade helping entrepreneurs find talent and build global supply chains, walks through a model most product managers in software have never encountered: using specialized regional sourcing agents — people with on-the-ground relationships with manufacturers in specific parts of China, India, and Southeast Asia — as the connective tissue between product idea and e-commerce execution. The system he describes is designed for speed: a sourcing agent finds and qualifies a manufacturer, a Shopify expert deploys the storefront, and the whole machine can go live in a weekend. The session is grounded in concrete examples including the surge of AI-generated seasonal product sites and the drop-ship model that makes it possible.",
+    "takeaways": [
+      "A sourcing agent is not a middleman who adds cost — they are a relationship asset who eliminates months of cold outreach, scam risk, and cultural navigation that a solo entrepreneur cannot replicate at any price",
+      "The Shopify expert and the sourcing agent function as a single team when connected correctly: the manufacturer provides product data through a standardized import format, and the storefront goes live with photos, listings, and reviews in hours rather than weeks",
+      "Product-market timing in physical goods is compressible: the entrepreneurs who win seasonal e-commerce aren't the ones with the best product, they're the ones with the fastest deployment system — sourcing agents and Shopify specialists are the system"
+    ],
+    "who": "Entrepreneurs and product managers exploring physical product development, drop-shipping, or global manufacturing who want a concrete operational model rather than generic supply chain theory.",
+    "brief": "Identify one physical product category you know well and find one sourcing agent on a platform like Alibaba or Upwork who specializes in manufacturing for that category — have one conversation and ask them to show you five manufacturers they work with; the education in that single call will cost you nothing.",
+    "youtube": "hmlU6Bz9EMc",
+    "event": "PCA30",
+    "tags": [
+      "sourcing",
+      "agent",
+      "shopify",
+      "entrepreneur",
+      "manufacturer",
+      "ai",
+      "expert",
+      "model"
+    ]
+  },
+  {
+    "title": "From Corporate Chains to Consulting Gains: A PMM's Journey to Independence",
+    "presenter": "Bertrand Hazard",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Hazard helped run ProductCamp Austin on his personal checking account for three years at the beginning, then spent 25 years as a VP of Product Marketing and VP of Marketing at companies ranging from brand startups to enterprise software before setting up his own fractional PMM consulting practice in January 2022. The session is structured as a detailed, honest account of that transition: the bad boss who accelerated the decision, the approaching-50 reckoning about time horizons, the book that helped him understand his underlying drivers, and the step-by-step mechanics of getting the first clients, pricing services, and building a sustainable practice. The core argument is that launching a consulting practice is easier than it looks — but not for everyone, and he is honest about why.",
+    "takeaways": [
+      "The inflection point for most consulting transitions is not a moment of inspiration but a moment of pain — the bad boss, the political role that has consumed the craft, the birthday that reframes the time remaining — and waiting for inspiration is usually waiting forever",
+      "Your underlying drivers at 50 are the same ones you had at 25 — understanding them before you make the transition tells you whether consulting will satisfy those drivers or just move the frustration to a different address",
+      "The first three clients define the practice: they set your rate, your reputation, and your category — and the fastest path to getting them is the people who already know what you can do, not a LinkedIn announcement or a cold pitch"
+    ],
+    "who": "Senior product marketing professionals at the VP or director level who are weighing a move to fractional or independent consulting and want a candid, experienced account of what the transition actually involves.",
+    "brief": "Write down the three things about your work that give you energy even when everything else is hard — then honestly assess whether those three things are more available inside a company or outside one, because that answer tells you more than any career framework will.",
+    "youtube": "TKBHm6CL2XE",
+    "event": "PCA30",
+    "tags": [
+      "consulting",
+      "practice",
+      "transition",
+      "account",
+      "marketing",
+      "driver",
+      "company",
+      "fractional"
+    ]
+  },
+  {
+    "title": "Together We Create: Integrating Passionate Customers into Product Development",
+    "presenter": "Jake McKee",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "McKee opens with a quote from a Whirlpool product designer that stopped him cold: 'It would be devastating to design a product and then discover later that customers hate using it.' His response — 'Why didn't you know in advance?' — is the question this session is built to answer. McKee's Community Driven Product Development (CDPD) methodology argues that the black box of product development has become so risk-averse that it is now impenetrable, and that the small decisions made in that box accumulate silently into big failures that only reveal themselves at launch. CDPD embeds select passionate customers directly into the development process at the right moments, using four strategic tasks: finding the right people, engaging them at the right time, focusing on the right outcomes, and planning and executing the right activities.",
+    "takeaways": [
+      "Process organizes the mess of product development but does not solve the underlying problem — 30,000 products launch every year and 95% fail regardless of how much process was applied, which means something structural about how we include customer insight is broken",
+      "The passionate customers in your user base are the ones most likely to give you honest, deep feedback before launch — not the average users, not the vocal complainers, but the people who care enough to tell you what's actually wrong while there's still time to fix it",
+      "Community Driven Product Development is not the same as traditional user research: it is not episodic interviews but continuous embedded engagement with a small, carefully selected group whose insight shows up inside the development process rather than feeding into it from outside"
+    ],
+    "who": "Product managers and product leaders at companies with passionate user bases who want a structured methodology for getting customer insight inside the development black box rather than treating it as a pre-launch sanity check.",
+    "brief": "Identify ten customers who would be genuinely devastated if your product went away — they exist in your user base, they just haven't been asked to be part of the process; reach out to three of them this week and tell them you'd like their honest opinion on something you're building.",
+    "youtube": "E8eRnTEB36A",
+    "event": "PCA30",
+    "tags": [
+      "development",
+      "customer",
+      "process",
+      "passionate",
+      "launch",
+      "user",
+      "insight",
+      "community"
+    ]
+  },
+  {
+    "title": "Empowering Product Management with AI",
+    "presenter": "Amit Navare",
+    "level": "Advanced",
+    "format": "Presentation",
+    "synopsis": "Navare, a developer-turned-product-manager who has worked at Kaiser Permanente, CVS, and Staples, frames AI for product managers across two dimensions: AI as a toolbox for building products better (data analysis, experimentation, documentation), and AI as a product capability (AI-powered features). The session is structured around a four-level automation framework — from no automation to fully autonomous operations like self-driving cars — that gives PMs a common language for scoping AI ambition. The central argument is that the product manager's judgment, not the model, determines what level of AI is right for a given context; and that the PMs who thrive in AI-driven organizations are the ones who own the question 'should we build this AI feature at all?' rather than deferring it to data science.",
+    "takeaways": [
+      "AI as a PM toolbox and AI as a product capability are two distinct decisions that should be made separately — using AI to write PRDs faster is a different conversation from deciding whether your product should offer AI-powered features",
+      "The product manager, not the data scientist, is the right person to decide what level of AI automation is appropriate for a feature — that decision has business model, trust, and user experience implications that are product questions, not technical ones",
+      "Balanced roadmaps in an AI-driven organization include both AI-powered innovation and proven non-AI features — the teams that over-rotate on AI features without maintaining their core experience create fragility that shows up as churn when the AI disappoints"
+    ],
+    "who": "Product managers at organizations investing in AI who want a framework for evaluating AI feature opportunities that doesn't require a background in machine learning but does require clear product thinking.",
+    "brief": "For any AI feature request that comes to you in the next month, answer four questions before agreeing to scope it: what level of automation is this, what does the user experience look like when it fails, who owns the feedback loop when the model degrades, and who approved the data used to train it.",
+    "youtube": "pdoUMihKTKw",
+    "event": "PCA30",
+    "tags": [
+      "ai",
+      "feature",
+      "data",
+      "level",
+      "automation",
+      "powered",
+      "model",
+      "organization"
+    ]
+  },
+  {
+    "title": "Sucky Economy: Strategies for Finding a Job",
+    "presenter": "Mark Stephan",
+    "level": "Essentials",
+    "format": "Presentation",
+    "synopsis": "Steffen runs two companies — Product Hire, a career site for product professionals since 2017, and Talent Agent, a reverse recruiting service for tech workers — giving him unusual visibility into how the job market actually works rather than how job seekers think it works. The numbers are brutal: cold application reply rates have dropped from 5% in 2019 to under 0.5% today; companies like Netflix receive 5,000–10,000 applications per role; the average search for a senior PM is running six to ten months. His core message is that treating your career like a product — building brand, managing visibility, cultivating relationships before you need them — is the only strategy that actually works in this environment, because referrals remain the dominant path into most roles even when the front door is flooded.",
+    "takeaways": [
+      "Cold applications are statistically not a job search strategy in the current market — with sub-0.5% reply rates, the only productive use of time is building the relationships that produce referrals, which still convert at 20% or better",
+      "More than 85% of jobs are filled through some form of referral and more than 60% of jobs are never posted publicly — the job you need probably exists but is not on LinkedIn, and you will only find it through the network you have or will build",
+      "Manage your career like a product: set a vision, build a brand, make your impact visible, and be proactive — not because it feels strategic but because the invisible option in a market with 10,000 applicants per role is not actually an option"
+    ],
+    "who": "Product managers actively in a job search or expecting one within the next year who want honest market data and a referral-first strategy rather than resume optimization advice.",
+    "brief": "Make a list of fifteen people in your professional network you haven't talked to in the last six months — then reach out to five of them this week with something genuinely useful to them, not an ask, and see what happens to the quality of your next career conversation.",
+    "youtube": "Bp_HZF2PM5E",
+    "event": "PCA30",
+    "tags": [
+      "strategy",
+      "career",
+      "market",
+      "referral",
+      "works",
+      "application",
+      "search",
+      "company"
+    ]
+  },
+  {
+    "title": "Drive Greater Innovation and Success Using Jobs-to-Be-Done",
+    "presenter": "Tom Evans",
+    "level": "Advanced",
+    "format": "Workshop",
+    "synopsis": "Evans opens with his own story: years of complaining about hotel rooms having no convenient outlet near the ironing board — until someone pointed out he was defining the solution, not the problem. His actual job was to get wrinkles out of his shirts. The product he eventually adopted was Downy Wrinkle Releaser. He would never have found it if he'd stayed focused on the outlet. That reframing — from solution-defined problems to job-defined needs — is the core of Jobs-to-Be-Done, which Evans teaches through the history of portable music (medieval minstrels → Westinghouse transistor radio → Walkman → iPod) to show how every successful product innovation was a response to a need that already existed, not a new need that the product created.",
+    "takeaways": [
+      "A job is not a feature request and it is not a pain point — it is the outcome the customer is trying to achieve, and framing it that way opens the solution space dramatically rather than locking it to the product category you already occupy",
+      "Most product teams jump to solutions before they've agreed on the job — Jobs-to-Be-Done is structural pressure to stay in the problem space long enough to understand what the customer is actually trying to accomplish, including the emotional and social dimensions that functional requirements don't capture",
+      "Apple didn't invent the need for portable music — that need predates recorded sound — they found a way to serve it so much better than existing solutions that the new product felt inevitable in retrospect; Jobs-to-Be-Done is the framework that makes that kind of insight reproducible"
+    ],
+    "who": "Product managers and UX researchers who find their teams consistently jumping to solutions before the problem is well understood, and who want a hands-on framework for keeping discovery in the problem space long enough to find non-obvious solutions.",
+    "brief": "Take the top item on your current roadmap and rewrite it as a job statement — 'when [situation], I want to [motivation], so that [outcome]' — then ask whether your proposed solution is the only way to satisfy that job or just the most obvious one.",
+    "youtube": "jEcUAkeOwC0",
+    "event": "PCA30",
+    "tags": [
+      "solution",
+      "problem",
+      "jobs",
+      "done",
+      "space",
+      "innovation",
+      "evans",
+      "opens"
+    ]
+  },
+  {
+    "title": "AI Enhanced Leadership: Clarity and Personalized Growth",
+    "presenter": "Zuzana Sekerova",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Using AI to become a better leader — not just a more efficient one. Zuzana (an Olympian turned product leader) tackles the real challenges managers face: diverse personalities, communication barriers, organizational upheaval, and conflict resolution. Her core argument: AI streamlines the management tasks that drain you so you can focus on the human relationships that actually build teams.",
+    "takeaways": [
+      "AI is a tool for leadership, not a replacement for it — treat its output like a draft from an intern",
+      "Leaders rarely get formal training; AI can fill the feedback gap that coaches give athletes",
+      "Being clear is being kind — AI helps you find the right words across language and style differences",
+      "Use AI to prepare for difficult conversations, organizational changes, and conflict mediation"
+    ],
+    "who": "PMs and product leaders with direct reports, managers navigating rapid org change",
+    "brief": "AI for leaders, not just products",
+    "youtube": "PyHgKcXL1uI",
+    "event": "PCA31",
+    "tags": [
+      "ai",
+      "leader",
+      "leadership",
+      "organizational",
+      "conflict",
+      "change",
+      "enhanced",
+      "clarity"
+    ]
+  },
+  {
+    "title": "Drive Greater Innovation and Success Using Jobs to Be Done",
+    "presenter": "Tom Evans",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "A hands-on introduction to the Jobs to Be Done framework using Clayton Christensen's thinking. Tom uses a memorable hotel ironing story to reveal how customers don't buy products — they hire them to accomplish a job. When you focus on the real job (functional, social, emotional), entirely new solutions become visible that a feature-centric mindset would never surface.",
+    "takeaways": [
+      "Customers don't buy your product — they hire it to get a job done in a particular circumstance",
+      "Jobs have three layers: functional (what to accomplish), social (how to be perceived), emotional (how to feel)",
+      "Identifying the true job opens solution spaces you'd never reach from a feature list",
+      "Pains and gains mapping only make sense once you've defined the real job"
+    ],
+    "who": "PMs, designers, and strategists who want to understand customers beyond user stories",
+    "brief": "Stop solving the wrong problem",
+    "youtube": "waVDg9AiCHw",
+    "event": "PCA31",
+    "tags": [
+      "jobs",
+      "done",
+      "customer",
+      "story",
+      "hire",
+      "accomplish",
+      "functional",
+      "social"
+    ]
+  },
+  {
+    "title": "From Corporate Chains to Consulting Gains: My Journey to Independence",
+    "presenter": "Bertrand Hazard",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Bertrand (formerly SVP and CMO at major Austin tech companies) shares the transparent, numbers-honest story of leaving corporate life to open his own consulting practice in January 2022. He covers the book that shifted his thinking (Don't Retire, Rewire), the cold-feet moment he didn't take the leap in 2020, the painful job that finally pushed him over the edge, and the real client acquisition journey since going independent.",
+    "takeaways": [
+      "Underlying drivers — what energizes you at 26 vs 46 — are the true guide for career reinvention",
+      "Health insurance fear is the top blocker; marketplace coverage is often viable but rarely explored",
+      "Painful corporate experiences are data — use them to identify what you're actually done tolerating",
+      "Going independent requires understanding your service-market fit as rigorously as any product launch"
+    ],
+    "who": "Senior corporate PMs and marketers considering independence, consulting, or freelance",
+    "brief": "From SVP to self-employed — the real numbers",
+    "youtube": "mxkqck_JoZY",
+    "event": "PCA31",
+    "tags": [
+      "corporate",
+      "consulting",
+      "journey",
+      "independence",
+      "number",
+      "painful",
+      "going",
+      "independent"
+    ]
+  },
+  {
+    "title": "Blueprinting Success: Crafting Killer Use Cases That Drive Value and Adoption",
+    "presenter": "Michael Robin Hansen",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Michael (product marketer supporting early-stage products) argues that use cases built on customer intelligence beat competitor-focused messaging every time. Drawing on a hard-won lesson from Finastra — walking in unprepared and getting humiliated on day one — he now builds use cases feature-by-feature, grounded in researched pain and validated by real customer scenarios.",
+    "takeaways": [
+      "Customer intelligence must come before messaging — understand pain before differentiating from competitors",
+      "Build use cases feature-by-feature, not product-by-product, to map to specific customer scenarios",
+      "Product marketers and product managers need to co-own discovery, not operate in separate silos",
+      "Customer delight is just customer despair solved — they're two sides of the same research"
+    ],
+    "who": "Product marketers, PMs, and go-to-market teams building or launching early-stage products",
+    "brief": "Use cases built from pain, not guesswork",
+    "youtube": "DdHuliBBgjQ",
+    "event": "PCA31",
+    "tags": [
+      "customer",
+      "cases",
+      "feature",
+      "marketer",
+      "pain",
+      "early",
+      "stage",
+      "intelligence"
+    ]
+  },
+  {
+    "title": "How to Manage Your PM Career as a Product Using the IOR Framework",
+    "presenter": "Ahmed Zouhair",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Ahmed draws on his four books and years of accelerator mentoring to present the IOR framework — Input, Output, Results — as a lens for managing your PM career. Know your inventory of skills, apply the 3Cs (character, communication, commitment) and 3Ts (trust, talent, track record), and treat career strategy the way you'd treat product strategy: no inputs, no results.",
+    "takeaways": [
+      "IOR: your career ROI is a function of what you put in — Input → Output → Results",
+      "Inventory your skills honestly; ask a trusted friend what you're actually good at",
+      "Treat 'what do you do?' as a product pitch: 'I help X do Y by Z' in under two seconds",
+      "Strategy is about resources — without a plan, there's no roadmap, no team, no product"
+    ],
+    "who": "PMs at any level looking to approach their career development with a product mindset",
+    "brief": "Treat your career like a product",
+    "youtube": "fuPIZFZsRos",
+    "event": "PCA31",
+    "tags": [
+      "career",
+      "treat",
+      "input",
+      "strategy",
+      "framework",
+      "output",
+      "inventory",
+      "skill"
+    ]
+  },
+  {
+    "title": "Humans Still Matter: How to Build Relationships to Overcome the Toughest PM Challenges",
+    "presenter": "Lani Dame",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "Lani (15-year tech veteran, IBM to product marketing) makes the case that PM's hardest problems — prioritization battles, executive misalignment, siloed teams — are people challenges, not framework problems. This interactive session explores how to build working relationships at the individual, team, and organizational level with practical tools participants can start using the following week.",
+    "takeaways": [
+      "Most PM 'process' problems are actually people problems wearing a process costume",
+      "Influence works differently at individual, team, and org levels — build a strategy for each",
+      "Constructive directness lands differently depending on the person — know your audience",
+      "No matter how AI evolves, the human dynamics at the center of PM work remain constant"
+    ],
+    "who": "PMs navigating difficult stakeholders, cross-functional conflict, or executive misalignment",
+    "brief": "Tech changes; people challenges don't",
+    "youtube": "Sujm7HwMvWg",
+    "event": "PCA31",
+    "tags": [
+      "problem",
+      "ai",
+      "challenge",
+      "human",
+      "matter",
+      "relationship",
+      "tech",
+      "executive"
+    ]
+  },
+  {
+    "title": "Latest Job Trends: How to Get a Job in This Market",
+    "presenter": "Mark Stephan",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Mark (founder of Product Hired and Talent Agent, 21 years in HR tech) delivers hard data from his own job market tracking: cold application response rates below 0.5%, PM searches averaging 8–10 months (executive level now over a year), and even referral rates collapsing from 70% to 20%. Tactical guidance on what actually moves the needle when the market is this brutal.",
+    "takeaways": [
+      "Cold apply response rate was 5% in 2019 — it's now below 0.5%; mass applying is effectively dead",
+      "Referral success dropped from 70% to ~20% — even referrals no longer guarantee interviews",
+      "60–85% of jobs are filled through networks before or without ever being publicly posted",
+      "30% of LinkedIn connection requests get accepted; 20–30% of those get an actual conversation"
+    ],
+    "who": "Active PM job seekers, career changers, and anyone wondering why they're not hearing back",
+    "brief": "The numbers are worse — here's what actually works",
+    "youtube": "j1jhsGQu5pc",
+    "event": "PCA31",
+    "tags": [
+      "market",
+      "referral",
+      "cold",
+      "response",
+      "rates",
+      "latest",
+      "trend",
+      "mark"
+    ]
+  },
+  {
+    "title": "Product Operations: Insights From the Frontlines",
+    "presenter": "Tiffany Murphree",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Tiffany (Head of Product Ops at HTSS, a 500-person construction SaaS) shares what it actually means to 'PM the PM experience' — from grassroots origins before anyone knew product ops was a real job, through a PE acquisition that doubled headcount in under a year. She runs a choose-your-own-adventure format covering the three pillars: right people, right processes, right tools.",
+    "takeaways": [
+      "Product ops = PMing the PM experience across the full employee lifecycle, not just go-to-market launches",
+      "You can build product ops grassroots without an official mandate — start with the most painful friction points",
+      "PE acquisitions often accelerate product investment; build the ops foundation before headcount doubles",
+      "People, processes, and tools are interconnected — optimizing one without the others creates new bottlenecks"
+    ],
+    "who": "PMs interested in product ops roles, leaders scaling product teams through M&A or rapid growth",
+    "brief": "PM-ing the PM experience from the inside",
+    "youtube": "qYoWvvx8XlA",
+    "event": "PCA31",
+    "tags": [
+      "experience",
+      "grassroot",
+      "acquisition",
+      "headcount",
+      "processe",
+      "tools",
+      "operation",
+      "insight"
+    ]
+  },
+  {
+    "title": "Product Strategy: Why, What, Who, and How",
+    "presenter": "Roger L. Cauvin",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Roger (consumer scientist and former PM) challenges the entire industry's use of the word 'strategy.' Critiquing popular frameworks from RICE to Radhika Dutt, he argues strategy is not a roadmap, a vision, or a set of OKRs — it's a policy that governs all subordinate decisions. Without one, your prioritization scores are informed guessing.",
+    "takeaways": [
+      "Strategy is a relative concept — calling something strategic only makes sense compared to more tactical decisions",
+      "A real product strategy answers: who is the target customer, what problems do they have, what do we prioritize for them",
+      "Frameworks like RICE require a strategy to have meaning — without a target persona, 'reach' and 'impact' are undefined",
+      "Stop asking 'what is our roadmap?' and start asking 'what policy governs our decisions?'"
+    ],
+    "who": "Senior PMs, CPOs, and strategy practitioners who want a sharper, more defensible definition of strategy",
+    "brief": "If you can't define impact, you don't have a strategy",
+    "youtube": "Py7pcw3Q75g",
+    "event": "PCA31",
+    "tags": [
+      "strategy",
+      "decision",
+      "framework",
+      "rice",
+      "roadmap",
+      "policy",
+      "govern",
+      "target"
+    ]
+  },
+  {
+    "title": "Supercharging Business with AI & Offshore Virtual Assistants",
+    "presenter": "Jenna Hatch",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Jenna (business advisor and integration expert) breaks down the practical synergy between AI automation and offshore virtual assistants — the delegation stack that frees entrepreneurs from the tasks that kill their joy. She starts with a live exercise: list what you hate doing, then map what can be AI-automated, what needs a human, and what you were doing for no reason at all.",
+    "takeaways": [
+      "Before hiring a VA, use ChatGPT to help you list every task that kills your joy",
+      "AI and VAs aren't competitors — AI handles repetitive logic, VAs handle judgment-required tasks",
+      "Map to three buckets: AI-automated (reminders, templates), VA-delegated (follow-up, research), eliminated",
+      "The goal isn't efficiency — it's reclaiming focus for the work only you can do"
+    ],
+    "who": "Entrepreneurs and small business owners drowning in operational tasks they can't afford to ignore",
+    "brief": "AI + VA = the delegation stack",
+    "youtube": "D6F4S4sFRAY",
+    "event": "PCA31",
+    "tags": [
+      "ai",
+      "business",
+      "tasks",
+      "offshore",
+      "virtual",
+      "assistant",
+      "delegation",
+      "stack"
+    ]
+  },
+  {
+    "title": "Turning AI Savings into Tomorrow's Innovations",
+    "presenter": "Jake McKee",
+    "level": "advanced",
+    "format": "Discussion",
+    "synopsis": "Jake pushes back on the dominant AI narrative of cost reduction and headcount savings. The real opportunity, he argues, is using those gains as fuel for creativity, experimentation, and genuine customer delight — things that actually grow businesses. He openly admits nobody has fully solved this yet and runs the session as open discussion, not a deck.",
+    "takeaways": [
+      "Cost savings and efficiency don't inherently grow businesses — they make businesses healthier to then grow",
+      "The real AI opportunity: redirecting savings into creativity, experimentation, and customer experience",
+      "Most organizations optimize AI at the departmental level rather than reinvesting gains holistically",
+      "Innovation requires space and resources — AI can create both, if leadership makes that the intention"
+    ],
+    "who": "Product leaders and executives thinking beyond AI efficiency toward AI-enabled growth and innovation",
+    "brief": "Beyond cost savings — what does AI actually unlock?",
+    "youtube": "1-6IOOOvCpA",
+    "event": "PCA31",
+    "tags": [
+      "ai",
+      "saving",
+      "innovation",
+      "cost",
+      "grow",
+      "businesse",
+      "opportunity",
+      "gains"
+    ]
+  },
+  {
+    "title": "The Smart Speaker's Toolkit: AI and Virtual Assistants Unleashed",
+    "presenter": "Chris Lopez",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "A practical toolkit for entrepreneurs, PMs, and professionals who speak, present, or create content — and want AI and virtual assistants to amplify their reach and reduce their prep burden. Chris covers the tools, workflows, and integration strategies that bridge the gap between what you know and how you get it in front of an audience.",
+    "takeaways": [
+      "AI can dramatically compress research and prep time before any presentation or content piece",
+      "Virtual assistants handle the post-event amplification work that most speakers let slip",
+      "The speaker-audience relationship is a product relationship — treat it like one",
+      "Identify the high-leverage moments in your speaking workflow and target those for automation first"
+    ],
+    "who": "Entrepreneurs and professionals who speak, create content, or want to build their public presence",
+    "brief": "AI for the working speaker and content creator",
+    "youtube": "qoCQqFmivLs",
+    "event": "PCA31",
+    "tags": [
+      "ai",
+      "content",
+      "virtual",
+      "assistant",
+      "toolkit",
+      "entrepreneur",
+      "prep",
+      "workflow"
+    ]
+  },
+  {
+    "title": "Thriving Amid Uncertainty: Navigating the Chaos of Product Management Careers",
+    "presenter": "Priyanka Gotika",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Priyanka traces her path from mechanical engineering in India (2009 recession) through a COVID-era layoff — on a visa, with a 10-month-old, a new mortgage — to product management. Her three pillars: embrace the pivot, develop transferable skills, and treat networking as infrastructure you build before you need it, not a safety net you grab in crisis.",
+    "takeaways": [
+      "PM career paths are nonlinear by nature — stop expecting the ladder and start expecting the lattice",
+      "Transferable skills cross industries; mechanical engineering, analytics, and empathy all land in PM",
+      "Networking isn't a crisis resource — it's infrastructure you build when you don't need it yet",
+      "Uncertainty is a signal of opportunity; the chaos moments are the ones worth talking about later"
+    ],
+    "who": "PMs in career transition, recent layoffs, career changers entering product management",
+    "brief": "Uncertainty is the path, not the obstacle",
+    "youtube": "eY72Rff8l_w",
+    "event": "PCA31",
+    "tags": [
+      "career",
+      "uncertainty",
+      "chaos",
+      "path",
+      "mechanical",
+      "engineering",
+      "layoff",
+      "transferable"
+    ]
+  },
+  {
+    "title": "Why Every Product Manager Should Think Like a Platform Strategist",
+    "presenter": "Elena Leonova",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Elena (CPO at Spriker, formerly at Adobe Commerce/Magento) argues that platform thinking isn't just for tech giants — it's a mindset any PM can adopt. She distinguishes exchange platforms (Airbnb, Uber) from maker platforms (Salesforce ecosystem) and shows how 70% of unicorns and 8/10 of the world's largest companies operate as platforms. The session explores how to apply platform patterns even within enterprise and internal product contexts.",
+    "takeaways": [
+      "Platform companies don't own what creates their value — they orchestrate others who do",
+      "Two platform types: exchange (matchmaking) and maker (enabling third-party creation) — both are learnable",
+      "Any company at a certain scale can start applying platform thinking; size is not a prerequisite",
+      "Ask: what parts of your product could become an API, an ecosystem, or an extension point for others?"
+    ],
+    "who": "PMs and product leaders who want to think beyond standalone features toward ecosystems and extensibility",
+    "brief": "Platform thinking is for everyone, not just big tech",
+    "youtube": "-vfN010DSA4",
+    "event": "PCA31",
+    "tags": [
+      "platform",
+      "thinking",
+      "ecosystem",
+      "company",
+      "api",
+      "tech",
+      "exchange",
+      "maker"
+    ]
+  },
+  {
+    "title": "AI Meets Ambition: Build Your Career Assistant",
+    "presenter": "Lisa Bounds",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Lisa (former Dell and MedTech startup, currently navigating the same brutal job market as her audience) teaches how to build a custom ChatGPT that deeply knows you — trained on your resume, strengths, and voice — so it can tailor applications, simulate ATS scoring, draft outreach, and prep STAR stories on demand. Requires ChatGPT Plus ($20/month). Live demo-based session with actionable setup steps.",
+    "takeaways": [
+      "Build a custom GPT with a detailed system prompt — the more specific it knows you, the better it performs",
+      "Use it to tailor resumes and cover letters per role without starting from scratch each time",
+      "Simulate ATS scoring before you submit — know how your application will be screened",
+      "You can't control Workday's bad UX, but you can control how well-prepared your materials are"
+    ],
+    "who": "Active job seekers and career-pivoting PMs who want AI to do the tedious application work",
+    "brief": "Your custom GPT as a career co-pilot",
+    "youtube": "gLgZFmL6msY",
+    "event": "PCA32",
+    "tags": [
+      "ai",
+      "career",
+      "custom",
+      "application",
+      "chatgpt",
+      "knows",
+      "resume",
+      "tailor"
+    ]
+  },
+  {
+    "title": "Engineering The Future: Agile for Hardware with MAHD™",
+    "presenter": "Vishal Sheth",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Vishal (partner at the MAHD Framework, implemented in 100+ hardware organizations since 2017) makes the case that both Waterfall and standard Scrum fail physical product teams — Waterfall because integration comes too late, Scrum because it assumes digital flexibility that hardware doesn't have. MAHD bridges the gap with hardware-specific sprints that surface integration failures early and drive cross-functional collaboration through the full development cycle.",
+    "takeaways": [
+      "Waterfall fails hardware because everyone follows their Gantt chart in a silo until the end — then it doesn't fit together",
+      "Standard Scrum fails hardware because you can't sprint to a physical prototype the way you can deploy software",
+      "MAHD's key insight: learning cycles must happen early, when changes are cheap, not at integration",
+      "Cross-functional collaboration in hardware isn't a nice-to-have — it's the mechanism that prevents late-stage disasters"
+    ],
+    "who": "PMs, founders, and engineers building physical products that combine hardware, software, and firmware",
+    "brief": "Agile that actually works for hardware",
+    "youtube": "GngPWOmzcZI",
+    "event": "PCA32",
+    "tags": [
+      "hardware",
+      "mahd",
+      "waterfall",
+      "scrum",
+      "physical",
+      "integration",
+      "agile",
+      "standard"
+    ]
+  },
+  {
+    "title": "Introducing AIX: A Framework for AI Experience Design",
+    "presenter": "Jake McKee",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Just as UX brought discipline and shared language to interface design, AIX (AI Experience Design) provides a framework for designing how users experience, interpret, and trust AI in your product. Jake's thesis: AI features are powerful but opaque, and opacity erodes trust. If AI is the engine, AIX is the steering wheel. The framework draws on the arc from early web design to modern UX standards as a model for what AI design maturity looks like.",
+    "takeaways": [
+      "AI features without intentional experience design create confusion and erode user trust",
+      "Just as UX evolved from IT-owned to customer-experience-owned, AI design needs the same shift",
+      "Design the human-AI relationship, not just the output — consistency and predictability matter",
+      "Opacity in AI behavior is a design failure; users need to understand what the system is doing and why"
+    ],
+    "who": "PMs, designers, and product leaders building AI-powered features who want a shared design vocabulary",
+    "brief": "If AI is the engine, AIX is the steering wheel",
+    "youtube": "2Kb5Rtl_vG4",
+    "event": "PCA32",
+    "tags": [
+      "ai",
+      "design",
+      "experience",
+      "framework",
+      "trust",
+      "feature",
+      "shared",
+      "users"
+    ]
+  },
+  {
+    "title": "When Product Forgets About Commercial",
+    "presenter": "Lisa Hendrickson",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Lisa (former COO of a sustainable manufacturing startup, global head at S&P Global, adjunct professor at FIT) delivers a cautionary story: product and commercial teams systematically underestimate each other's complexity, and the result is launches that nobody knows how to sell. Without embedding commercial thinking into roadmaps and go-to-market planning, you build things the market can't absorb — even when the product is genuinely good.",
+    "takeaways": [
+      "Each team believes the other's work is simpler than it is — that gap is where launches fail",
+      "Commercial teams develop a 1-3 point view of product value; product teams assume everyone will just 'get it'",
+      "New product almost always requires an education layer in GTM — commercial teams can't create it alone",
+      "Embedding commercial team members in product creation builds the empathy that makes go-to-market coherent"
+    ],
+    "who": "Product leaders and PMs at companies where product and sales operate in separate worlds",
+    "brief": "If product and commercial don't talk, nobody wins",
+    "youtube": "xABZ7N8McwU",
+    "event": "PCA32",
+    "tags": [
+      "commercial",
+      "market",
+      "global",
+      "launche",
+      "nobody",
+      "embedding",
+      "forget",
+      "lisa"
+    ]
+  },
+  {
+    "title": "It's the End of the World As We Know It",
+    "presenter": "Mark Stephan",
+    "level": "advanced",
+    "format": "Town Hall",
+    "synopsis": "Mark (founder of Product Hired, Talent Agent, and a new fractional AI agency) breaks from his usual job market data format to deliver a macro-systemic challenge: 40-year, 80-year, and 200-year economic cycles are all converging around 2027 — and he's been tracking this since the 90s. The session is a thinking exercise: if PM as a job category disappears, what is the durable capability underneath it? His answer: dot-connector. Futurist. Systems thinker.",
+    "takeaways": [
+      "PM's real skill is connecting disparate signals into patterns others miss — that's the hard-to-automate core",
+      "Stop thinking of yourself as a job category; start thinking of yourself as a capability",
+      "Global economic, political, and technological cycles are closing simultaneously for the first time in history",
+      "Pragmatic systems thinking — not optimism or doom — is the best tool for navigating structural disruption"
+    ],
+    "who": "PMs willing to think beyond their current role and ask what their actual durable value is",
+    "brief": "PM as a job may not last — PM as a skill will",
+    "youtube": "tizQV_3wYJY",
+    "event": "PCA32",
+    "tags": [
+      "thinking",
+      "ai",
+      "economic",
+      "cycle",
+      "category",
+      "durable",
+      "capability",
+      "system"
+    ]
+  },
+  {
+    "title": "Product Ikigai: Lead with Purpose, Build for Impact",
+    "presenter": "Bhaskar Manam",
+    "level": "entrepreneurs",
+    "format": "Town Hall",
+    "synopsis": "Applying the Japanese Ikigai philosophy — the intersection of what you love, what you're good at, what the world needs, and what you get paid for — to product management. Bhaskar uses Google Glass as a case study: technically brilliant, profitable on paper, but it failed because it lacked a resonant purpose. The three traditional product dimensions (feasibility, profitability, usability) are necessary but not sufficient — Ikigai adds the fourth.",
+    "takeaways": [
+      "Feasibility, profitability, usability are necessary but not sufficient — purpose is the fourth dimension",
+      "Google Glass nailed three dimensions and missed the one that users actually care about: why should I want this?",
+      "Ikigai aligns your product's reason for being with user passion, company mission, and market reality",
+      "Products built with Ikigai create lasting loyalty; products without it create features nobody remembers"
+    ],
+    "who": "PMs and founders who want their products to have meaning beyond metrics",
+    "brief": "Build products with a reason for being",
+    "youtube": "pL9wJqxH1YU",
+    "event": "PCA32",
+    "tags": [
+      "ikigai",
+      "purpose",
+      "dimension",
+      "google",
+      "glass",
+      "feasibility",
+      "profitability",
+      "usability"
+    ]
+  },
+  {
+    "title": "Product Management Is Not Dead: How to Be Indispensable in the Age of AI",
+    "presenter": "Tom Evans",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Tom (longtime PCA organizer and PM) uses live polling to surface where the audience actually underinvests — the result: most PMs spend less than one hour per week with customers. His argument: as AI handles more execution, the five core PM powers (customer empathy, systems thinking, navigating ambiguity, building shared purpose, and humanity) become the differentiated value — not in spite of AI, but because of it.",
+    "takeaways": [
+      "Most PMs spend under 1 hour/week with customers — target 10% of your time as a floor",
+      "The five core PM powers are all deeply human and harder to automate as problems grow more complex",
+      "AI as a thinking partner amplifies good PM judgment; it doesn't substitute for judgment",
+      "The stakes and complexity of real-world problems are rising — that's a PM tailwind, not a headwind"
+    ],
+    "who": "PMs at all levels who want a clear-eyed answer to 'will AI replace product managers?'",
+    "brief": "The PM skills that matter most are the ones AI can't replicate",
+    "youtube": "7ppsR1JpaG8",
+    "event": "PCA32",
+    "tags": [
+      "ai",
+      "customer",
+      "spend",
+      "hour",
+      "week",
+      "core",
+      "power",
+      "thinking"
+    ]
+  },
+  {
+    "title": "Strategy Isn't a Roadmap: Think Like a Strategic Product Leader",
+    "presenter": "Elena Leonova",
+    "level": "advanced",
+    "format": "Workshop",
+    "synopsis": "Elena (CPO at Spriker, formerly Adobe Commerce/Magento) runs an interactive exercise: participants play Head of Product at a fictional travel company with 90 days to define a product strategy. Using PESTLE-based external factor analysis and live voting, she walks through why roadmaps, company goals, and even vision statements are not strategy — and what a real strategic lens actually looks like.",
+    "takeaways": [
+      "A roadmap is execution, not strategy — stop presenting them as the same thing",
+      "Company goals give you a north star but not a path; strategy is the change you're creating to get there",
+      "PESTLE analysis grounds strategy in external reality before you set internal direction",
+      "Strategy clarifies what you will NOT do — that's what makes it a strategy and not a wish list"
+    ],
+    "who": "PMs and product leaders who want to speak credibly about strategy — and know what it actually means",
+    "brief": "Strategy is the change you're making, not the plan you're following",
+    "youtube": "rtQzGAQFelg",
+    "event": "PCA32",
+    "tags": [
+      "strategy",
+      "roadmap",
+      "company",
+      "strategic",
+      "leader",
+      "pestle",
+      "external",
+      "analysi"
+    ]
+  },
+  {
+    "title": "The Invisible Career Partner: How Virtual Assistants Unlock Promotions, Books, and Global Opportunities",
+    "presenter": "Chris Lopez",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Chris (ten-plus PCA appearances) shows how combining a virtual assistant with AI tools creates a second half of you that works while you're doing your job — researching conferences, drafting talks, managing LinkedIn, pursuing global opportunities. The core ROI argument: calculate your hourly rate, then calculate what you're doing below that rate. The gap is your delegation backlog.",
+    "takeaways": [
+      "Calculate your effective hourly rate — everything you do below that rate is a delegation candidate",
+      "VA + AI case study: mid-level PM went from zero speaking presence to four conference offers in one quarter",
+      "High-priority VA tasks: data entry, conference research, outreach follow-up, social media, scheduling",
+      "A VA can expand your career presence globally while you stay focused on your core work"
+    ],
+    "who": "PMs who want to build thought leadership, pursue speaking, or unlock global roles without burning out",
+    "brief": "Your second half works while you focus on what only you can do",
+    "youtube": "AHuMRzBXppw",
+    "event": "PCA32",
+    "tags": [
+      "ai",
+      "rate",
+      "global",
+      "calculate",
+      "career",
+      "virtual",
+      "assistant",
+      "unlock"
+    ]
+  },
+  {
+    "title": "What AI Doesn't Tell You About AI",
+    "presenter": "Drew & Kendall Bixby",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Drew (Lifter Insights, background in ML, agents, and AI data collection) peels back the probability engine underneath AI. Core insight: AI and humans are both matrices of probabilities — which is why AI often feels uncannily right, and also why hallucinations happen in patterned, predictable ways rather than randomly. DeepSeek as a milestone is contextualized: probably not for the reasons you think.",
+    "takeaways": [
+      "AI is not a knowledge database — it's a matrix of probabilities predicting the most likely next token",
+      "Humans are also probability machines — that's why AI mirrors us and why it can feel so right",
+      "Hallucinations are patterned, not random; understanding the pattern makes you a better AI skeptic",
+      "Question what you get back: the same prompt can produce confident-sounding wrong answers"
+    ],
+    "who": "Anyone who uses AI tools and wants to understand what's actually happening under the hood",
+    "brief": "AI doesn't know things — it predicts them. That matters.",
+    "youtube": "x-jCJj9HVkI",
+    "event": "PCA32",
+    "tags": [
+      "ai",
+      "probability",
+      "insight",
+      "human",
+      "hallucination",
+      "patterned",
+      "tell",
+      "drew"
+    ]
+  },
+  {
+    "title": "What If Products Weren't Just Tools but the Foundation for Building Ecosystems?",
+    "presenter": "Jessica Marriott",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Jessica (founder of Forward Thinkers) challenges product people to think beyond features toward ecosystems, using her own mission to disrupt the ski boot market — unchanged since buckles were added in the 1930s — as a live example. She maps out eight expansion vectors for an AI-adaptive boot with biometric feedback, showing how a single bold product vision becomes the seed of a platform. Draws from Apple, Tesla, and Prada's astronaut partnership.",
+    "takeaways": [
+      "Industries with no disruption in decades are the highest-opportunity targets — find the 1936 buckle in your space",
+      "A product becomes a platform when others can build on, around, or with it",
+      "Map your product's expansion vectors before you launch — eight is better than one",
+      "Bold product visions attract strategic partners; incremental visions attract vendors"
+    ],
+    "who": "Founders and PMs thinking about ecosystem strategy, platform design, or market disruption",
+    "brief": "Every platform started as someone asking 'what if we went further?'",
+    "youtube": "-F0TWSkFpc0",
+    "event": "PCA32",
+    "tags": [
+      "platform",
+      "ai",
+      "ecosystem",
+      "vision",
+      "founder",
+      "boot",
+      "market",
+      "buckle"
+    ]
+  },
+  {
+    "title": "AI Agents: Vibe Coding Exposed Limits of Their Super Powers",
+    "presenter": "Drew Bixby",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Drew (Lifter Insights, background in ML, agents, and AI data collection) built a Swahili language learning app using Replit and AI coding agents — and shares the real experience honestly. AI agents produced a working app in 20 minutes. Then the tweaking phase arrived. Fixing one thing broke another. Token limits hit mid-feature. The app had no login, no database, no separated front and back end. The lesson isn't that agents are bad — it's that they're an incredible starting point that accumulates invisible technical debt.",
+    "takeaways": [
+      "AI agents replace wireframes for prototyping — you get something working and clickable in minutes",
+      "The tweaking phase is where it breaks: fixing one element routinely corrupts something else",
+      "Context windows and daily token limits are real mid-project walls, not edge cases",
+      "AI agents don't architect — they ship a monolith without separation of concerns; plan for that"
+    ],
+    "who": "Product people and founders experimenting with AI-generated MVPs or prototypes",
+    "brief": "Agents are great at starting. The hard part is what comes next.",
+    "youtube": "wJBtvtw05XU",
+    "event": "PCA33",
+    "tags": [
+      "ai",
+      "agent",
+      "limit",
+      "coding",
+      "working",
+      "minute",
+      "tweaking",
+      "phase"
+    ]
+  },
+  {
+    "title": "AI Product Operations: The Most Exciting Career You Haven't Heard of Yet",
+    "presenter": "Dan Corbin",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Dan (Pragmatic Institute instructor and AI advisor, recognized for formalizing how product teams move from adopting AI tools to building actual operational models) makes the case for AI Product Operations as an emerging discipline: the end-to-end practice of embedding AI into workflows through guardrails, iteration, and governance. The reason 95% of AI pilots fail isn't that AI isn't powerful enough — it's that companies don't have people who know how to operationalize it. AI ProdOps is Agile for AI, with its own visionary, operator, and implementer roles.",
+    "takeaways": [
+      "95% of AI pilots fail — not because of AI capability gaps, but because of AI operations gaps",
+      "AI operations = embedding AI through clear workflows, monitoring, and scalable systems — not flashy demos",
+      "Three roles: AI visionary (owns outcomes), AI operator (bridges business + AI), AI implementer (builds + maintains)",
+      "This is Agile for AI — project sponsor, product owner, scrum master, applied to AI deployment"
+    ],
+    "who": "PMs and product leaders looking to build or lead AI operations functions inside their organizations",
+    "brief": "The reason AI pilots fail isn't the AI — it's the missing operational layer",
+    "youtube": "NS1BpSfYidY",
+    "event": "PCA33",
+    "tags": [
+      "ai",
+      "operation",
+      "pilot",
+      "fail",
+      "operational",
+      "embedding",
+      "workflow",
+      "reason"
+    ]
+  },
+  {
+    "title": "Beyond Differentiators: Innovation on Common Ground",
+    "presenter": "Jerry Gutierrez",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Jerry (owner of Synthman Group, product and marketing consultant) argues that most product teams skip past the common ground — the non-negotiable skeleton of traits a product must have before differentiation even matters. He introduces a communication model built around shared lexicon to solve the breakdown where sales renames features, PMs don't know what's being sold, and executives talk past customers about value.",
+    "takeaways": [
+      "Before differentiating, define the skeleton: the traits your product must have just to compete",
+      "A shared product lexicon across PM, sales, and marketing eliminates the costly misalignment",
+      "Sales regularly renames features and sells them without PM knowing — define terms together early",
+      "A research-based communication model saved one client a full recruiting cycle by clarifying a single role definition"
+    ],
+    "who": "PMs, founders, and marketers who've watched a good product get lost in translation between teams",
+    "brief": "Agree on the skeleton before you compete on the differentiators",
+    "youtube": "Femb0Pbd5kQ",
+    "event": "PCA33",
+    "tags": [
+      "skeleton",
+      "sales",
+      "differentiator",
+      "common",
+      "ground",
+      "marketing",
+      "past",
+      "trait"
+    ]
+  },
+  {
+    "title": "Building a Product Data Moat in the Age of AI",
+    "presenter": "Alex M",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Alex (former AI/ML scientist at General Motors, now product at Web AI with a master's in data science) challenges the assumption that building on frontier AI models gives you a competitive moat. His thesis: AI is a shared, static resource — everyone API-calls to the same model. The real moat is Data × Users, a compounding flywheel that grows with time. AI adds lift on top of a strong data foundation, not a moat by itself.",
+    "takeaways": [
+      "AI is not a moat — every competitor has access to the same frontier models via API",
+      "Frontier model providers keep releasing new versions, making any 'AI moat' obsolete within months",
+      "The real formula: Moat = (Data × Users) + AI as lift — data and users compound, AI amplifies",
+      "Start with one deeply understood user; let the data foundation grow from there"
+    ],
+    "who": "PMs and founders building AI-enabled products who want to understand where durable defensibility comes from",
+    "brief": "AI gives you lift. Data and users give you a moat.",
+    "youtube": "tqrZFS_NDXc",
+    "event": "PCA33",
+    "tags": [
+      "ai",
+      "data",
+      "moat",
+      "api",
+      "model",
+      "users",
+      "building",
+      "frontier"
+    ]
+  },
+  {
+    "title": "Discover Candidate-Market Fit: A New Lens for Your Job Search Journey",
+    "presenter": "Sonya Lewis",
+    "level": "essentials",
+    "format": "Case Study",
+    "synopsis": "Sonya (dietitian turned UX designer turned PM, now in active job search) applies product-market fit thinking to her own career. A recruiter stopped her with one question: 'What is the market buying?' She couldn't answer. That conversation led her to the Manookin Two-Pager, a voice-of-customer listening tour, and a much more targeted search. The session is a candid case study on using PM methods to solve a PM's most personal problem.",
+    "takeaways": [
+      "'What is the market buying?' — if you can't answer that for your own skills, your search is broadcasting, not targeting",
+      "Having many viable options (paradox of choice) is a problem to solve with frameworks, not a privilege to enjoy",
+      "Voice-of-customer listening tours work for job searching: talk to people in roles you want before applying",
+      "Candidate-market fit = the intersection of your strongest skills and current market demand — not what you want to do"
+    ],
+    "who": "PMs in active job search who want a more strategic, product-minded approach to finding their next role",
+    "brief": "Apply product-market fit thinking to yourself",
+    "youtube": "_Ln-0QIvcc0",
+    "event": "PCA33",
+    "tags": [
+      "market",
+      "search",
+      "candidate",
+      "turned",
+      "active",
+      "thinking",
+      "buying",
+      "voice"
+    ]
+  },
+  {
+    "title": "From Product Manager to AI PM: Reinventing Yourself in the Age of AI",
+    "presenter": "Biren Shah",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Biren (18-year PM veteran, VP-level, left in 2024 to reinvent himself as an AI-ready product leader) shares his six-month reinvention journey: advanced prompting, RAG systems, no-code tools, and a chatbot he built from scratch. He presents seven mindsets and five skills for AI PM success, framed against real data — 46% of leaders cite scale gaps as the top AI barrier, and 30% of Gen AI projects are abandoned in production.",
+    "takeaways": [
+      "The top reason AI projects fail is messy data — that's a product problem, not a model problem",
+      "Not every business problem is an AI use case — judgment about when NOT to use AI is a core AI PM skill",
+      "Seven mindsets: curiosity, customer obsession, data fluency, ethical grounding, trust thinking, evals mindset, and learning velocity",
+      "Build your own RAG chatbot or agent — even a small side project teaches you more than any certification"
+    ],
+    "who": "Experienced PMs who feel AI is moving past them and want a structured path to becoming AI-ready",
+    "brief": "Reinvention is a six-month process, not a weekend course",
+    "youtube": "VRsIIifSJOc",
+    "event": "PCA33",
+    "tags": [
+      "ai",
+      "mindset",
+      "data",
+      "project",
+      "problem",
+      "ready",
+      "leader",
+      "month"
+    ]
+  },
+  {
+    "title": "How to Work Smarter with an AI Assistant",
+    "presenter": "Ty Avnit",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "Live demo session that starts with fundamentals and ends with a working AI assistant connected to real tools. Using an accessible storytelling approach, the session walks through LLMs, tools, and MCP (Model Context Protocol) — the mechanism that lets an AI assistant reach into Gmail, Calendar, Slack, and other apps on your behalf. The key shift: from asking AI questions to delegating actual workflows to it.",
+    "takeaways": [
+      "LLMs are frozen at a training date — MCP and tools give them live access to your actual data",
+      "MCP (Model Context Protocol) sounds complex; the concept is simple: give the AI permission to use your apps",
+      "You can connect an assistant to Gmail, Calendar, and Slack without writing code",
+      "The mental shift: stop querying AI, start delegating tasks — scheduling, summarizing, finding information across tools"
+    ],
+    "who": "Anyone curious about AI assistants who wants a practical, demo-first starting point — no technical background required",
+    "brief": "Stop querying AI. Start delegating to it.",
+    "youtube": "jP22lbtEgRw",
+    "event": "PCA33",
+    "tags": [
+      "ai",
+      "assistant",
+      "tools",
+      "delegating",
+      "live",
+      "demo",
+      "llms",
+      "model"
+    ]
+  },
+  {
+    "title": "The Automation Advantage: Freeing Your Time, Energy, and Career Potential",
+    "presenter": "Chris Lopez",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Chris (digital nomad, longtime PCA presenter) takes automation out of the office and into life design. Three frameworks: the Delegation Ladder (what to outsource), the Career Experiment Canvas (test new directions without betting your livelihood), and the Data-Driven Life Audit (measure what gives you energy vs. what drains it). The premise: digital nomads stay creative because they don't have routines that limit them — you can design the same freedom without leaving Austin.",
+    "takeaways": [
+      "Automation isn't only for work — any repetitive low-value task in your life is a delegation candidate",
+      "Career Experiment Canvas: test a new direction as a side project before transitioning — treat it like an MVP",
+      "Data-Driven Life Audit: track one thing per week; categorize tasks by energy level; decide what to automate vs. double down on",
+      "If your dreams could be delegated, automate the operational layer and keep the creative layer for yourself"
+    ],
+    "who": "PMs and entrepreneurs who feel stuck in routines that limit their creativity and career potential",
+    "brief": "Treat your life like a product roadmap and delegate accordingly",
+    "youtube": "F1L3Td4n5u4",
+    "event": "PCA33",
+    "tags": [
+      "life",
+      "career",
+      "automation",
+      "energy",
+      "potential",
+      "digital",
+      "nomad",
+      "design"
+    ]
+  },
+  {
+    "title": "AI Won't Steal Your Job If You Think Like an AI PM",
+    "presenter": "Parth Pratap",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Parth (Google Research, Harvard data science, 56 mobile apps, 25M+ customers) reframes the AI anxiety narrative: your skills need evolving, not rescuing. Drawing on the iPhone's 94-feature first launch and four industrial revolutions, he argues that the core PM superpowers — problem focus, outcome orientation, customer obsession, and deep work — are exactly what AI amplifies. The PM who chases every AI framework will be replaced; the one who does deep work won't.",
+    "takeaways": [
+      "The iPhone shipped 94 features, not 4,000 — outcome focus beats feature volume every time",
+      "Stop trying to keep up with every new AI model; deep work on core PM skills is the durable advantage",
+      "Customer obsession: sit with a user for 8 hours, take 11 pages of notes, say nothing — that's the superpower AI can't replicate",
+      "80% of the time, you don't need AI to solve a problem — judgment about when to reach for it is itself an AI PM skill"
+    ],
+    "who": "PMs at any level who want clarity on what to prioritize as AI reshapes the role",
+    "brief": "AI amplifies the PM who focuses. It replaces the one who reacts.",
+    "youtube": "VCiCZ1ptgfU",
+    "event": "PCA33",
+    "tags": [
+      "ai",
+      "customer",
+      "skill",
+      "feature",
+      "deep",
+      "core",
+      "superpower",
+      "problem"
+    ]
+  },
+  {
+    "title": "Product Quiz — Jeopardy Style",
+    "presenter": "Shiva Swaminathan, Harshini Mangaleshkar",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "This interactive Jeopardy-style quiz challenges product professionals on PM trends, marketing, AI, and related topics through competitive team play. It's a fun, low-stakes way to benchmark your knowledge and discover gaps across the product discipline. Prizes add an incentive to stay sharp and engaged throughout the event.",
+    "takeaways": [
+      "Gauge your current knowledge of PM, marketing, and AI trends in a competitive setting",
+      "Identify blind spots across product topics you may not regularly encounter",
+      "Build camaraderie with fellow attendees through collaborative team competition"
+    ],
+    "who": "Product managers and marketers at any level who want an energizing, social way to test and reinforce their industry knowledge.",
+    "brief": "Show up ready to compete — this session rewards the product professionals who stay curious and broadly informed.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "knowledge",
+      "quiz",
+      "jeopardy",
+      "style",
+      "trend",
+      "marketing",
+      "topic"
+    ]
+  },
+  {
+    "title": "The Human-AI Gap: Optimizing Humans, Not Just Outputs",
+    "presenter": "Gillian Stolshek",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "This session live-demonstrates AI infrastructure built around human cognition rather than raw output efficiency, with real-time construction of personalized AI agents. Stolshek challenges the dominant framing of AI as a replacement tool and repositions it as an amplifier of human thinking. Product professionals will leave with a hands-on understanding of how to design AI workflows that make people smarter, not redundant.",
+    "takeaways": [
+      "AI infrastructure should be designed around how humans actually think, not just how fast machines can produce",
+      "Personalized AI agents can be built and tuned in real-time to match individual cognitive styles",
+      "The most valuable AI applications augment human judgment rather than bypass it"
+    ],
+    "who": "Product managers and UX practitioners building or evaluating AI-powered tools who want to ensure those tools genuinely serve their users.",
+    "brief": "Reframe your AI strategy: stop optimizing for output volume and start designing for human cognitive performance.",
+    "youtube": "MCoLQ7Xh2lM",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "human",
+      "output",
+      "optimizing",
+      "infrastructure",
+      "personalized",
+      "agent",
+      "cognitive"
+    ]
+  },
+  {
+    "title": "How Product Marketers Can Avoid AI-washing",
+    "presenter": "Gina Rosenthal",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Rosenthal cuts through the hype by plainly explaining AI fundamentals — including the distinction between narrow and general AI and how machine learning fits into the picture. The session equips product marketers with the vocabulary and critical eye needed to spot AI-washing in their own messaging and competitors'. In an era where \"AI-powered\" is slapped on everything, this talk is a practical credibility safeguard.",
+    "takeaways": [
+      "Understand the difference between narrow AI, general AI, and machine learning to communicate accurately",
+      "Recognize the markers of AI-washing so you can avoid it in your own product claims",
+      "Apply practical guidelines for honest, compelling AI messaging that builds rather than erodes trust"
+    ],
+    "who": "Product marketers and PMMs responsible for positioning AI-enabled products who want their messaging to be both persuasive and defensible.",
+    "brief": "Before your next AI feature launch, audit your messaging against these fundamentals — your credibility with technical buyers depends on it.",
+    "youtube": "pOzFRhMDcGM",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "messaging",
+      "marketer",
+      "washing",
+      "avoid",
+      "fundamental",
+      "narrow",
+      "general"
+    ]
+  },
+  {
+    "title": "Elevate Your API Game — Bring the Swagger Back",
+    "presenter": "Adwait Joshi",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Joshi walks through the fundamentals of building robust API foundations, from platform orchestration to enabling third-party integrations. The session culminates in preparing your stack for AI with Model Context Protocol (MCP), positioning APIs as a strategic lever rather than a backend afterthought. For PMs who manage platform or integration-heavy products, this is essential architectural context.",
+    "takeaways": [
+      "Solid API design is the foundation for scalable platform ecosystems and partner integrations",
+      "Orchestrating platforms well unlocks compounding value through third-party extensibility",
+      "MCP is an emerging standard for making your stack AI-ready — understand it before your engineers have to explain it to you"
+    ],
+    "who": "Product managers working on platforms, APIs, or developer-facing products who need to speak fluently with engineering about integration architecture and AI readiness.",
+    "brief": "Treat your API strategy as a product strategy — invest in the foundations now so your platform is ready for what's next.",
+    "youtube": "hT0vybTt9rY",
+    "event": "PCA34",
+    "tags": [
+      "api",
+      "ai",
+      "platform",
+      "integration",
+      "foundation",
+      "third",
+      "party",
+      "stack"
+    ]
+  },
+  {
+    "title": "Reverse Engineering Imagination",
+    "presenter": "Stephen Schaefer",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Schaefer investigates the counterintuitive truth that breakthrough ideas rarely emerge from formal brainstorming sessions — they happen in the shower, on a walk, or during a coffee break. The session reveals the neuroscience and behavioral patterns behind this phenomenon and provides concrete techniques to engineer those conditions deliberately. For product professionals stuck in back-to-back meetings, this is a case for reclaiming unstructured thinking time.",
+    "takeaways": [
+      "Creative breakthroughs are more likely to occur during cognitive downtime than during structured ideation sessions",
+      "Specific environmental and behavioral triggers can be used to reliably induce creative thinking states",
+      "Building \"imagination breaks\" into your work rhythm is a productivity strategy, not a luxury"
+    ],
+    "who": "Product managers and designers who feel their best ideas come too infrequently and want a repeatable method to spark creative thinking on demand.",
+    "brief": "Schedule deliberate breaks with the same rigor you schedule meetings — your next product breakthrough is probably waiting in the space between tasks.",
+    "youtube": "WPUTa8H3wi0",
+    "event": "PCA34",
+    "tags": [
+      "breakthrough",
+      "break",
+      "thinking",
+      "creative",
+      "imagination",
+      "ideas",
+      "behavioral",
+      "meeting"
+    ]
+  },
+  {
+    "title": "From ROI to IOR: Aligning Inputs, Outputs, and Results for Product Managers in the AI Era",
+    "presenter": "Ahmed Zouhair",
+    "level": "entrepreneurs",
+    "format": "Presentation",
+    "synopsis": "Zouhair introduces the IOR (Inputs-Outputs-Results) Framework as a more actionable alternative to traditional ROI thinking for product managers navigating AI-driven environments. The framework helps PMs connect product investments and team execution directly to measurable business outcomes. As AI reshapes how products are built and measured, IOR gives PMs a performance language that resonates with both engineers and executives.",
+    "takeaways": [
+      "ROI thinking is often too lagging and financial-centric to guide day-to-day PM decision-making in AI contexts",
+      "The IOR Framework creates explicit linkage between what teams invest, what they produce, and what results follow",
+      "Aligning inputs and outputs to results improves both team accountability and executive communication"
+    ],
+    "who": "Product managers at growth-stage or enterprise companies who want a clearer framework for demonstrating and driving impact in AI-accelerated environments.",
+    "brief": "Adopt IOR as your internal performance model — it will sharpen your prioritization decisions and make your impact undeniable to stakeholders.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "framework",
+      "input",
+      "output",
+      "aligning",
+      "thinking",
+      "environment",
+      "performance"
+    ]
+  },
+  {
+    "title": "The 30-Minute Hackathon: Redefining the Product Process with Vibe Coding",
+    "presenter": "JD Piquard",
+    "level": "advanced",
+    "format": "Case Study",
+    "synopsis": "Piquard demonstrates a compressed, end-to-end product workflow — from user research to functional prototype — completed in under 30 minutes using Claude Code and platforms like Replit and Bolt. The session reframes vibe coding not as a shortcut but as a legitimate discovery and handoff methodology. For PMs tired of slow prototyping cycles, this is a glimpse at what rapid iteration looks like when AI does the heavy lifting.",
+    "takeaways": [
+      "A complete product workflow from research to prototype is achievable in 30 minutes with the right AI toolchain",
+      "Claude Code paired with Replit or Bolt enables non-engineers to produce functional prototypes ready for engineering review",
+      "Engineering handoff becomes faster and clearer when prototypes are generated from structured user research inputs"
+    ],
+    "who": "Product managers and designers who want to dramatically compress their discovery-to-prototype cycle and communicate requirements through working code rather than static docs.",
+    "brief": "Run a 30-minute vibe coding sprint on your next feature idea before writing a single PRD — you'll validate faster and hand off cleaner.",
+    "youtube": "0_yL2HoMaE0",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "prototype",
+      "minute",
+      "vibe",
+      "coding",
+      "research",
+      "code",
+      "workflow"
+    ]
+  },
+  {
+    "title": "From Idea to Working Prototype in an Afternoon: AI-Powered Discovery",
+    "presenter": "Tulsi Dharmarajan",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Dharmarajan shares a real AI-augmented SDLC workflow that compresses research, prototyping, and requirements gathering into a single afternoon using Claude, Figma, and design systems. The session is grounded in an actual project — not a theoretical framework — making the workflow immediately replicable. For PMs drowning in elongated discovery phases, this is a practical blueprint for radical time compression without sacrificing quality.",
+    "takeaways": [
+      "Research, prototyping, and requirements can be completed in one afternoon when AI tools are integrated into the SDLC from the start",
+      "Claude, Figma, and design systems work together as a discovery stack that reduces handoff friction",
+      "AI-augmented workflows don't sacrifice rigor — they eliminate the dead time between steps"
+    ],
+    "who": "Product managers and UX designers at teams with multi-week discovery cycles who are ready to pilot a faster, AI-assisted approach.",
+    "brief": "Map your current discovery process and identify where AI can collapse the gaps — then run one afternoon sprint to prove it works.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "discovery",
+      "afternoon",
+      "workflow",
+      "augmented",
+      "sdlc",
+      "research",
+      "prototyping"
+    ]
+  },
+  {
+    "title": "Leading From Where You Are",
+    "presenter": "Paul Young",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Young (ProductCamp Austin founder, Pragmatic Institute instructor) presents a framework for understanding and developing leadership personas that applies regardless of organizational rank. The session provides actionable steps for increasing leadership capacity that don't require a title change or tenure milestone. Visionary Architect, Grounded Operator, Empathetic Coach — understanding your current persona is the first step to growing it.",
+    "takeaways": [
+      "Leadership is a set of behaviors and capacities, not a position — it can be practiced at any career stage",
+      "Understanding your current leadership persona is the necessary first step to deliberate growth",
+      "Specific, actionable steps exist for expanding your leadership capacity from wherever you are today"
+    ],
+    "who": "Early- to mid-career product managers who want to grow their organizational influence and leadership presence without waiting for a promotion.",
+    "brief": "Stop waiting for the title — identify your current leadership persona this week and take one concrete step to expand your capacity.",
+    "youtube": "h3pzWuitPyY",
+    "event": "PCA34",
+    "tags": [
+      "leadership",
+      "persona",
+      "capacity",
+      "understanding",
+      "current",
+      "step",
+      "organizational",
+      "actionable"
+    ]
+  },
+  {
+    "title": "Your Roadmap Heard It Through the Grapevine",
+    "presenter": "Jake McKee",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "McKee introduces the concept of \"Conversation Debt\" — the accumulated cost of building product decisions on secondhand signals instead of direct customer conversations. The hands-on workshop teaches teams how to evaluate the quality of their customer input and commit to richer, more direct conversations before each sprint. For teams that rely heavily on analytics and internal assumptions, this is a corrective intervention.",
+    "takeaways": [
+      "Conversation Debt accrues silently and distorts roadmaps — most teams have more of it than they realize",
+      "Evaluating the quality and recency of your customer conversations is the first step to reducing it",
+      "Committing to direct customer conversations before each sprint is a discipline that pays compound returns in roadmap accuracy"
+    ],
+    "who": "Product managers and team leads whose roadmap decisions are driven primarily by data dashboards and internal stakeholder input rather than direct customer dialogue.",
+    "brief": "Before your next sprint planning, audit how much of your roadmap is based on direct customer conversations versus secondhand signals — then commit to closing the gap.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "conversation",
+      "customer",
+      "roadmap",
+      "sprint",
+      "debt",
+      "decision",
+      "secondhand",
+      "signal"
+    ]
+  },
+  {
+    "title": "The Fist: Building High-Performing Product Teams",
+    "presenter": "Ian Brand",
+    "level": "advanced",
+    "format": "Workshop",
+    "synopsis": "Brand draws on sports team models to present a framework — \"The Fist\" — for building product teams that are aligned, mission-driven, and high-performing. The workshop goes beyond theory with real examples from toxic environment turnarounds, making it applicable to teams in distress as much as those seeking to level up. For product leaders inheriting dysfunctional teams, this is a structured playbook for cultural reset.",
+    "takeaways": [
+      "High-performing product teams share structural characteristics with elite sports teams — alignment, clear roles, and shared mission",
+      "Toxic team dynamics can be systematically reversed with the right combination of mechanisms and leadership behaviors",
+      "The Fist framework provides a memorable, actionable model for diagnosing and improving team performance"
+    ],
+    "who": "Product managers and directors who lead or are building product teams and want a structured, proven approach to creating alignment and high performance.",
+    "brief": "Apply The Fist framework to your current team — identify which of the five dimensions is weakest and address it before it becomes a culture problem.",
+    "youtube": "uljDS9nS1Y0",
+    "event": "PCA34",
+    "tags": [
+      "fist",
+      "building",
+      "performing",
+      "framework",
+      "sport",
+      "model",
+      "mission",
+      "toxic"
+    ]
+  },
+  {
+    "title": "Claude for Product Managers: Automate the Work. Elevate Your Impact",
+    "presenter": "Dan Corbin, Pavan Valluri",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Corbin and Valluri demonstrate how Claude Desktop, Cowork, Skills, and Code can be integrated into core PM workflows to automate routine tasks and accelerate analysis across discovery, planning, and execution. The session is grounded in live demonstrations rather than slides, giving attendees a practical view of what an AI-augmented PM workday actually looks like. For PMs curious about Claude specifically, this is the most direct path to adoption.",
+    "takeaways": [
+      "Claude's suite of tools (Desktop, Cowork, Skills, Code) maps directly onto the key phases of PM work — discovery, planning, and execution",
+      "Automating routine PM tasks with Claude frees up cognitive bandwidth for higher-order strategy and stakeholder work",
+      "The barrier to getting started with Claude for PM workflows is lower than most expect — practical entry points exist today"
+    ],
+    "who": "Product managers at any level who want a concrete, tool-specific introduction to integrating Claude into their daily workflow.",
+    "brief": "Pick one recurring PM task this week — a status update, a research synthesis, or a requirements draft — and run it through Claude to see the time savings firsthand.",
+    "youtube": "lj9CCY0l3q0",
+    "event": "PCA34",
+    "tags": [
+      "claude",
+      "ai",
+      "workflow",
+      "automate",
+      "desktop",
+      "cowork",
+      "skill",
+      "code"
+    ]
+  },
+  {
+    "title": "Monetize What You Know: AI-Powered Systems for Courses, Templates, and Automation Workflows",
+    "presenter": "Chris Lopez",
+    "level": "entrepreneurs",
+    "format": "Workshop",
+    "synopsis": "Lopez provides a framework for turning professional expertise into digital revenue streams — courses, templates, and automation workflows — using a modern AI toolstack including ChatGPT, Perplexity, Gemini, Notion, and Make.com. The workshop is built for practitioners who already have valuable knowledge and need a system to package and sell it. For product professionals eyeing entrepreneurial income streams, this is a practical starting point.",
+    "takeaways": [
+      "Professional expertise can be systematically transformed into scalable digital products with the right AI-assisted workflow",
+      "Tools like Notion and Make.com enable automation of the creation, distribution, and sales pipeline without engineering resources",
+      "The monetization barrier for knowledge products is lower than ever — the bottleneck is system design, not content creation"
+    ],
+    "who": "Product managers, marketers, and consultants who want to build side income or transition to entrepreneurship by productizing their existing professional knowledge.",
+    "brief": "Identify one piece of expertise you've repeatedly shared for free and use this framework to outline a digital product you could sell within 30 days.",
+    "youtube": "yehD_sNvjg4",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "system",
+      "automation",
+      "workflow",
+      "expertise",
+      "digital",
+      "knowledge",
+      "course"
+    ]
+  },
+  {
+    "title": "Shipping on Someone Else's Roadmap: Lessons from Platform Ecosystems",
+    "presenter": "Katie Campbell",
+    "level": "advanced",
+    "format": "Case Study",
+    "synopsis": "Campbell draws on real Salesforce ecosystem experience to address one of the most underserved challenges in product management: building a great product when you don't control the platform it runs on. The case study covers dependency strategies, adoption hurdles, and the mindset shifts required when your roadmap is perpetually subject to someone else's decisions. For ecosystem PMs, this is rare, hard-won tactical guidance.",
+    "takeaways": [
+      "Platform dependency is a product risk that requires proactive strategy, not just reactive adaptation",
+      "Adoption challenges in ecosystem products are distinct from those in standalone products and require different solutions",
+      "Managing stakeholder expectations when roadmap control is limited demands a different communication playbook"
+    ],
+    "who": "Product managers building on top of platforms like Salesforce, Shopify, or similar ecosystems who need strategies for thriving without full roadmap autonomy.",
+    "brief": "Map your platform dependencies today and build a contingency strategy for each — don't wait for a breaking change to discover you have no plan.",
+    "youtube": "y5ZTJjQfwqQ",
+    "event": "PCA34",
+    "tags": [
+      "platform",
+      "ecosystem",
+      "roadmap",
+      "strategy",
+      "dependency",
+      "someone",
+      "salesforce",
+      "challenge"
+    ]
+  },
+  {
+    "title": "Building a Software Startup in 7 Days from 0 to Monetization",
+    "presenter": "Matt McGuire",
+    "level": "entrepreneurs",
+    "format": "Case Study",
+    "synopsis": "McGuire shares the unfiltered story of building and monetizing BogeyBattle.com during Masters Week 2026 — from zero to paying customers in seven days. The case study covers both what worked and what failed, giving attendees a realistic view of rapid product development under real constraints. For PMs curious about solo building or startup speed, this is a candid benchmark.",
+    "takeaways": [
+      "A software product can go from idea to monetization in seven days with focused execution and modern tooling",
+      "Honest post-mortems of rapid builds reveal pattern failures that are highly avoidable with better upfront framing",
+      "The Masters Week constraint forced prioritization decisions that most products never face — and the lessons transfer broadly"
+    ],
+    "who": "Aspiring solo founders and entrepreneurially-minded PMs who want a realistic, unvarnished view of what rapid product development actually looks like end-to-end.",
+    "brief": "The next time you say \"we need six months to build this,\" ask yourself what version of it you could ship in seven days — and whether that version might be enough.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "days",
+      "building",
+      "seven",
+      "rapid",
+      "software",
+      "startup",
+      "monetization",
+      "master"
+    ]
+  },
+  {
+    "title": "From 3 Agents to Agentic Enterprise: How to Lead AI Transformation Journey",
+    "presenter": "Igor Bobryshev",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Bobryshev introduces SoftServe's Agentic Catalyst framework for scaling from isolated AI experiments to coordinated autonomous agent systems across an enterprise. The session addresses the governance and control challenges that emerge as agent complexity grows — the part most AI transformation guides skip. For product leaders tasked with enterprise AI strategy, this is a structured path from pilot chaos to organizational capability.",
+    "takeaways": [
+      "Moving from isolated AI pilots to an agentic enterprise requires deliberate architectural and governance decisions, not just more agents",
+      "The Agentic Catalyst framework provides a phased model for coordinating autonomous systems at scale",
+      "Control and governance aren't constraints on AI transformation — they're what makes it sustainable"
+    ],
+    "who": "Product and technology leaders at mid-to-large organizations who are past the AI pilot phase and need a framework for scaling agent systems responsibly.",
+    "brief": "Assess where your organization sits on the pilot-to-enterprise spectrum and identify the one governance gap most likely to derail your next phase of AI scaling.",
+    "youtube": "jRck3ujY4as",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "agent",
+      "enterprise",
+      "agentic",
+      "governance",
+      "pilot",
+      "transformation",
+      "framework"
+    ]
+  },
+  {
+    "title": "Double Referrals By Improving Your Customer Experience",
+    "presenter": "Karl Staib",
+    "level": "essentials",
+    "format": "Workshop",
+    "synopsis": "Staib presents the Magnetic Momentum Method — a framework for building customer trust and loyalty by systematically improving the customer journey. The session integrates AI tools for insight generation and personalization while emphasizing that human connection remains the irreplaceable element of referral-generating experiences. For product and CX professionals, this is a practical playbook for turning satisfied customers into active advocates.",
+    "takeaways": [
+      "Referral generation is a predictable outcome of deliberate customer journey design, not a happy accident",
+      "AI can accelerate insight gathering and personalization across the customer journey without replacing the human moments that drive loyalty",
+      "The Magnetic Momentum Method provides a step-by-step approach to identifying and fixing the friction points that suppress referrals"
+    ],
+    "who": "Product managers, customer success leaders, and CX practitioners who want to directly connect their experience improvements to measurable referral growth.",
+    "brief": "Audit one stage of your customer journey this week and identify the single friction point most likely to suppress referrals — then fix it before optimizing anything else.",
+    "youtube": "6-IkGdoE0jg",
+    "event": "PCA34",
+    "tags": [
+      "customer",
+      "ai",
+      "referral",
+      "journey",
+      "experience",
+      "improving",
+      "magnetic",
+      "momentum"
+    ]
+  },
+  {
+    "title": "From Big Tech (Amazon) to an AI Native Startup: Lessons I Learned Thus Far",
+    "presenter": "Nick Ivanecky",
+    "level": "advanced",
+    "format": "Presentation",
+    "synopsis": "Ivanecky contrasts the structured PM playbooks of Amazon with the fluid, task-based reality of operating at an AI-native startup, drawing on direct experience at both. The session covers AI tool selection, the redefined relationship between PMs and engineering in AI-native environments, and what enterprise habits are worth unlearning. For PMs considering a move to a startup or AI-native company, this is an honest orientation.",
+    "takeaways": [
+      "Enterprise PM frameworks provide a solid foundation but several core assumptions break down in AI-native startup contexts",
+      "Task-based work and compressed decision cycles require PMs to develop new operating instincts beyond what big tech teaches",
+      "The PM-engineering-design relationship is fundamentally different at AI-native companies — adapting quickly is a competitive advantage"
+    ],
+    "who": "Mid-to-senior PMs at large tech companies who are curious about or planning a transition to startup or AI-native environments.",
+    "brief": "List the three enterprise PM habits you rely on most and honestly assess which ones would help, hurt, or be irrelevant at an AI-native startup.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "native",
+      "startup",
+      "tech",
+      "enterprise",
+      "company",
+      "amazon",
+      "task"
+    ]
+  },
+  {
+    "title": "4 Keys to Embedding Innovation in Your Team Culture",
+    "presenter": "Scott Szenasi",
+    "level": "advanced",
+    "format": "Workshop",
+    "synopsis": "Szenasi draws on training methodologies from NASA and UnitedHealth Group to present four principles for building team cultures where innovation happens through habit rather than one-off events. The workshop focuses on collaboration, trust, and sustained behavior change — the conditions that allow new ideas to actually survive contact with organizational reality. For leaders tired of innovation initiatives that fade, this is a culture-first alternative.",
+    "takeaways": [
+      "Innovation is a cultural output, not a program — it requires embedding habits into team behavior, not just delivering content",
+      "Trust and psychological safety are the substrate on which all other innovation practices depend",
+      "NASA and UnitedHealth Group training principles translate directly into practical team leadership interventions"
+    ],
+    "who": "Team leads, product directors, and people managers who want to build durable innovation capacity into their teams rather than relying on isolated brainstorming events.",
+    "brief": "Identify one team habit that currently suppresses innovation and replace it with a specific, repeatable behavior from this session's four principles.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "innovation",
+      "culture",
+      "principle",
+      "habit",
+      "behavior",
+      "embedding",
+      "training",
+      "nasa"
+    ]
+  },
+  {
+    "title": "How Personalized AI Can Transform Your First 90 Days on the Job",
+    "presenter": "Jon Ulloa",
+    "level": "advanced",
+    "format": "Case Study",
+    "synopsis": "Ulloa presents original research on neurodiverse employee onboarding and a personalized AI job coach prototype designed to help people with different cognitive styles ramp faster and more confidently. The session challenges one-size-fits-all onboarding assumptions and demonstrates how AI can adapt to individual learning profiles in real-time. For product professionals in HR tech, people ops, or inclusive design, this is a compelling glimpse at the future of onboarding.",
+    "takeaways": [
+      "Standard onboarding processes fail neurodiverse employees at a disproportionate rate — and most organizations don't know it",
+      "Personalized AI coaching can adapt to cognitive differences in ways that static documentation and cohort training cannot",
+      "The prototype demonstrates a practical, buildable model that product teams can apply to their own onboarding or user education challenges"
+    ],
+    "who": "Product managers in HR tech, learning and development, or enterprise SaaS who want to explore how AI personalization can improve onboarding outcomes for diverse user populations.",
+    "brief": "Challenge your current onboarding design by asking how well it serves someone who learns fundamentally differently from the person who designed it.",
+    "youtube": "fIThDvr2YJo",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "onboarding",
+      "personalized",
+      "challenge",
+      "neurodiverse",
+      "employee",
+      "prototype",
+      "designed"
+    ]
+  },
+  {
+    "title": "The Product Management Collapse: The Rise of the AI Orchestrator",
+    "presenter": "Mark Stephan",
+    "level": "entrepreneurs",
+    "format": "Workshop",
+    "synopsis": "Stephan examines how AI is compressing product development costs and timelines to the point where individual PMs can operate as independent builders — and what this means for the future of the PM role itself. The workshop explores the emerging \"AI Orchestrator\" identity, where PMs coordinate AI systems rather than just manage backlogs. For PMs anxious about automation, this reframes the threat as an opportunity.",
+    "takeaways": [
+      "AI is not just automating tasks — it's restructuring the economics of product development in ways that fundamentally reshape PM career paths",
+      "The AI Orchestrator role positions PMs as force multipliers who direct AI systems toward business outcomes rather than managing execution details",
+      "Independent building is now accessible to PMs who embrace this shift — the barriers to solo product creation have collapsed"
+    ],
+    "who": "Product managers at any level who want to understand how AI is restructuring the PM role and how to position themselves for the emerging AI Orchestrator model.",
+    "brief": "Stop thinking about AI as a tool that helps you do your current job — start thinking about what new job it makes possible for you.",
+    "youtube": "luKl2k2FqE4",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "orchestrator",
+      "role",
+      "development",
+      "independent",
+      "emerging",
+      "system",
+      "restructuring"
+    ]
+  },
+  {
+    "title": "STAR Isn't Just for Interviews: Using Structured Storytelling to Drive Alignment",
+    "presenter": "Ross Weems",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Weems expands the familiar STAR (Situation-Task-Action-Result) framework beyond job interviews, applying it to PRDs, roadmap justification, stakeholder onboarding, and decision communication in enterprise B2B contexts. The session makes the case that structured storytelling is a core PM competency — not just a hiring skill — and provides templates for applying it across the most common alignment challenges.",
+    "takeaways": [
+      "STAR is a versatile alignment tool that improves clarity in PRDs, roadmap presentations, and stakeholder communications — not just interview answers",
+      "Structured storytelling reduces the cognitive load on stakeholders, making complex product decisions easier to evaluate and approve",
+      "Enterprise B2B PMs face specific alignment challenges that STAR-based communication is particularly well-suited to address"
+    ],
+    "who": "Product managers in enterprise B2B environments who regularly present roadmaps, write PRDs, or onboard stakeholders and want to improve their clarity and alignment success rate.",
+    "brief": "Rewrite the intro of your next PRD using the STAR structure and see whether stakeholder questions shift from 'what does this mean?' to 'how do we prioritize this?'",
+    "youtube": "0rTBi3CQvpQ",
+    "event": "PCA34",
+    "tags": [
+      "star",
+      "alignment",
+      "stakeholder",
+      "interview",
+      "structured",
+      "storytelling",
+      "prds",
+      "roadmap"
+    ]
+  },
+  {
+    "title": "What Snacking in Star Trek Teaches Us About Building with Generative AI",
+    "presenter": "Dan Zentgraf",
+    "level": "essentials",
+    "format": "Presentation",
+    "synopsis": "Zentgraf uses the lens of Star Trek's food synthesis technology to explore the precision, bias, and constraint challenges inherent in building generative AI products. The analogy reveals how human intent is imprecise, how model biases shape outputs in unexpected ways, and how resource constraints force product tradeoffs that aren't always visible to users. For product managers building AI features, this is a conceptual framework disguised as a delightful talk.",
+    "takeaways": [
+      "Human intent is fundamentally imprecise — AI products must be designed to handle the gap between what users say and what they mean",
+      "Model biases manifest in real product outputs in ways that parallel how a replicator might default to cultural assumptions",
+      "Resource constraints in AI systems create product design tradeoffs that need to be surfaced and managed, not hidden"
+    ],
+    "who": "Product managers and designers building generative AI features who want a memorable, conceptually rich framework for thinking about intent, bias, and constraint.",
+    "brief": "Design for the gap between what users request and what they actually mean — that's where generative AI products fail most often.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "building",
+      "generative",
+      "constraint",
+      "intent",
+      "users",
+      "star",
+      "bias"
+    ]
+  },
+  {
+    "title": "How I Vibe Coded the Voting & Scheduling App for ProductCamp Austin",
+    "presenter": "Tom Evans",
+    "level": "essentials",
+    "format": "Case Study",
+    "synopsis": "Evans shares the real story of building the session voting and scheduling app used at ProductCamp Austin itself — a live, high-stakes case study in vibe coding under deadline pressure. The session teaches PMs the practical mechanics of problem framing, quick iteration, and knowing when to stop building. For PMs who think coding is outside their lane, this demonstrates that meaningful tools are now within reach.",
+    "takeaways": [
+      "Vibe coding is a real, reproducible methodology — not just a buzzword — and it starts with disciplined problem framing",
+      "Quick iteration with AI coding tools requires PMs to develop new instincts about when a prototype is \"good enough\" versus over-engineered",
+      "Building the tool that ran ProductCamp's own voting is proof that PMs can ship functional, production-adjacent software with modern AI assistance"
+    ],
+    "who": "Product managers who want to understand vibe coding from a practitioner's perspective and are curious whether they could build lightweight tools for their own teams.",
+    "brief": "Pick the smallest, most painful internal tool your team lacks and try vibe coding a rough version of it this week — the process will teach you more than any tutorial.",
+    "youtube": "oPM4Vx3yLwk",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "coding",
+      "vibe",
+      "voting",
+      "building",
+      "tools",
+      "scheduling",
+      "productcamp"
+    ]
+  },
+  {
+    "title": "From Enterprise PM to Solo Founder: What Translates, What Doesn't, and What Drove First Revenue",
+    "presenter": "Russ Sadrieff",
+    "level": "entrepreneurs",
+    "format": "Ask the Expert",
+    "synopsis": "With ten years at Dell and Visa behind him, Sadrieff offers a candid assessment of which enterprise PM skills carry over to solo founding and which ones actively get in the way. The session covers the specific frameworks that accelerated his path to first revenue and the enterprise practices he had to unlearn to move fast enough. For experienced PMs eyeing a founder path, this is a rare, experience-grounded map of the transition.",
+    "takeaways": [
+      "Several core enterprise PM competencies — structured discovery, stakeholder communication, prioritization frameworks — transfer directly to solo founding",
+      "Enterprise habits around consensus-building, process adherence, and risk aversion can significantly slow a solo founder's path to validation",
+      "First revenue is a learnable outcome — specific, translatable approaches exist for reaching it faster than most enterprise PMs expect"
+    ],
+    "who": "Senior product managers with enterprise backgrounds who are seriously considering or actively planning a transition to solo founding or early-stage startup roles.",
+    "brief": "Map your enterprise PM skills into three buckets — keep, adapt, and unlearn — and let that map guide your first 90 days if you make the leap.",
+    "youtube": null,
+    "event": "PCA34",
+    "tags": [
+      "enterprise",
+      "solo",
+      "revenue",
+      "founding",
+      "path",
+      "founder",
+      "skill",
+      "actively"
+    ]
+  },
+  {
+    "title": "Landing a PM Role in 2026",
+    "presenter": "Tyler Mulvenna, Edwin Sequeira, Jeremy Bagley, Justin Hunter",
+    "level": "essentials",
+    "format": "Panel Discussion",
+    "synopsis": "This hybrid presentation and panel tackles the realities of the 2026 PM job market with both structured frameworks and candid panelist experience. Edwin walks through an automation workflow he built between Claude and Notion that handles job discovery and networking outreach. The panel then covers what's working, what's not, and what hiring signals matter most right now.",
+    "takeaways": [
+      "The 2026 PM job market has specific dynamics — AI automation, portfolio expectations, and hiring signals — that require updated search strategies",
+      "Automation workflows for job discovery and networking can dramatically increase the quality and volume of relevant opportunities",
+      "Panel perspectives from practitioners who have recently hired or been hired provide ground-truth calibration that job search advice rarely includes"
+    ],
+    "who": "Aspiring PMs, PMs between roles, and PMs considering a move who want a current, practical guide to navigating the 2026 hiring landscape.",
+    "brief": "Update your job search strategy before your next application — the tools and signals that worked in 2023 are not the ones that will get you hired in 2026.",
+    "youtube": "63gbR639514",
+    "event": "PCA34",
+    "tags": [
+      "ai",
+      "panel",
+      "automation",
+      "hiring",
+      "signal",
+      "search",
+      "hired",
+      "market"
+    ]
+  }
+]
