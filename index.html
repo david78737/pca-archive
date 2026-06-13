@@ -193,6 +193,17 @@
   .onda-btn.soon { cursor: default; pointer-events: none; }
   .onda-btn img { display: block; height: 56px; width: auto; }
 
+  /* LinkedIn icon */
+  .li-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 6px;
+    background: #0A66C2; text-decoration: none;
+    transition: opacity .15s; flex-shrink: 0;
+  }
+  .li-btn:hover { opacity: .8; }
+  .li-btn.soon { opacity: .25; cursor: default; pointer-events: none; }
+  .li-btn svg { display: block; }
+
   .loading, .empty { text-align: center; padding: 4rem 2rem; color: #454860; font-size: 14px; }
 
   .svg-defs { display: none; }
@@ -463,7 +474,15 @@ function render() {
            <img src="img/onda-download.png" alt="Download ONDA">
          </span>`;
 
-    const actionRow = `<div class="action-row">${ytBtn}${ondaBtn}</div>`;
+    // LinkedIn — always shown; live link when linkedin field exists
+    const liIcon = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.25 4.5A1.75 1.75 0 1 1 1.75 4.5a1.75 1.75 0 0 1 3.5 0ZM2 7.5h2.5V18H2V7.5ZM7.5 7.5H10v1.43C10.6 7.97 11.7 7.25 13.25 7.25 16.1 7.25 17.5 9 17.5 11.75V18H15v-5.75c0-1.5-.6-2.5-2-2.5-1.5 0-2 1-2 2.5V18H7.5V7.5Z" fill="#fff"/>
+    </svg>`;
+    const liBtn = row.linkedin
+      ? `<a class="li-btn" href="${row.linkedin}" target="_blank" rel="noopener" title="View on LinkedIn">${liIcon}</a>`
+      : `<span class="li-btn soon" title="LinkedIn coming soon">${liIcon}</span>`;
+
+    const actionRow = `<div class="action-row">${ytBtn}${liBtn}${ondaBtn}</div>`;
 
     const tagChips = tags.map(t =>
       `<span class="card-tag${state.tags.has(t) ? ' lit' : ''}" data-tag="${t}">${t}</span>`
