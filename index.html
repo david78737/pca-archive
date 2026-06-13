@@ -138,6 +138,19 @@
   .badge-entrepreneurs { border-color: #7a6a3a; color: #f0c070; }
   .badge-format        { border-color: #3a4a7a; color: #80a0e0; }
 
+  /* ── Session card visual (thumbnail or avatar) ── */
+  .card-thumb {
+    flex-shrink: 0; width: 96px; height: 68px;
+    border-radius: 5px; object-fit: cover;
+    background: #1e2130; align-self: center;
+  }
+  .card-avatar {
+    flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; color: rgba(255,255,255,.85);
+    align-self: center; letter-spacing: .03em;
+  }
+
   .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
   .card-tag {
     font-size: 10px; border: 1px solid #252838; border-radius: 3px;
@@ -248,6 +261,25 @@ const SQLJS_WASM = 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-was
 const DB_URL = 'archive.db';
 
 const ytIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>';
+
+// ── Presenter visual helpers ──────────────────────────────────────────────────
+const _avatarPalette = ['#3a5a8a','#5a3a8a','#3a7a5a','#7a4a3a','#6a3a6a','#3a6a7a','#8a5a3a'];
+function avatarColor(name) {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) | 0;
+  return _avatarPalette[Math.abs(h) % _avatarPalette.length];
+}
+function getInitials(name) {
+  return name.split(/[\s,]+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+}
+// Called by onerror on thumbnail images — swaps failed img for initials avatar
+window._thumbErr = function(img) {
+  const div = document.createElement('div');
+  div.className = 'card-avatar';
+  div.style.background = avatarColor(img.dataset.presenter);
+  div.textContent = getInitials(img.dataset.presenter);
+  img.parentNode.replaceChild(div, img);
+};
 
 const levelClass = l => {
   const n = (l || '').toLowerCase();
@@ -366,6 +398,13 @@ function render() {
       `<span class="card-tag${state.tags.has(t) ? ' lit' : ''}" data-tag="${t}">${t}</span>`
     ).join('');
 
+    const visual = row.youtube
+      ? `<img class="card-thumb" loading="lazy" alt=""
+             src="https://img.youtube.com/vi/${row.youtube}/hqdefault.jpg"
+             data-presenter="${row.presenter.replace(/"/g,'&quot;')}"
+             onerror="window._thumbErr(this)">`
+      : `<div class="card-avatar" style="background:${avatarColor(row.presenter)}">${getInitials(row.presenter)}</div>`;
+
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML =
@@ -373,6 +412,7 @@ function render() {
         <svg class="chevron" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L14 9.586l-5.293 5.293a1 1 0 01-1.414-1.414L11.586 10 6.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
         </svg>
+        ${visual}
         <div class="card-meta">
           <div class="card-title">${row.title}</div>
           <div class="card-presenter">${row.presenter}</div>
