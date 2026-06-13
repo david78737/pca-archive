@@ -169,9 +169,28 @@
   .takeaways li::before { content: "→"; position: absolute; left: 0; color: #7b8ef0; }
   .who       { color: #b8c0d8; font-style: italic; font-size: 13px; }
   .brief-row { margin-top: 10px; font-size: 12px; color: #8890a8; }
-  .yt-link   { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: #7b8ef0; text-decoration: none; }
-  .yt-link:hover { color: #a0b0f8; }
-  .yt-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+  /* ── Action buttons (YouTube + ONDA download) ── */
+  .action-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+  .yt-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #ff0000; color: #fff; text-decoration: none;
+    border-radius: 4px; padding: 6px 12px; font-size: 12px; font-weight: 600;
+    transition: background .15s;
+  }
+  .yt-btn:hover { background: #cc0000; }
+  .yt-btn svg { width: 18px; height: 13px; flex-shrink: 0; }
+
+  .onda-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #005962; color: #e4fffc; text-decoration: none;
+    border-radius: 4px; padding: 6px 12px; font-size: 12px; font-weight: 600;
+    border: 1px solid #007a86;
+    transition: background .15s;
+  }
+  .onda-btn:hover { background: #007080; }
+  .onda-btn.placeholder { opacity: .45; cursor: default; pointer-events: none; }
+  .onda-btn svg { width: 36px; height: 13px; flex-shrink: 0; }
 
   .loading, .empty { text-align: center; padding: 4rem 2rem; color: #454860; font-size: 14px; }
 
@@ -198,6 +217,41 @@
 </style>
 </head>
 <body>
+
+<!-- ONDA wave logo defined once, referenced by every card button -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="onda-wave" viewBox="30 170 460 165" preserveAspectRatio="xMidYMid meet">
+    <line x1="47" y1="242" x2="47" y2="256.9" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="62" y1="230" x2="62" y2="264.9" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="78" y1="223" x2="78" y2="275.9" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="92" y1="216" x2="92" y2="284.9" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="107" y1="188" x2="107" y2="310.9" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="122" y1="199" x2="122" y2="298.9" stroke="#e4fffc" stroke-width="10" stroke-linecap="round"/>
+    <line x1="138" y1="176" x2="138" y2="324.9" stroke="#e4fffc" stroke-width="10" stroke-linecap="round"/>
+    <line x1="153" y1="203" x2="153" y2="295.9" stroke="#e4fffc" stroke-width="10" stroke-linecap="round"/>
+    <line x1="168" y1="231" x2="168" y2="256.9" stroke="#e4fffc" stroke-width="10" stroke-linecap="round"/>
+    <line x1="183" y1="193" x2="183" y2="306.9" stroke="#e4fffc" stroke-width="10" stroke-linecap="round"/>
+    <line x1="198" y1="181" x2="198" y2="319.9" stroke="#c2f1ff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="212" y1="198" x2="212" y2="294.9" stroke="#c2f1ff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="229" y1="194" x2="229" y2="299.9" stroke="#c2f1ff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="245" y1="216" x2="245" y2="263.9" stroke="#c2f1ff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="260" y1="209" x2="260" y2="283.9" stroke="#c2f1ff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="275" y1="226" x2="275" y2="273.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="290" y1="233" x2="290" y2="263.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="304" y1="231" x2="304" y2="259.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="319" y1="214" x2="319" y2="272.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="333" y1="226" x2="333" y2="269.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="348" y1="209" x2="348" y2="283.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="364" y1="209" x2="364" y2="279.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="380" y1="231" x2="380" y2="262.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="395" y1="231" x2="395" y2="262.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="411" y1="235" x2="411" y2="257.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="426" y1="234" x2="426" y2="257.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="441" y1="243" x2="441" y2="253.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="456" y1="226" x2="456" y2="271.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+    <line x1="472" y1="243" x2="472" y2="255.9" stroke="#a1dfff" stroke-width="10" stroke-linecap="round"/>
+  </symbol>
+</svg>
 
 <header>
   <div class="header-inner">
@@ -390,9 +444,22 @@ function render() {
     const takeaways = JSON.parse(row.takeaways || '[]');
     const tags      = JSON.parse(row.tags || '[]');
 
-    const ytLink = row.youtube
-      ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${row.youtube}" target="_blank" rel="noopener">${ytIcon} Watch recording</a>`
+    const ytBtn = row.youtube
+      ? `<a class="yt-btn" href="https://www.youtube.com/watch?v=${row.youtube}" target="_blank" rel="noopener">
+           <svg viewBox="0 0 90 63" fill="none"><rect width="90" height="63" rx="13" fill="#fff"/><path d="M88.1 9.8A11.3 11.3 0 0 0 80.2 1.9C73.2 0 45 0 45 0S16.8 0 9.8 1.9A11.3 11.3 0 0 0 1.9 9.8C0 16.8 0 31.5 0 31.5s0 14.7 1.9 21.7a11.3 11.3 0 0 0 7.9 7.9C16.8 63 45 63 45 63s28.2 0 35.2-1.9a11.3 11.3 0 0 0 7.9-7.9C90 46.2 90 31.5 90 31.5s0-14.7-1.9-21.7z" fill="#FF0000"/><path d="M36 45l23.6-13.5L36 18v27z" fill="#fff"/></svg>
+           YouTube
+         </a>`
       : '';
+
+    const ondaBtn = `<a class="onda-btn${row.onda_url ? '' : ' placeholder'}"
+         href="${row.onda_url || '#'}"
+         ${row.onda_url ? 'target="_blank" rel="noopener"' : 'title="Coming soon — .onda files are being assembled"'}
+         aria-disabled="${row.onda_url ? 'false' : 'true'}">
+           <svg><use href="#onda-wave"/></svg>
+           Download .onda
+         </a>`;
+
+    const actionRow = (ytBtn || ondaBtn) ? `<div class="action-row">${ytBtn}${ondaBtn}</div>` : '';
 
     const tagChips = tags.map(t =>
       `<span class="card-tag${state.tags.has(t) ? ' lit' : ''}" data-tag="${t}">${t}</span>`
@@ -432,7 +499,7 @@ function render() {
         <div class="section-label">Best For</div>
         <div class="who">${row.who}</div>
         <div class="brief-row">${row.brief}</div>
-        ${ytLink}
+        ${actionRow}
       </div>`;
 
     card.querySelector('.card-header').addEventListener('click',
