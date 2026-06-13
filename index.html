@@ -190,6 +190,7 @@
     transition: opacity .15s;
   }
   .onda-btn:hover { opacity: .85; }
+  .onda-btn.soon { cursor: default; pointer-events: none; }
   .onda-btn img { display: block; height: 56px; width: auto; }
 
   .loading, .empty { text-align: center; padding: 4rem 2rem; color: #454860; font-size: 14px; }
@@ -453,16 +454,16 @@ function render() {
          </a>`
       : '';
 
-    // ONDA — compound badge image (only shown when file is available)
+    // ONDA — compound badge image (always shown; live link when onda_url exists)
     const ondaBtn = row.onda_url
       ? `<a class="onda-btn" href="${row.onda_url}" target="_blank" rel="noopener" title="Download .onda bundle">
            <img src="img/onda-download.png" alt="Download ONDA">
          </a>`
-      : '';
+      : `<span class="onda-btn soon" title="Coming soon">
+           <img src="img/onda-download.png" alt="Download ONDA">
+         </span>`;
 
-    const actionRow = (ytBtn || ondaBtn)
-      ? `<div class="action-row">${ytBtn}${ondaBtn}</div>`
-      : '';
+    const actionRow = `<div class="action-row">${ytBtn}${ondaBtn}</div>`;
 
     const tagChips = tags.map(t =>
       `<span class="card-tag${state.tags.has(t) ? ' lit' : ''}" data-tag="${t}">${t}</span>`
