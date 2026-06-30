@@ -309,6 +309,20 @@ const DB_URL = 'archive.db';
 
 const ytIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>';
 
+// On iOS, hand off straight to the ONDA Replay app via its custom URL scheme
+// instead of letting Safari download the file (which triggers the Files /
+// Open-With detour). Falls back to the plain https link if the scheme
+// doesn't take (app not installed, or non-iOS device skips this entirely).
+function openOnda(event, url) {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  if (!isIOS) return true;
+  event.preventDefault();
+  const deepLink = 'ondareplay://open?url=' + encodeURIComponent(url);
+  window.location.href = deepLink;
+  setTimeout(() => { window.location.href = url; }, 1500);
+  return false;
+}
+
 // ── Presenter visual helpers ──────────────────────────────────────────────────
 const _avatarPalette = ['#3a5a8a','#5a3a8a','#3a7a5a','#7a4a3a','#6a3a6a','#3a6a7a','#8a5a3a'];
 function avatarColor(name) {
@@ -446,7 +460,8 @@ function render() {
 
     // ONDA — compound badge image (always shown; live link when onda_url exists)
     const ondaBtn = row.onda_url
-      ? `<a class="onda-btn" href="${row.onda_url}" target="_blank" rel="noopener" title="Download .onda bundle">
+      ? `<a class="onda-btn" href="${row.onda_url}" target="_blank" rel="noopener"
+           onclick="return openOnda(event, '${row.onda_url}')" title="Download .onda bundle">
            <img src="img/onda-download.png" alt="Download ONDA">
          </a>`
       : `<span class="onda-btn soon" title="Coming soon">
